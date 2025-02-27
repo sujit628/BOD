@@ -1,0 +1,118 @@
+﻿
+@{
+    ViewBag.Title = "ShowAssessment";
+    Layout = "~/Views/Shared/_NullLayout.cshtml";
+}
+<link href="~/Content/assets/vendor/libs/sweetalert2/sweetalert2.css" rel="stylesheet" />
+<div class="container-fluid" >
+    <div class="navbar navbar-expand-lg landing-navbar px-3 px-md-4 bg-white" style="border-radius:6px;">
+        <!-- Menu logo wrapper: Start -->
+        <div class="navbar-brand app-brand demo d-flex py-0 py-lg-2 me-4">
+            <!-- Mobile menu toggle: Start-->
+            <button class="navbar-toggler border-0 px-0 me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="ti ti-menu-2 ti-sm align-middle"></i>
+            </button>
+            <!-- Mobile menu toggle: End-->
+            <a href="landing-page.html" class="app-brand-link">
+
+                <img style="width:150px;margin:auto;display:block;" src="~/Content/assets/img/Consulting_PNG.png" />
+            </a>
+        </div>
+        <!-- Menu logo wrapper: End -->
+
+        <div class="landing-menu-overlay d-lg-none"></div>
+        <!-- Menu wrapper: End -->
+        <!-- Toolbar: Start -->
+        <ul class="navbar-nav flex-row align-items-center ms-auto">
+
+            <li>
+                <a href="/Account/SMMELogin" class="btn btn-primary waves-effect waves-light"><span class="tf-icons ti ti-login scaleX-n1-rtl me-md-1"></span><span class="d-none d-md-block">Login</span></a>
+            </li>
+            <!-- navbar button: End -->
+        </ul>
+        <!-- Toolbar: End -->
+    </div>
+</div>
+
+<div class="container-xxl flex-grow-1 container-p-y" >
+    <h4 class="py-3 mb-2">
+        <span id="spnWizrd"></span> 
+    </h4>
+   
+    <div class="row">
+        <!-- Vertical Wizard -->
+        <div class="col-12 mb-4">
+            @*<small class="text-light fw-medium"><span id="spnWizrd"></span></small>*@
+            <div class="bs-stepper wizard-vertical vertical mt-2" id="segmentWizrd">
+                <input type="hidden" id="hdnSmmeId" value="@ViewBag.SmmeId" />
+                <input type="hidden" id="hdnBaId" />
+                <input type="hidden" id="hdnAssessId" />
+                <div class="bs-stepper-header" id="segmentHeader">
+
+                </div>
+                <div class="bs-stepper-content" id="dvStep" style="min-height:445px;height:100%;position:relative;">
+                    <form onSubmit="return false" id="segmentContentForm"></form>
+                </div>
+            </div>
+        </div>
+        <!-- /Vertical Wizard -->
+    </div>
+
+
+
+
+</div>
+<!-- / Content -->
+
+
+<div class="content-backdrop fade"></div>
+
+
+<!-- Core JS -->
+<!-- build:js assets/vendor/js/core.js -->
+
+<script src="~/Content/assets/vendor/libs/jquery/jquery.js"></script>
+<script src="~/Content/assets/vendor/libs/popper/popper.js"></script>
+<script src="~/Content/assets/vendor/js/bootstrap.js"></script>
+<script src="~/Content/assets/vendor/libs/node-waves/node-waves.js"></script>
+<script src="~/Content/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+<script src="~/Content/assets/vendor/libs/hammer/hammer.js"></script>
+@*<script src="~/Content/assets/vendor/libs/i18n/i18n.js"></script>*@
+<script src="~/Content/assets/vendor/libs/typeahead-js/typeahead.js"></script>
+<script src="~/Content/assets/vendor/js/menu.js"></script>
+
+<!-- endbuild -->
+<!-- Vendors JS -->
+<script src="~/Content/assets/vendor/libs/moment/moment.js"></script>
+<script src="~/Content/assets/vendor/libs/flatpickr/flatpickr.js"></script>
+<script src="~/Content/assets/vendor/libs/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+<script src="~/Content/assets/vendor/libs/bootstrap-daterangepicker/bootstrap-daterangepicker.js"></script>
+<script src="~/Content/assets/vendor/libs/jquery-timepicker/jquery-timepicker.js"></script>
+<script src="~/Content/assets/vendor/libs/pickr/pickr.js"></script>
+<!-- Vendors JS -->
+<script src="~/Content/assets/vendor/libs/select2/select2.js"></script>
+<script src="~/Content/assets/vendor/libs/tagify/tagify.js"></script>
+<script src="~/Content/assets/vendor/libs/bootstrap-select/bootstrap-select.js"></script>
+<script src="~/Content/assets/vendor/libs/typeahead-js/typeahead.js"></script>
+<script src="~/Content/assets/vendor/libs/bloodhound/bloodhound.js"></script>
+
+
+<!-- Vendors JS -->
+<script src="~/Content/assets/vendor/libs/bs-stepper/bs-stepper.js"></script>
+<script src="~/Content/assets/vendor/libs/bootstrap-select/bootstrap-select.js"></script>
+<script src="~/Content/assets/vendor/libs/select2/select2.js"></script>
+<script src="~/Content/assets/vendor/libs/%40form-validation/umd/bundle/popular.min.js"></script>
+<script src="~/Content/assets/vendor/libs/%40form-validation/umd/plugin-bootstrap5/index.min.js"></script>
+<script src="~/Content/assets/vendor/libs/%40form-validation/umd/plugin-auto-focus/index.min.js"></script>
+<script src="~/Content/assets/vendor/libs/sweetalert2/sweetalert2.js"></script>
+
+<!-- Main JS -->
+@*<script src="~/Content/assets/js/main.js"></script>*@
+
+
+<!-- Page JS -->
+<script src="~/Scripts/custom/ShowAssessment.js"></script>
+@*<script src="~/Content/assets/js/form-wizard-numbered.js"></script>*@
+@*<script src="~/Content/assets/js/form-wizard-validation.js"></script>*@
+
+

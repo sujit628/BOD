@@ -1,0 +1,49 @@
+﻿{
+  "Setup": [
+    {
+      "name": "Admin Dashboard",
+      "icon": "ti-smart-home",
+      "url": "AdminDashboard"
+    },
+    {
+      "name": "Industry Sector",
+      "icon": "ti-smart-home",
+      "url": "SectorSetUp"
+    },
+    {
+      "name": "Business Type",
+      "icon": "ti-layout-sidebar",
+      "url": "EnterpriseTypeSetUp"
+    },
+    {
+      "name": "Province",
+      "icon": "ti-layout-sidebar",
+      "url": "ProvinceSetUp"
+    },
+    {
+      "name": "Income Type",
+      "icon": "ti-layout-sidebar",
+      "url": "IncomeTypeSetUp"
+    },
+    {
+      "name": "Legal Entity",
+      "icon": "ti-layout-sidebar",
+      "url": "LegalEntitySetUp"
+    },
+    {
+      "name": "Designation",
+      "icon": "ti-layout-sidebar",
+      "url": "DesignationSetUp"
+    },
+    {
+      "name": "Role",
+      "icon": "ti-layout-sidebar",
+      "url": "RoleSetUp"
+    },
+    {
+      "name": "Item",
+      "icon": "ti-layout-sidebar",
+      "url": "ItemSetUp"
+    }
+  ]
+}
