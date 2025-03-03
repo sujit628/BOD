@@ -5480,18 +5480,21 @@ namespace BODAPP.Controllers
                         UserModel.ThemeStyle = User.ThemeStyle;
                         UserModel.TheamLink = User.TheamLink;
                         UserModel.CoreLink = User.CoreLink;
+                        UserModel.ThemeColor = User.ThemeColor;
                         UserModel.CustomCSSLink = User.CustomCSSLink;
                     }
                     else if (EnterpriseEMPUserDataModel != null)
                     {
                         EnterpriseEMPUserDataModel.ThemeStyle = User.ThemeStyle;
                         EnterpriseEMPUserDataModel.TheamLink = User.TheamLink;
+                        EnterpriseEMPUserDataModel.ThemeColor = User.ThemeColor;
                         EnterpriseEMPUserDataModel.CoreLink = User.CoreLink;
                         EnterpriseEMPUserDataModel.CustomCSSLink = User.CustomCSSLink;
                     }
                     else if (EnterpriseUserModel != null)
                     {
                         EnterpriseUserModel.ThemeStyle = User.ThemeStyle;
+                        EnterpriseUserModel.ThemeColor = User.ThemeColor;
                         EnterpriseUserModel.TheamLink = User.TheamLink;
                         EnterpriseUserModel.CoreLink = User.CoreLink;
                         EnterpriseUserModel.CustomCSSLink = User.CustomCSSLink;
@@ -5500,6 +5503,7 @@ namespace BODAPP.Controllers
                     {
                         SMMEUserModel.ThemeStyle = User.ThemeStyle;
                         SMMEUserModel.TheamLink = User.TheamLink;
+                        SMMEUserModel.ThemeColor = User.ThemeColor;
                         SMMEUserModel.CoreLink = User.CoreLink;
                         SMMEUserModel.CustomCSSLink = User.CustomCSSLink;
                     }

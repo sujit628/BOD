@@ -6,17 +6,15 @@ var themeStyle = "default";
 var themeColor = "primary";
 var styleType = "light"
 
-function SetThemeStyle(type, styleMode) {
 
-    themeStyle = styleMode;
-    styleType = type;
+//function SetThemeStyle(type, styleMode) {
 
-    console.log(themeStyle)
-}
-function SetThemeColor(color) {
-    themeColor = color;
-    console.log(themeColor)
-}
+//    themeStyle = styleMode;
+//    styleType = type;
+
+//    console.log(themeStyle)
+//}
+
 $(function () {
     var e = $(".ddlSector");
     var f = $(".ddlBusinessType");
@@ -453,7 +451,7 @@ function SaveRecords() {
         success: function (data) {
             if (data != null && data != undefined && data.IsSuccess == true) {
                 //alert("Record saved successfully...");
-                changeThemeStyle(styleType,themeStyle,themeColor);
+                changeThemeStyle(colorHex,colorRGB,themeMode, themeStyle);
                 GetUserLoginForWhitelisting(data.Id);
             
                 Swal.fire({

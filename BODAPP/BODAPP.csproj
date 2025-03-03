@@ -1520,6 +1520,7 @@
     <Content Include="Content\assets\vendor\css\rtl\theme-default-primary.css" />
     <Content Include="Content\assets\vendor\css\rtl\theme-default-redpink.css" />
     <Content Include="Content\assets\vendor\css\rtl\theme-default-skyblue.css" />
+    <Content Include="Content\assets\vendor\css\rtl\theme-default.css" />
     <Content Include="Content\assets\vendor\css\rtl\theme-semi-dark-dark.css" />
     <Content Include="Content\assets\vendor\css\rtl\theme-semidark-dark.css" />
     <Content Include="Content\assets\vendor\css\rtl\theme-semidark-primary.css" />
@@ -2974,6 +2975,7 @@
     <Content Include="Scripts\custom\CreateJobsForStakeholder.js" />
     <Content Include="Scripts\custom\CreateTaskForStakeholder.js" />
     <Content Include="Scripts\custom\CustomerDetailsForStakeholder.js" />
+    <Content Include="Scripts\custom\customThemeSwitcher.js" />
     <Content Include="Scripts\custom\EnterpriseBranchAdmin.js" />
     <Content Include="Scripts\custom\EnterpriseProfileForStakeholder.js" />
     <Content Include="Scripts\custom\EnterpriseProfileAdmin.js" />
@@ -3003,6 +3005,7 @@
     <Content Include="Scripts\custom\ProjectWiseStakeholderForAdmin.js" />
     <Content Include="Scripts\custom\ResetPassword.js" />
     <Content Include="Scripts\custom\SaveThemeStyle.js" />
+    <Content Include="Scripts\custom\SaveTheneStyleForWhiteListing.js" />
     <Content Include="Scripts\custom\SMMEDashboard.js" />
     <Content Include="Scripts\custom\EnrDashboard.js" />
     <Content Include="Scripts\custom\AdminDashboard.js" />
