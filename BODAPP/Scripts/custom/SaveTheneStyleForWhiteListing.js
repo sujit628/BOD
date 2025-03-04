@@ -1,7 +1,11 @@
-﻿var rgb = $('#hdnThemeColor').val();
-var hex = $('#hdncolorHex').val();
+﻿
+var colorRGB = '';
+var colorHex = '';
+var themeMode = 'core';
+var themeStyle = '/Content/assets/vendor/css/rtl/theme-default.css';
 
-function changeTheme(element,mode,rgb,hex) {
+function SetThemeMode(mode) {
+
     let themeStyleLink = document.querySelector('#themeStyleLink');
     if (mode == 'core') {
         themeStyleLink = '/Content/assets/vendor/css/rtl/theme-default.css';
@@ -10,7 +14,21 @@ function changeTheme(element,mode,rgb,hex) {
     }
     themeMode = mode;
     themeStyle = themeStyleLink;
-    
+}
+function SetThemeColor(hex, rgb) {
+    colorHex = hex;
+    colorRGB = rgb;
+}
+
+function changeTheme(element,mode,hex,rgb) {
+    let themeStyleLink = document.querySelector('#themeStyleLink');
+    if (mode == 'core') {
+        themeStyleLink = '/Content/assets/vendor/css/rtl/theme-default.css';
+    } else {
+        themeStyleLink = '/Content/assets/vendor/css/rtl/theme-default-dark.css';
+    }
+    themeMode = mode;
+    themeStyle = themeStyleLink;
     var _data = JSON.stringify({
         User: {
             ThemeStyle: 'light-style',
@@ -159,19 +177,19 @@ function changeThemeStyle(hex, rgb, mode, themeStyle) {
         dataType: 'json',
         success: function (data) {
             if (data != null && data != undefined && data.IsSuccess == true) {
-                var path = window.location.pathname;
-                path = path.replace(/\/$/, "");
-                path = decodeURIComponent(path);
-                if (path != '/Enterprise/EnterpriseProfileComplete/') {
-                    Swal.fire({
-                        title: "Good Job",
-                        text: "Theme Changes Successfully!",
-                        icon: "success",
-                        customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
-                        buttonsStyling: !1
-                    });
-                    window.location.reload();
-                }
+                //var path = window.location.pathname;
+                //path = path.replace(/\/$/, "");
+                //path = decodeURIComponent(path);
+                //if (path != '/Enterprise/EnterpriseProfileComplete/') {
+                //    Swal.fire({
+                //        title: "Good Job",
+                //        text: "Theme Changes Successfully!",
+                //        icon: "success",
+                //        customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
+                //        buttonsStyling: !1
+                //    });
+                //    window.location.reload();
+                //}
                 
 
             }

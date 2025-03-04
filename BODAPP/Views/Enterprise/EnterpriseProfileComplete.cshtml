@@ -55,7 +55,6 @@
 
     <!-- End Google Tag Manager -->
     <!-- Favicon -->
-   
     <!-- Icons -->
     <link rel="stylesheet" href="~/Content/assets/vendor/fonts/fontawesome.css" />
     <link rel="stylesheet" href="~/Content/assets/vendor/fonts/tabler-icons.css" />
@@ -122,7 +121,7 @@
             color: white;
         }
 
-           
+
 
             .themeColorBox.primary {
                 background: #7367f0;
@@ -176,9 +175,9 @@
 </head>
 
 <body>
+    
 
-
-    <input type="hidden" value="@ViewBag.EntrId" id="hdnEnterid"/>
+    <input type="hidden" value="@ViewBag.EntrId" id="hdnEnterid" />
 
     <div class="layout-wrapper layout-content-navbar  ">
         <div class="layout-container">
@@ -189,109 +188,108 @@
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <div class="container-xxl">
                         @*<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>*@
+                                <span class="navbar-toggler-icon"></span>
+                            </button>*@
                         <div class=" navbar-collapse card" id="navbarSupportedContent">
-                         
+
                         </div>
                     </div>
                 </nav>
                 <!-- Navbar -->
-
                 @*<nav style="width:96%!important;margin-right:26px!important;" class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
 
 
-                    <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0   d-xl-none ">
-                        <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
-                            <i class="ti ti-menu-2 ti-sm"></i>
-                        </a>
-                    </div>
+                                    <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0   d-xl-none ">
+                                        <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+                                            <i class="ti ti-menu-2 ti-sm"></i>
+                                        </a>
+                                    </div>
 
 
-                    <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-                     <ul class="navbar-nav flex-row align-items-center ms-auto">
+                                    <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+                                     <ul class="navbar-nav flex-row align-items-center ms-auto">
 
-                            <!-- User -->
-                            <li class="nav-item navbar-dropdown dropdown-user dropdown">
-                <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
-                    <div class="avatar avatar-online">
-
-
-
-                        @if (profilePic == "NO")
-                        {
-                            <span class="avatar-initial rounded-circle bg-label-success">@prefix</span>
-                        }
-                        else
-                        {
-                            <img src="@profilePic" alt class="h-auto rounded-circle">
-                        }
-                    </div>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end">
-                    <li>
-                        <a class="dropdown-item" href="pages-account-settings-account.html">
-                            <div class="d-flex">
-                                <div class="flex-shrink-0 me-3">
+                                            <!-- User -->
+                                            <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                                <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                                     <div class="avatar avatar-online">
+
+
+
                                         @if (profilePic == "NO")
                                         {
-
                                             <span class="avatar-initial rounded-circle bg-label-success">@prefix</span>
-
                                         }
                                         else
                                         {
                                             <img src="@profilePic" alt class="h-auto rounded-circle">
                                         }
-
                                     </div>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <span class="fw-medium d-block">@userName</span>
-                                    <small class="text-muted">@subrole</small>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <div class="dropdown-divider"></div>
-                    </li>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li>
+                                        <a class="dropdown-item" href="pages-account-settings-account.html">
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 me-3">
+                                                    <div class="avatar avatar-online">
+                                                        @if (profilePic == "NO")
+                                                        {
+
+                                                            <span class="avatar-initial rounded-circle bg-label-success">@prefix</span>
+
+                                                        }
+                                                        else
+                                                        {
+                                                            <img src="@profilePic" alt class="h-auto rounded-circle">
+                                                        }
+
+                                                    </div>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <span class="fw-medium d-block">@userName</span>
+                                                    <small class="text-muted">@subrole</small>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <div class="dropdown-divider"></div>
+                                    </li>
 
 
 
-                    <li>
-                        @if (role == "E")
-                        {
-                            <a class="dropdown-item" href="/Account/EnterpriseLogin">
-                                <i class="ti ti-logout me-2 ti-sm"></i>
-                                <span class="align-middle">Log Out</span>
-                            </a>
-                        }
-                        else
-                        {
+                                    <li>
+                                        @if (role == "E")
+                                        {
+                                            <a class="dropdown-item" href="/Account/EnterpriseLogin">
+                                                <i class="ti ti-logout me-2 ti-sm"></i>
+                                                <span class="align-middle">Log Out</span>
+                                            </a>
+                                        }
+                                        else
+                                        {
 
-                            <a class="dropdown-item" href="/Account/AdminLogin">
-                                <i class="ti ti-logout me-2 ti-sm"></i>
-                                <span class="align-middle">Log Out</span>
-                            </a>
-                        }
-                    </li>
-                </ul>
-            </li>
-            <!--/ User -->
-
-
-
-        </ul>
-    </div>*@
+                                            <a class="dropdown-item" href="/Account/AdminLogin">
+                                                <i class="ti ti-logout me-2 ti-sm"></i>
+                                                <span class="align-middle">Log Out</span>
+                                            </a>
+                                        }
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--/ User -->
 
 
-                    <!-- Search Small Screens -->
-                    <div class="navbar-search-wrapper search-input-wrapper  d-none">
-                        <input type="text" class="form-control search-input container-xxl border-0" placeholder="Search..." aria-label="Search...">
-                        <i class="ti ti-x ti-sm search-toggler cursor-pointer"></i>
-                    </div>
+
+                        </ul>
+                    </div>*@
+
+
+                <!-- Search Small Screens -->
+                <div class="navbar-search-wrapper search-input-wrapper  d-none">
+                    <input type="text" class="form-control search-input container-xxl border-0" placeholder="Search..." aria-label="Search...">
+                    <i class="ti ti-x ti-sm search-toggler cursor-pointer"></i>
+                </div>
 
 
 
@@ -321,7 +319,7 @@
                                     </button>
                                 </div>
                                 <div class="line"></div>
-                                
+
                                 <div class="step" data-target="#review-complete">
                                     <button type="button" class="step-trigger">
                                         <span class="bs-stepper-circle"><i class="ti ti-checkbox ti-sm"></i></span>
@@ -361,24 +359,24 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                                <div class=" col-md-6 fv-plugins-icon-container">
-                                                    <input type="hidden" id="hdnMode" value="Corporate">
-                                                    <label class="form-label" for="multiStepsFirstName">Corporate Name</label>
-                                                    <input type="text" id="txtCorporateName" name="txtCorporateName" class="form-control alphabets" placeholder="Enter Corporate Name" value="@Model.ENR_CompanyName" disabled>
-                                                    <input type="hidden" id="hdnId" name="hdnId">
-                                                    <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
-                                                </div>
-                                                <div class="col-md-6 fv-plugins-icon-container">
-                                                    <label class="form-label" for="multiStepsLastName">Corporate Email</label>
-                                                    <input type="text" id="txtCorporateEmail" name="txtCorporateEmail" class="form-control" placeholder="Enter Corporate Email" value="@Model.ENR_PrimaryContactEmail" disabled>
-                                                    <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
-                                                </div>
-                                               
-                                                
-                                                <div class="mb-3 col-sm-12">
-                                                    <label class="form-label" for="multiStepsMobile">Business Description</label>
-                                                    <textarea id="txtBusinessDesc" name="txtBusinessDesc" class="form-control" placeholder="Enter Business Decription">@Model.ENR_BussinessDescripton</textarea>
-                                                </div>
+                                            <div class=" col-md-6 fv-plugins-icon-container">
+                                                <input type="hidden" id="hdnMode" value="Corporate">
+                                                <label class="form-label" for="multiStepsFirstName">Corporate Name</label>
+                                                <input type="text" id="txtCorporateName" name="txtCorporateName" class="form-control alphabets" placeholder="Enter Corporate Name" value="@Model.ENR_CompanyName" disabled>
+                                                <input type="hidden" id="hdnId" name="hdnId">
+                                                <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
+                                            </div>
+                                            <div class="col-md-6 fv-plugins-icon-container">
+                                                <label class="form-label" for="multiStepsLastName">Corporate Email</label>
+                                                <input type="text" id="txtCorporateEmail" name="txtCorporateEmail" class="form-control" placeholder="Enter Corporate Email" value="@Model.ENR_PrimaryContactEmail" disabled>
+                                                <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
+                                            </div>
+
+
+                                            <div class="mb-3 col-sm-12">
+                                                <label class="form-label" for="multiStepsMobile">Business Description</label>
+                                                <textarea id="txtBusinessDesc" name="txtBusinessDesc" class="form-control" placeholder="Enter Business Decription">@Model.ENR_BussinessDescripton</textarea>
+                                            </div>
                                             <div class="col-12 d-flex justify-content-between mt-4">
                                                 <button class="btn btn-label-secondary btn-prev" disabled>
                                                     <i class="ti ti-arrow-left ti-xs me-sm-1 me-0"></i>
@@ -386,99 +384,131 @@
                                                 </button>
                                                 <button class="btn btn-primary btn-next"> <span class="align-middle d-sm-inline-block d-none me-sm-1">Next</span> <i class="ti ti-arrow-right ti-xs"></i></button>
                                             </div>
-                                            
+
                                         </div>
                                     </div>
-                                    
+
                                     <!-- Review & Complete -->
                                     <div id="review-complete" class="content position-relative">
                                         <div class="row g-3">
-                                            
+
                                             <div class=" col-md-12 fv-plugins-icon-container">
-                                                <h4 class="text-primary mb-4">Choose theme Mode</h4>
-                                                <div class="d-flex justify-content-start align-items-center">
-                                                    <div>
-                                                        <div class="light-theme themeContainerBox selectedTheme" onclick="SetThemeStyle('light','default')">
-                                                            <img src="~/Content/assets/img/customizer/default.svg" />
+                                                <div class="theme-customizer-Mode mt-4">
+                                                    <span class="badge bg-primary my-3">Theme Mode</span>
+                                                    <div class="row theme-customizer-Mode-option justify-content-start gap-2">
+                                                        <div class="form-check col-4 custom-option custom-option-icon-mode mb-0 checked">
+                                                            <label class="form-check-label custom-option-content p-0" for="themeModeDark" onclick="SetThemeMode('core-dark')">
+                                                                <div class="custom-option-body mb-0 scaleX-n1-rtl"><img  style="background:#1b1e30" class="active" src="~/Content/assets/img/customizer/default.svg" /></div>
+                                                            </label>
+                                                            <input name="colorRadioIcon" class="form-check-input d-none" type="radio" value="dark" data-theme-mode="dark" data-Mode="core-dark" id="themeModeDark">
                                                         </div>
-                                                        <p>Light</p>
-                                                    </div>
-
-                                                    <div>
-                                                        <div class="dark-theme themeContainerBox" onclick="SetThemeStyle('dark','dark')">
-                                                            <img src="~/Content/assets/img/customizer/border.svg" />
+                                                        <div class="form-check col-4 custom-option custom-option-icon-mode mb-0">
+                                                            <label class="form-check-label custom-option-content p-0" for="themeModeLight" onclick="SetThemeMode('core')">
+                                                                <div class="custom-option-body mb-0 scaleX-n1-rtl"><img src="~/Content/assets/img/customizer/border.svg" /></div>
+                                                            </label>
+                                                            <input name="colorRadioIcon" class="form-check-input d-none" type="radio" value="light" data-theme-mode="light" data-Mode="core" id="themeModeLight">
                                                         </div>
-                                                        <p>Dark</p>
                                                     </div>
-                                                    <div>
-                                                        <div class="semi-dark-theme themeContainerBox" onclick="SetThemeStyle('semidark','semidark')">
-                                                            <img src="~/Content/assets/img/customizer/semi-dark.svg" />
-                                                        </div>
-                                                        <p>Semi-Dark</p>
-                                                    </div>
-
                                                 </div>
                                             </div>
-                                            <div class=" col-md-12 fv-plugins-icon-container">
+                                            <div class="col-md-12 fv-plugins-icon-container">
+                                                <div class="row theme-customizer-colors-option justify-content-start">
+                                                    <div class="form-check custom-option custom-option-icon mb-0 checked">
+                                                        <label class="form-check-label custom-option-content p-0" for="colorRadioIconprimary">
+                                                            <span onclick="SetThemeColor('#7367f0', '115,103,240')" class="custom-option-body mb-0 scaleX-n1-rtl" style="background-color:#7367f0"></span>
+                                                        </label>
+                                                        <input  name="colorRadioIcon" class="form-check-input d-none" type="radio" value="#7367f0" data-color="#7367f0" data-rgb="115,103,240" id="colorRadioIconprimary" checked="checked">
+                                                    </div>
+                                                    <div class="form-check custom-option custom-option-icon mb-0">
+                                                        <label class="form-check-label custom-option-content p-0" for="colorRadioIconpink">
+                                                            <span onclick="SetThemeColor('#e83e8c', '232,62,140')" class="custom-option-body mb-0 scaleX-n1-rtl" style="background-color: #e83e8c;"></span>
+                                                        </label>
+                                                        <input name="colorRadioIcon" class="form-check-input d-none" type="radio" value="#e83e8c" data-color="#e83e8c" data-rgb="232,62,140" id="colorRadioIconpink">
+                                                    </div>
+                                                    <div class="form-check custom-option custom-option-icon mb-0 checked">
+                                                        <label class="form-check-label custom-option-content p-0" for="colorRadioIconteal">
+                                                            <span onclick="SetThemeColor('#20c997', '32,201,151')" class="custom-option-body mb-0 scaleX-n1-rtl" style="background-color: #20c997"></span>
+                                                        </label>
+                                                        <input name="colorRadioIcon" class="form-check-input d-none" type="radio" value="#20c997" data-color="#20c997" data-rgb="32,201,151" id="colorRadioIconteal">
+                                                    </div>
+                                                    <div class="form-check custom-option custom-option-icon mb-0">
+                                                        <label class="form-check-label custom-option-content p-0" for="colorRadioIcongreen">
+                                                            <span onclick="SetThemeColor('#28a745', '40,167,69')" class="custom-option-body mb-0 scaleX-n1-rtl" style="background-color: #28a745"></span>
+                                                        </label>
+                                                        <input name="colorRadioIcon" class="form-check-input d-none" type="radio" value="#28a745" data-color="#28a745" data-rgb="40,167,69" id="colorRadioIcongreen">
+                                                    </div>
+                                                    <div class="form-check custom-option custom-option-icon mb-0 checked">
+                                                        <label class="form-check-label custom-option-content p-0" for="colorRadioIconorange">
+                                                            <span onclick="SetThemeColor('#fd7e14', '253,126,20')" class="custom-option-body mb-0 scaleX-n1-rtl" style="background-color:#fd7e14"></span>
+                                                        </label>
+                                                        <input name="colorRadioIcon" class="form-check-input d-none" type="radio" value="#fd7e14" data-color="#fd7e14" data-rgb="253,126,20" id="colorRadioIconorange">
+                                                    </div>
+                                                    <div class="form-check custom-option custom-option-icon mb-0">
+                                                        <label class="form-check-label custom-option-content p-0" for="colorRadioIconcyan">
+                                                            <span onclick="SetThemeColor('#17a2b8', '23,162,164')" class="custom-option-body mb-0 scaleX-n1-rtl" style="background-color:#17a2b8"></span>
+                                                        </label>
+                                                        <input name="colorRadioIcon" class="form-check-input d-none" type="radio" value="#17a2b8" data-color="#17a2b8" data-rgb="23,162,164" id="colorRadioIconcyan">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @*<div class=" col-md-12 fv-plugins-icon-container">
                                                 <h4 class="text-primary mb-4">Choose theme Color</h4>
                                                 <div class="d-flex justify-content-start align-items-center">
                                                     <div onclick="SetThemeColor('primary')"><div class="themeColorBox primary"><i class="ti ti-check ti-sm"></i></div></div>
-                                                    @*<div onclick="SetThemeColor('skyblue')"><div class="themeColorBox skyBlue"></div></div>*@
+                                                    @*<div onclick="SetThemeColor('skyblue')"><div class="themeColorBox skyBlue"></div></div>
                                                     <div onclick="SetThemeColor('redpink')"><div class="themeColorBox redorange"></div></div>
-                                                    @*<div onclick="SetThemeColor('deeppink')"><div class="themeColorBox deeppink"></div></div>*@
-                                                    @*<div onclick="SetThemeColor('linkedin')"><div class="themeColorBox linkedin"></div></div>
+                                                   <div onclick="SetThemeColor('deeppink')"><div class="themeColorBox deeppink"></div></div>
+                                                    <div onclick="SetThemeColor('linkedin')"><div class="themeColorBox linkedin"></div></div>
                                                     <div onclick="SetThemeColor('github')"><div class="themeColorBox github"></div></div>
                                                     <div onclick="SetThemeColor('dribbble')"><div class="themeColorBox dribbble"></div></div>
                                                     <div onclick="SetThemeColor('pinterest')"><div class="themeColorBox pinterest"></div></div>
                                                     <div onclick="SetThemeColor('slack')"><div class="themeColorBox slack"></div></div>
                                                     <div onclick="SetThemeColor('reddit')"><div class="themeColorBox reddit"></div></div>
                                                     <div onclick="SetThemeColor('youtube')"><div class="themeColorBox youtube"></div></div>
-                                                    <div onclick="SetThemeColor('vimeo')"><div class="themeColorBox vimeo"></div></div>*@
+                                                    <div onclick="SetThemeColor('vimeo')"><div class="themeColorBox vimeo"></div></div>
 
-                                                </div>
-                                            </div>
-                                            <div class="col-12 d-flex justify-content-between mt-4 b-p-100">
-                                                <button class="btn btn-label-secondary btn-prev">
-                                                    <i class="ti ti-arrow-left ti-xs me-sm-1 me-0"></i>
-                                                    <span class="align-middle d-sm-inline-block d-none">Previous</span>
-                                                </button>
-                                                <button class="btn btn-success btn-submit btn-next"><span class="align-middle d-sm-inline-block d-none me-sm-1">Submit</span><i class="ti ti-check ti-xs"></i></button>
-                                            </div>
-
+                                                </div>*@
                                         </div>
+                                        <div class="col-12 d-flex justify-content-between mt-4 b-p-100">
+                                            <button class="btn btn-label-secondary btn-prev">
+                                                <i class="ti ti-arrow-left ti-xs me-sm-1 me-0"></i>
+                                                <span class="align-middle d-sm-inline-block d-none">Previous</span>
+                                            </button>
+                                            <button class="btn btn-success btn-submit btn-next"><span class="align-middle d-sm-inline-block d-none me-sm-1">Submit</span><i class="ti ti-check ti-xs"></i></button>
+                                        </div>
+
                                     </div>
-                                </form>
-                            </div>
+
+                           
+                            </form>
                         </div>
-                        <!-- /Create Deal Wizard -->
-
-
                     </div>
-                    <!-- / Content -->
-                    
+                    <!-- /Create Deal Wizard -->
 
 
-                    <div class="content-backdrop fade"></div>
                 </div>
-                <!-- Content wrapper -->
+                <!-- / Content -->
+
+
+
+                <div class="content-backdrop fade"></div>
             </div>
-            <!-- / Layout page -->
+            <!-- Content wrapper -->
         </div>
+        <!-- / Layout page -->
+    </div>
 
 
 
-        <!-- Overlay -->
-        <div class="layout-overlay layout-menu-toggle"></div>
+    <!-- Overlay -->
+    <div class="layout-overlay layout-menu-toggle"></div>
 
 
-        <!-- Drag Target Area To SlideIn Menu On Small Screens -->
-        <div class="drag-target"></div>
+    <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+    <div class="drag-target"></div>
 
     </div>
     <!-- / Layout wrapper -->
-
-
-
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
 
@@ -507,16 +537,58 @@
 
     <!-- Page JS -->
     <script src="~/Content/assets/vendor/libs/sweetalert2/sweetalert2.js"></script>
-    <script src="~/Scripts/custom/SaveThemeStyle.js"></script>
+    <script src="~/Scripts/custom/SaveTheneStyleForWhiteListing.js"></script>
+    @*<script src="~/Scripts/custom/customThemeSwitcher.js"></script>*@
     <script src="~/Scripts/custom/EnterpriseProfileComplete.js"></script>
     <script src="~/Content/assets/js/wizard-ex-create-deal.js"></script>
     <script>
-        
-        $(document).ready(function () {
+        let fnCustomThemeSwitcher = () => {
+            let customOptionIcon = document.querySelectorAll('.custom-option-icon input');
+            let themeDefault = document.querySelector('#themeModeLight');
+            let themeDark = document.querySelector('#themeModeDark');
+            let customOptionIconMode = document.querySelectorAll('.custom-option-icon-mode input');
+            let themeModeStyleLink = document.querySelector('#themeModeLink');
 
 
-
+            customOptionIcon.forEach(color => {
+                color.addEventListener('click', () => {
+                    let dataColor = color.getAttribute('data-color');
+                    let dataRGB = color.getAttribute('data-rgb');
+                   
+                    
+                })
+            });
+            customOptionIconMode.forEach(mode => {
+                mode.addEventListener('click', () => {
+                    let dataMode = mode.getAttribute('data-mode');
+                    //alert(dataMode);
+                })
+            });
             
+            
+        };
+
+
+        //let fnCustomThemeModeSwitcher = () => {
+        //    let themeDefault = document.querySelector('#themeModeLight');
+        //    let themeDark = document.querySelector('#themeModeDark');
+        //    let customOptionIconMode = document.querySelectorAll('.custom-option-icon-mode input');
+        //    let themeModeStyleLink = document.querySelector('#themeModeLink');
+        //    let themeMode = localStorage.getItem('themeMode') || 'core';
+        //    fnThemeMode = (themeMode) => {
+        //        themeModeStyleLink.setAttribute('href', `/Content/assets/vendor/css/rtl/${themeMode}.css`);
+        //    }
+        //    customOptionIconMode.forEach(mode => {
+        //        mode.addEventListener('click', () => {
+        //            let dataMode = mode.getAttribute('data-mode');
+        //            alert(dataMode);
+        //            localStorage.setItem('themeMode', dataMode);
+        //        })
+        //    });
+        //    fnThemeMode(themeMode);
+        //}
+        $(document).ready(function () {
+            //fnCustomThemeSwitcher();
         })
     </script>
 </body>
