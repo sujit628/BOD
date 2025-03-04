@@ -16,7 +16,7 @@
     var CoreLink = "";
     var CustomCSSLink = "";
     var Title = "";
-
+    var Mode = "";
     if (Enterpriseuser != null)
     {
         userName = Enterpriseuser.UserName;
@@ -30,6 +30,7 @@
         CoreLink = Enterpriseuser.CoreLink;
         CustomCSSLink = Enterpriseuser.CustomCSSLink;
         Title = "ESD Platform - " + Enterpriseuser.UserName;
+        Mode = "E";
     }
 
     else if (SmmeUser != null)
@@ -45,6 +46,8 @@
         CoreLink = SmmeUser.CoreLink;
         CustomCSSLink = SmmeUser.CustomCSSLink;
         Title = "ESD Platform - " + SmmeUser.UserName;
+        Mode = "S";
+
     }
     else if (EnterpriseEmpuser != null)
     {
@@ -59,6 +62,7 @@
         CoreLink = EnterpriseEmpuser.CoreLink;
         CustomCSSLink = EnterpriseEmpuser.CustomCSSLink;
         Title = "ESD Platform - " + EnterpriseEmpuser.UserName;
+        Mode = "E";
     }
     else if (AdminUser != null)
     {
@@ -73,6 +77,7 @@
         CoreLink = AdminUser.CoreLink;
         CustomCSSLink = AdminUser.CustomCSSLink;
         Title = "ESD Platform - Admin" + AdminUser.UserName;
+        Mode = "A";
     }
     else
     {
@@ -86,6 +91,7 @@
         CoreLink = user.CoreLink;
         CustomCSSLink = user.CustomCSSLink;
         Title = "ESD Platform - Admin";
+        Mode = "A";
     }
 }
 
@@ -124,6 +130,7 @@
     <link rel="stylesheet" href="~/Content/assets/vendor/libs/jquery-timepicker/jquery-timepicker.css" />
     <link rel="stylesheet" href="~/Content/assets/vendor/libs/pickr/pickr-themes.css" />
 
+    @*<link href="~/Content/assets/vendor/fonts/iconify-icons.css" rel="stylesheet" />*@
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="~/Content/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
@@ -166,10 +173,10 @@
     <script src="~/Content/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
     <script src="~/Content/assets/vendor/libs/block-ui/block-ui.js"></script>
 
-
+ 
 </head>
 <body data-sidebartype="mini-sidebar">
-
+    <intput type="hidden" value="@Mode" id="hdnMode"></intput>
     <!-- ?PROD Only: Google Tag Manager (noscript) (Default ThemeSelection: GTM-5DDHKGP, GROWTHties: GTM-5J3LMKC) -->
     <!-- End Google Tag Manager (noscript) -->
     <!-- Layout wrapper -->
@@ -1255,7 +1262,7 @@
                     @RenderBody()
                     <!-- / Content -->
                     <!-- Theme Custom Setting -->
-                    <div class="col-lg-3 col-md-6">
+                    @*<div class="col-lg-3 col-md-6">
                         <div class="mt-3">
                             <a id="theme-setting-btn" href="javascript:void(0)" class="fa-solid fa-gear" type="button" data-bs-toggle="offcanvas" data-bs-target="#theme-custom-setting" aria-controls="offcanvasEnd"></a>
                             <div class="offcanvas offcanvas-end" tabindex="-1" id="theme-custom-setting" aria-labelledby="offcanvasEndLabel">
@@ -1301,6 +1308,9 @@
                                         </div>
                                     </div>
                                     <hr />
+
+
+
                                     @*<span class="badge bg-warning">Menu Style</span>
                                     <div class="row mt-3 mb-3">
                                         <div class="col-md-4 mb-md-0 mb-2">
@@ -1351,11 +1361,14 @@
                                             </div>
                                             <label for="customRadioDarkTheme" class="form-label">Static</label>
                                         </div>
-                                    </div>*@
+                                    </div>
+
+
+
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>*@
                     <!-- Footer -->
                     <footer class="content-footer footer bg-footer-theme">
                         <div class="container-fluid">

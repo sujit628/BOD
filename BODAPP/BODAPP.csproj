@@ -2062,6 +2062,7 @@
     <Content Include="Content\assets\vendor\fonts\flags\4x3\zm.svg" />
     <Content Include="Content\assets\vendor\fonts\flags\4x3\zw.svg" />
     <Content Include="Content\assets\vendor\fonts\fontawesome.css" />
+    <Content Include="Content\assets\vendor\fonts\iconify-icons.css" />
     <Content Include="Content\assets\vendor\fonts\tabler-icons.css" />
     <Content Include="Content\assets\vendor\fonts\tabler\tabler-icons.html" />
     <Content Include="Content\assets\vendor\js\bootstrap.js" />
@@ -3150,6 +3151,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\utility\ChildPageMenuForEnterprise.js" />
     <Content Include="Scripts\utility\ChildPageMenu.js" />
     <Content Include="Scripts\utility\confirmBox.js" />
     <Content Include="Scripts\utility\DeleteRecord.js" />

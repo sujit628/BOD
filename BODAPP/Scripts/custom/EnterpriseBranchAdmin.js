@@ -1,9 +1,9 @@
 ﻿var SMMLogoList = ''
 $(document).ready(function () {
-
-    //var mode = $('#hdnMode').val();
+   
     retriveEnterprise();
     retriveBranch();
+
 
 });
 

@@ -1,4 +1,5 @@
 .vs
 .vs/
-.packages
-.BODAPP/Upload/
+obj/
+packages/
+Upload/

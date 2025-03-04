@@ -43,7 +43,8 @@ function SaveRecordForProject() {
                     var pdId = data.Id;
                     if (Id > 0) {
                         Swal.fire({
-                            title: "Project Edited successfully..!",
+                            title: "Good job!",
+                            text: "Project edited successfully..!",
                             icon: "success",
                             customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                             buttonsStyling: !1
@@ -71,7 +72,8 @@ function SaveRecordForProject() {
 }
 else{
      Swal.fire({
-         title: data.Message,
+         title: "Oops...",
+         text: data.Message,
          icon: "error",
          customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
          buttonsStyling: !1
@@ -81,7 +83,8 @@ else{
             }
             else {
                 Swal.fire({
-                    title: data.Message,
+                    title: "Oops...",
+                    text: data.Message,
                     icon: "error",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -90,10 +93,9 @@ else{
             }
         },
         error: function (data) {
-          
-
             Swal.fire({
-                title:"Process Not Complete",
+                title: "Oops...",
+                text: "Process Not Complete",
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -136,9 +138,10 @@ function SendMail(id) {
         dataType: "json",
         success: function (data) {
             if (data != null && data.IsSuccess === true) {
-                console.log('data---', data);
+
                 Swal.fire({
-                    title: "Project created successfully..!",
+                    title: "Good job!",
+                    text: "Project created successfully..!",
                     icon: "success",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -167,7 +170,8 @@ function SendMail(id) {
 
             } else {
                 Swal.fire({
-                    title: "Email does not exist, try another email..!",  
+                    title: "Oops...",
+                    text: "Email does not exist, try another email..!",
                     icon: "warning",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: false
@@ -181,7 +185,8 @@ function SendMail(id) {
         },
         error: function () {
             Swal.fire({
-                title: "Process not complete",  
+                title: "Oops...",
+                text: "Process Not Complete", 
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: false
@@ -267,7 +272,8 @@ function retrive(id) {
         },
         error: function (data) {
             Swal.fire({
-                title: "Process Not Complete",
+                title: "Oops...",
+                text: "Process Not Complete",
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -279,6 +285,12 @@ function retrive(id) {
 }
 
 $(document).ready(function () {
+
+   var path = window.location.pathname;
+    path = path.replace(/\/$/, "");
+    path = decodeURIComponent(path);
+   // console.log(path);
+    localStorage.setItem('href', path);
 
     var hdnEnrId = $('#EntrId').val();
     // console.log(hdnEnrId)
@@ -599,7 +611,8 @@ $("#btnCancelRedirect").on("click", function () {
                         success: function (data) {
                             if (data.IsSuccess) {
                                 Swal.fire({
-                                    title: 'Project unmarked successfully.',
+                                    title: "Good job!",
+                                    text: 'Project unmarked successfully.',
                                     icon: 'success',
                                     confirmButtonText: 'Ok',
                                     customClass: {
@@ -610,7 +623,8 @@ $("#btnCancelRedirect").on("click", function () {
                                 });
                             } else {
                                 Swal.fire({
-                                    title: 'Error: ' + (data.Message || "Unexpected error occurred."),
+                                    title: "Oops...",
+                                    text: 'Error: ' + (data.Message || "Unexpected error occurred."),
                                     icon: 'error',
                                     confirmButtonText: 'Ok',
                                     customClass: {
@@ -621,7 +635,8 @@ $("#btnCancelRedirect").on("click", function () {
                         },
                         error: function () {
                             Swal.fire({
-                                title: "Process failed",
+                                title: "Oops...",
+                                text: "Process failed",
                                 icon: 'error',
                                 confirmButtonText: 'Ok',
                                 customClass: {
@@ -651,7 +666,8 @@ $("#btnCancelRedirect").on("click", function () {
                 success: function (data) {
                     if (data.IsSuccess) {
                         Swal.fire({
-                            title: 'Project marked as completed successfully.',
+                            title: "Good job!",
+                            text: 'Project marked as completed successfully.',
                             icon: 'success',
                             confirmButtonText: 'Ok',
                             customClass: {
@@ -662,7 +678,8 @@ $("#btnCancelRedirect").on("click", function () {
                         });
                     } else {
                         Swal.fire({
-                            title: 'Error: ' + (data.Message || "Unexpected error occurred."),
+                            title: "Oops...",
+                            text: 'Error: ' + (data.Message || "Unexpected error occurred."),
                             icon: 'error',
                             confirmButtonText: 'Ok',
                             customClass: {
@@ -673,7 +690,8 @@ $("#btnCancelRedirect").on("click", function () {
                 },
                 error: function () {
                     Swal.fire({
-                        title: "Process failed",
+                        title: "Oops...",
+                        text: "Process failed",
                         icon: 'error',
                         confirmButtonText: 'Ok',
                         customClass: {

@@ -63,7 +63,7 @@ namespace BODDal
                     UserObj.TheamLink = Convert.ToString(rdr["UM_TheamLink"]);
                     UserObj.CoreLink = Convert.ToString(rdr["UM_CoreLink"]);
                     UserObj.CustomCSSLink = Convert.ToString(rdr["UM_CustomCSSLink"]);
-
+                    UserObj.UM_EmailVery = Convert.ToString(rdr["UM_EmailVery"]);
                     //  UserObj.US_Availability = Convert.ToString(rdr["US_Availability"]);
                     //UserObj.Assessment_Id = Convert.ToInt32(rdr["Assessment_Id"]);
                 }
@@ -110,7 +110,7 @@ namespace BODDal
                     UserObj.UM_CompanyPic = Convert.ToString(rdr["UM_CompanyPic"]);
                     UserObj.UM_CmnyPrefix = Convert.ToString(rdr["UM_CmnyPrefix"]);
                     //UserObj.Assessment_Id = Convert.ToInt32(rdr["Assessment_Id"]);
-
+                    UserObj.UM_EmailVery = Convert.ToString(rdr["UM_EmailVery"]);
                     UserObj.ThemeColor = Convert.ToString(rdr["UM_ThemeColor"]);
                     UserObj.ThemeStyle = Convert.ToString(rdr["UM_ThemeStyle"]);
                     UserObj.TheamLink = Convert.ToString(rdr["UM_TheamLink"]);

@@ -8,6 +8,9 @@ var TaskList='';
 "use strict";
 var GlobData=[];
 $(document).ready(function () {
+
+
+
     Id = getParameterByName('Id');
     var Type = getParameterByName('Type');
  

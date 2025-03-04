@@ -167,6 +167,7 @@ $('.sbmnu a').each(function () {
         $(this).closest('li').addClass('selected');
         if ($(this).closest('li').hasClass('navmenu')) {
             var id = 'mini-1';
+           // retriveMenuForChild();
             console.log(getCurentFileName());
             console.log(localStorage.getItem("menuId"));
             if (localStorage.getItem("menuId") === null && getCurentFileName() == "AdminDashboard" ) {

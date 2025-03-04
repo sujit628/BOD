@@ -17,7 +17,7 @@ var sumFundBudget = 0;
 var remaningPercentage = 0;
 var projectId = 0;
 var ActIdForTask = 0;
-
+var headerRow=[]
 
 !(function () {
     var e = $("#ddlBudgetType");
@@ -125,7 +125,7 @@ var ActIdForTask = 0;
 
 
 $(document).ready(function () {
-    retriveMenuForChild();
+  
 
     $("#section-block").block({ message: '<div class="spinner-border text-primary" role="status"></div>', timeout: 5e3, css: { backgroundColor: "transparent", border: "0" }, overlayCSS: { backgroundColor: "#fff", opacity: .8 } })
 
@@ -235,7 +235,7 @@ $(document).ready(function () {
 $('#ddlBudgetType').on('change', function () {
     //var hdnBudgetType = $('#ddlBudgetType').val();
     var hdnBudgetType = $("#ddlBudgetType option:selected").text();
-    console.log(hdnBudgetType)
+    ////console.log(hdnBudgetType)
 })
 
 function getParameterByName(name) {
@@ -263,7 +263,7 @@ function retriveprojectbudget(id) {
         dataType: "json",
         success: function (data) {
             //data = JSON.parse(data);
-           // console.log("BudgetType data find --", data)
+           // ////console.log("BudgetType data find --", data)
 
             //hdnBudget = data["PD_Budget"];
             //hdnBudgetType = data["PD_BudgetType"];
@@ -295,6 +295,12 @@ function retriveprojectbudget(id) {
     });
     return false;
 }
+
+
+
+
+
+
 
 function validateQTY(t) {
     var QTY = $(t).closest('tr').find('td:eq(9)').text();
@@ -418,7 +424,7 @@ function AddBudget() {
 
     tr.append("<td><input type='hidden' value ='" + $('#txtTotalAmnt').val() + "'  name='hdnTotalAmnt_" + i + "' id='hdnTotalAmnt_" + i + "' ><input type='text' value =" + $('#txtTotalAmnt').val() + "  name='txtTotalAmnt_" + i + "' id='txtTotalAmnt_" + i + "' class='form-control' disabled></td>");
     tr.append("<td style='text-align:center'><a onclick='deleteconfirmBoxClick(this)' href='javascript:;' class='text-body'  ><i class='ti ti-trash me-2 ti-sm'></i></a></td>");
-    console.log(parseFloat(isNaN($('#txtTotalAmnt').val()) == true ? 0 : $('#txtTotalAmnt').val()));
+    ////console.log(parseFloat(isNaN($('#txtTotalAmnt').val()) == true ? 0 : $('#txtTotalAmnt').val()));
     if ($('#sumAllocatedBudgtHdn').val() == "") {
         $('#sumAllocatedBudgtHdn').val(0);
     }
@@ -580,8 +586,8 @@ function deleteconfirmBoxClick(rowNo) {
             //$.each($('#tblBudget tr'), function (i, row) {
             //    //Here I need to loop the tr again ( i.e. row) 
             //    $(row, "input").each(function(i, sr) {
-            //        console.log($(sr).eq(4).val());
-            //        console.log($(sr).eq(3).val());
+            //        ////console.log($(sr).eq(4).val());
+            //        ////console.log($(sr).eq(3).val());
             //        TotalAmt +=isNaN(parseFloat($(sr).eq(4).val())) ? 0 : parseFloat($(sr).eq(4).val());
 
             //    });
@@ -732,7 +738,7 @@ function retriveProjectBudgetDetails(id) {
         success: function (data) {
             data = JSON.parse(data);
 
-            console.log("data>>> ", data);
+            ////console.log("data>>> ", data);
 
             if (data.length > 0) {
                 $('#totalBdgt').text(isNaN(hdnBudget) ? 0 : hdnBudget);
@@ -1058,7 +1064,7 @@ function AddActivityBudget() {
     var txtsumAllocatedBudgtActivity = 0;
     var tr;
     var i = (rows.length);
-    console.log('',i);
+    ////console.log('',i);
     tr = $('<tr/>');
 
     tr.append("<td><select id='ddlActTbl_" + i + "' name='ddlActTbl_" + i + "' class='select2 form-select ddlActTbl' data-allow-clear='true'></select></td>");
@@ -1189,9 +1195,9 @@ function fundWiseAVailBudget(fundtype) {
                 $('#txtAvailableFund').val(0);
                 $('#hdnAvailableFund').val(0);
             }
-            //console.log('availbe '+AvailBudgte);
-            //console.log('total '+totalallocatMoney);
-            //console.log('db '+data[0].PBD_AvailbleBudget);
+            //////console.log('availbe '+AvailBudgte);
+            //////console.log('total '+totalallocatMoney);
+            //////console.log('db '+data[0].PBD_AvailbleBudget);
         },
         error: function (data) {
             Swal.fire({
@@ -1322,8 +1328,8 @@ function cellAmntChngeForSMMEBudget(input) {
     var totalBudget = parseFloat(totalBudgetStr.replace(/[^0-9.-]+/g, "")) || 0;
 
     // Log values for debugging
-    console.log("Total SMME Amount: ", totalSMMEAmount);
-    console.log("Total Budget: ", totalBudget);
+    ////console.log("Total SMME Amount: ", totalSMMEAmount);
+    ////console.log("Total Budget: ", totalBudget);
 
     // Check if the total SMME amount exceeds the total budget
     if (totalSMMEAmount > totalBudget) {
@@ -1860,7 +1866,7 @@ function cellAmntForTaskBudget(t) {
 //    }
 //    $(t).closest('tr').find("td:eq(4) input[type='text']").val(isNaN(parseInt(totalAvlAmnt) - parseInt(Amnt)) == true ? totalAvlAmnt : (parseInt(totalAvlAmnt) - parseInt(Amnt)));
 //    $(t).closest('tr').find("td:eq(4) input[type='hidden']").val(isNaN(parseInt(totalAvlAmnt) - parseInt(Amnt)) == true ? totalAvlAmnt : (parseInt(totalAvlAmnt) - parseInt(Amnt)));
-//    console.log(isNaN(parseInt(totalAvlAmnt) - parseInt(Amnt)) == true ? totalAvlAmnt : (parseInt(totalAvlAmnt) - parseInt(Amnt)));
+//    ////console.log(isNaN(parseInt(totalAvlAmnt) - parseInt(Amnt)) == true ? totalAvlAmnt : (parseInt(totalAvlAmnt) - parseInt(Amnt)));
 
 //    $('.hdnAvailTaskAmntTbl' + $(t).closest('tr').find("td:eq(2) option:selected").val()).val(isNaN(parseInt(totalAvlAmnt) - parseInt(Amnt)) == true ? totalAvlAmnt : (parseInt(totalAvlAmnt) - parseInt(Amnt)))
 //    $('.txtAvailTaskAmntTbl' + $(t).closest('tr').find("td:eq(2) option:selected").val()).val(isNaN(parseInt(totalAvlAmnt) - parseInt(Amnt)) == true ? totalAvlAmnt : (parseInt(totalAvlAmnt) - parseInt(Amnt)))
@@ -1965,7 +1971,7 @@ function retriveTaskBudgetDetails(id, ActId, PbdId) {
         success: function (data) {
             data = JSON.parse(data);
 
-            //console.log('Dyaadg- ',data)
+            //////console.log('Dyaadg- ',data)
 
             $('#tblTask tbody').html('');
             var TotalBudgtForTask = 0;
@@ -2150,9 +2156,9 @@ function fundWiseAvailBudgetSMME(fundtype) {
                 $('#hdnAvailableFundSMME').val(0);
                 $('#btnAddSMMEBudget').attr('disabled', 'disabled');
             }
-            //console.log('availbe '+AvailBudgte);
-            //console.log('total '+totalallocatMoney);
-            //console.log('db '+data[0].PBD_AvailbleBudget);
+            //////console.log('availbe '+AvailBudgte);
+            //////console.log('total '+totalallocatMoney);
+            //////console.log('db '+data[0].PBD_AvailbleBudget);
         },
         error: function (data) {
             Swal.fire({
@@ -2382,7 +2388,7 @@ function retriveSMMEBudgetDetails(Id, acId, taskId) {
         dataType: "json",
         success: function (data) {
             data = JSON.parse(data);
-            console.log('SMME Data dgdh-   ', data);
+            ////console.log('SMME Data dgdh-   ', data);
 
             $('#tblSMME tbody').html('');
             var TotalBudgtForSMME = 0;
@@ -2497,7 +2503,7 @@ function SaveBudgetForProject() {
                     if (result.isConfirmed) {
                         $('#backDropModal').modal('hide');
                     }
-
+                    window.location.reload();
 
                 });
 
@@ -2677,6 +2683,11 @@ $("#btnAsgnTASK").click(function () {
 });
 
 $('#ddlBudgetDistTask').on('change', function () {
+    //$('#ddlTaskActivity').find('option').remove();
+    //$('#tblTask tbody').html('');
+    //$('.txtask').val(''); 
+    //$('.txtaskSpan').text('');
+
     if (parseFloat($('#txtTotalBudgetForSpacificFundTask').val()) <= 0) {
         $('#txtTaskAmnt').prop("disabled", true);
     } else {
@@ -2752,7 +2763,7 @@ function retriveFundDistribution(id) {
         dataType: "json",
         success: function (data) {
             data = JSON.parse(data);
-            console.log('Fund disribution- ',data);
+            ////console.log('Fund disribution- ',data);
             var div = '';
             var tblFund = '';
             var totalfund = 0;
@@ -2792,8 +2803,17 @@ function retriveFundDistribution(id) {
 }
 
 
+
+
+
+
 function BindGridAct(Id) {
-    // Make sure to clear any previous table data
+   
+    retriveBudgetHeader(Id);
+
+    // clearInterval(myInterval);
+    var columnDataAct = headerRow;
+    //console.log(columnDataAct);
     $('#datatable-act').empty();
 
     var _data = JSON.stringify({
@@ -2814,16 +2834,6 @@ function BindGridAct(Id) {
         success: function (response) {
             var data = JSON.parse(response);
 
-            // Define all static column headers
-            var columnDataAct = [
-                { data: "AWB_ActivityDate", title: "Date" },
-                { data: "CA_ActivityName", title: "Activity Name" },
-                { data: "Quarterly 1", title: "Quarterly 1" },
-                { data: "Quarterly 2", title: "Quarterly 2" },
-                { data: "Quarterly 3", title: "Quarterly 3" },
-                { data: "Quarterly 4", title: "Quarterly 4" }
-            ];
-
             // Ensure all missing fields in data are filled with empty values
             data = data.map(function (row) {
                 return columnDataAct.reduce(function (acc, col) {
@@ -2832,13 +2842,16 @@ function BindGridAct(Id) {
                 }, {});
             });
 
-            // Calculate the totals for each quarterly column
-            var totals = {
-                "Quarterly 1": 0,
-                "Quarterly 2": 0,
-                "Quarterly 3": 0,
-                "Quarterly 4": 0
-            };
+            // Initialize totals dynamically based on columns with period types like "Quarterly", "Monthly", "Annually"
+            var totals = {};
+
+            // Identify and initialize totals for period-based columns
+            columnDataAct.forEach(function (col) {
+                // Check if the title contains period-related keywords
+                if (/Quarterly|Monthly|Annually/i.test(col.title)) {
+                    totals[col.title] = 0;  // Initialize total for the period type
+                }
+            });
 
             // Create the table header dynamically
             var tableHeader = '<thead><tr>';
@@ -2854,9 +2867,9 @@ function BindGridAct(Id) {
                 for (var k = 0; k < columnDataAct.length; k++) {
                     var col = columnDataAct[k];
                     tableBody += '<td>' + data[j][col.data] + '</td>';
-                    // If it's a quarterly column, add its value to the total
-                    if (col.title.startsWith("Quarterly")) {
-                        totals[col.title] += parseFloat(data[j][col.data]) || 0;  // Add the value, default to 0 if NaN
+                    // If it's a period-based column, add its value to the total
+                    if (/Quarterly|Monthly|Annually/i.test(col.title)) {
+                        totals[col.title] += parseFloat(data[j][col.data]) || 0;
                     }
                 }
                 tableBody += '</tr>';
@@ -2867,11 +2880,11 @@ function BindGridAct(Id) {
             var tableFooter = '<tfoot><tr>';
             for (var l = 0; l < columnDataAct.length; l++) {
                 var col = columnDataAct[l];
-                if (col.title.startsWith("Quarterly")) {
-                    // Add the total sum for each quarterly column
+                if (/Quarterly|Monthly|Annually/i.test(col.title)) {
+                    // Add the total sum for each period-based column
                     tableFooter += '<td><strong>' + totals[col.title] + '</strong></td>';
                 } else {
-                    // Activity Name column will be left empty in the footer
+                    // Non-period columns will be left empty in the footer
                     tableFooter += '<td></td>';
                 }
             }
@@ -2886,6 +2899,77 @@ function BindGridAct(Id) {
             // Optional: Add a class for styling
             $('#datatable-act').addClass('table table-bordered table-striped');
         },
+
+
+        //success: function (response) {
+        //    var data = JSON.parse(response);
+
+        //    // Define all static column headers
+         
+        //    //console.log(data);
+
+        //    // Ensure all missing fields in data are filled with empty values
+        //    data = data.map(function (row) {
+        //        return columnDataAct.reduce(function (acc, col) {
+        //            acc[col.data] = (row[col.data] !== undefined && row[col.data] !== null) ? row[col.data] : ""; // Fill empty values
+        //            return acc;
+        //        }, {});
+        //    });
+
+        //    // Calculate the totals for each quarterly column
+        //    var totals = {
+        //        "Quarterly 1": 0,
+        //        "Quarterly 2": 0,
+        //        "Quarterly 3": 0,
+        //        "Quarterly 4": 0
+        //    };
+        //    console.log(totals);
+        //    // Create the table header dynamically
+        //    var tableHeader = '<thead><tr>';
+        //    for (var i = 0; i < columnDataAct.length; i++) {
+        //        tableHeader += '<th>' + columnDataAct[i].title + '</th>';
+        //    }
+        //    tableHeader += '</tr></thead>';
+
+        //    // Create the table body dynamically
+        //    var tableBody = '<tbody>';
+        //    for (var j = 0; j < data.length; j++) {
+        //        tableBody += '<tr>';
+        //        for (var k = 0; k < columnDataAct.length; k++) {
+        //            var col = columnDataAct[k];
+        //            tableBody += '<td>' + data[j][col.data] + '</td>';
+        //            // If it's a quarterly column, add its value to the total
+        //            if (col.title.startsWith("Quarterly")) {
+        //                totals[col.title] += parseFloat(data[j][col.data]) || 0;  
+        //            }
+        //        }
+        //        tableBody += '</tr>';
+        //    }
+        //    tableBody += '</tbody>';
+
+        //    // Create the table footer (totals row)
+        //    var tableFooter = '<tfoot><tr>';
+        //    for (var l = 0; l < columnDataAct.length; l++) {
+        //        var col = columnDataAct[l];
+        //        if (col.title.startsWith("Quarterly")) {
+        //            // Add the total sum for each quarterly column
+        //            tableFooter += '<td><strong>' + totals[col.title] + '</strong></td>';
+        //        } else {
+        //            // Activity Name column will be left empty in the footer
+        //            tableFooter += '<td></td>';
+        //        }
+        //    }
+        //    tableFooter += '</tr></tfoot>';
+
+        //    // Combine the header, body, and footer into the final table HTML
+        //    var tableHTML = tableHeader + tableBody + tableFooter;
+
+        //    // Append the table to the element with id 'datatable-act'
+        //    $('#datatable-act').html(tableHTML);
+
+        //    // Optional: Add a class for styling
+        //    $('#datatable-act').addClass('table table-bordered table-striped');
+        //},
         error: function (xhr, textStatus, errorThrown) {
             alert('Request failed');
         }
@@ -2893,91 +2977,19 @@ function BindGridAct(Id) {
 }
 
 
-
-//function BindGridAct(Id) {
-//    // Make sure to clear any previous table data
-//    $('#datatable-act').empty();
-
-//    var _data = JSON.stringify({
-//        global: {
-//            TransactionType: 'SelectActivityWiseBudgetForDashboard',
-//            param1: 'ProjectId',
-//            param1Value: parseInt(Id),
-//            StoreProcedure: 'BudgetAllocation_USP'
-//        }
-//    });
-
-//    $.ajax({
-//        type: "POST",
-//        url: URLList.GetList,
-//        contentType: "application/json; charset=utf-8",
-//        data: _data,
-//        dataType: "json",
-//        success: function (response) {
-//            let data = JSON.parse(response);
-
-//            // Define all static column headers
-//            const columnDataAct = [
-//                { data: "CA_ActivityName", title: "Activity Name" },
-//                { data: "Quarterly 1", title: "Quarterly 1" },
-//                { data: "Quarterly 2", title: "Quarterly 2" },
-//                { data: "Quarterly 3", title: "Quarterly 3" },
-//                { data: "Quarterly 4", title: "Quarterly 4" }
-//            ];
-
-//            // Ensure all missing fields in data are filled with empty values
-//            data = data.map(row => {
-//                return columnDataAct.reduce((acc, col) => {
-//                    acc[col.data] = row[col.data] !== undefined && row[col.data] !== null ? row[col.data] : ""; // Fill empty values
-//                    return acc;
-//                }, {});
-//            });
-
-//            // Create the table header dynamically
-//            let tableHeader = '<thead><tr>';
-//            columnDataAct.forEach(function (col) {
-//                tableHeader += `<th>${col.title}</th>`;
-//            });
-//            tableHeader += '</tr></thead>';
-
-//            // Create the table body dynamically
-//            let tableBody = '<tbody>';
-//            data.forEach(function (row) {
-//                tableBody += '<tr>';
-//                columnDataAct.forEach(function (col) {
-//                    tableBody += `<td>${row[col.data]}</td>`;
-//                });
-//                tableBody += '</tr>';
-//            });
-//            tableBody += '</tbody>';
-
-//            // Combine the header and body into the final table HTML
-//            const tableHTML = tableHeader + tableBody;
-
-//            // Append the table to the element with id 'datatable-act'
-//            $('#datatable-act').html(tableHTML);
-
-//            // Optional: Add a class for styling
-//            $('#datatable-act').addClass('table table-bordered table-striped');
-//        },
-//        error: function (xhr, textStatus, errorThrown) {
-//            alert('Request failed');
-//        }
-//    });
-//}
-
-
-
-
 function BindGridTsk(Id) {
-    $('#datatable-tsk').DataTable().destroy();
+  
+    retriveBudgetHeader(Id);
+
+
+    var columnDataTsk = headerRow;
+    $('#datatable-tsk').empty();
+
     var _data = JSON.stringify({
         global: {
             TransactionType: 'SelectTaskWiseBudgetForDashboard',
             param1: 'ProjectId',
             param1Value: parseInt(Id),
-            //param2: 'ProjectId',
-            //param2Value: parseInt(Id),
             StoreProcedure: 'BudgetAllocation_USP'
         }
     });
@@ -2988,54 +3000,196 @@ function BindGridTsk(Id) {
         contentType: "application/json; charset=utf-8",
         data: _data,
         dataType: "json",
-        success: function (data, status) {
-            data = JSON.parse(data);
+        success: function (response) {
+            var data = JSON.parse(response);
+            // Ensure all missing fields in data are filled properly
+            data = data.map(function (row) {
+                var updatedRow = {};
+                columnDataTsk.forEach(function (col) {
+                    if (col.data === "Date") {
+                        updatedRow[col.data] = row[col.data] ? row[col.data] : "-"; // Fill missing dates
+                    } else if (col.data === "Description") {
+                        updatedRow[col.data] = row[col.data] ? row[col.data] : "No Description"; // Fill missing task names
+                    } else {
+                        updatedRow[col.data] = row[col.data] ? parseFloat(row[col.data]) : 0; // Convert numbers & default to 0
+                    }
+                });
+                return updatedRow;
+            });
 
-            var oTable = $('#datatable-tsk').DataTable({
-                data: data,
-                columns: columnDataTsk,
-                columnDefs: [
+            // Initialize totals dynamically based on columns with period types like "Quarterly", "Monthly", "Annually"
+            var totals = {};
 
-                ],
+            // Identify and initialize totals for period-based columns
+            columnDataTsk.forEach(function (col) {
+                // Check if the title contains period-related keywords
+                if (/Quarterly|Monthly|Annually/i.test(col.title)) {
+                    totals[col.title] = 0;  // Initialize total for the period type
+                }
+            });
 
-                dom:
-                    '<"card-header d-flex flex-wrap pb-2"<f><"d-flex justify-content-center justify-content-md-end align-items-baseline"<"dt-action-buttons d-flex justify-content-center flex-md-row mb-3 mb-md-0 ps-1 ms-1 align-items-baseline"lB>>>t<"row mx-2"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>',
-                lengthMenu: [7, 10, 20, 50, 70, 100],
-                language: { sLengthMenu: "_MENU_", search: "", searchPlaceholder: search_tsk },
-                buttons: [
+            // Generate table structure dynamically
+            var tableHTML = '<thead><tr>';
+            columnDataTsk.forEach(function (col) {
+                tableHTML += '<th>' + col.title + '</th>';
+            });
+            tableHTML += '</tr></thead><tbody>';
 
-                ],
-                responsive: {
-                    details: {
-                        display: $.fn.dataTable.Responsive.display.modal({
-                            header: function (e) {
-                                return "Details of " + e.data().SectorName;
-                            },
-                        }),
-                        type: "column",
-                        renderer: function (e, t, a) {
-                            a = $.map(a, function (e, t) {
-                                return "" !== e.title ? '<tr data-dt-row="' + e.rowIndex + '" data-dt-column="' + e.columnIndex + '"><td> ' + e.title + ':</td> <td class="ps-0">' + e.data + "</td></tr>" : "";
-                            }).join("");
-                            return !!a && $('<table class="table"/><tbody />').append(a);
-                        },
-                    },
-                },
-            })
-            $(".dt-action-buttons").addClass("pt-0"),
-            $(".dataTables_filter").addClass("me-3 ps-0"),
+            // Populate table rows dynamically
+            data.forEach(function (row) {
+                tableHTML += '<tr>';
+                columnDataTsk.forEach(function (col) {
+                    tableHTML += '<td>' + row[col.data] + '</td>';
+                    // If it's a period-based column, add its value to the total
+                    if (/Quarterly|Monthly|Annually/i.test(col.title)) {
+                        totals[col.title] += row[col.data] || 0;  // Ensure it's a valid number
+                    }
+                });
+                tableHTML += '</tr>';
+            });
 
-        setTimeout(() => {
-            $(".dataTables_filter .form-control").removeClass("form-control-sm"), $(".dataTables_length .form-select").removeClass("form-select-sm");
-        }, 300);
+            tableHTML += '</tbody><tfoot><tr>';
+            columnDataTsk.forEach(function (col) {
+                if (/Quarterly|Monthly|Annually/i.test(col.title)) {
+                    tableHTML += '<td><strong>' + totals[col.title] + '</strong></td>';
+                } else {
+                    tableHTML += '<td></td>';
+                }
+            });
+            tableHTML += '</tr></tfoot>';
+
+            // Render the final table
+            $('#datatable-tsk').html(tableHTML);
+
         },
+
+        //success: function (response) {
+        //    var data = JSON.parse(response);
+        //    ////console.log('datatable-tsk data',data);
+          
+           
+        //    //// Define all static column headers
+        //    //var columnDataTsk = [
+        //    //    { data: "Date", title: "Date" },
+        //    //    { data: "Name", title: "Description" },
+        //    //    { data: "Quarterly 1", title: "Quarterly 1" },
+        //    //    { data: "Quarterly 2", title: "Quarterly 2" },
+        //    //    { data: "Quarterly 3", title: "Quarterly 3" },
+        //    //    { data: "Quarterly 4", title: "Quarterly 4" }
+        //    //];
+
+        //    // Ensure all missing fields in data are filled properly
+        //    data = data.map(function (row) {
+        //        var updatedRow = {};
+        //        columnDataTsk.forEach(function (col) {
+        //            if (col.data === "Date") {
+        //                updatedRow[col.data] = row[col.data] ? row[col.data] : "-"; // Fill missing dates
+        //            } else if (col.data === "Description") {
+        //                updatedRow[col.data] = row[col.data] ? row[col.data] : "No Description"; // Fill missing task names
+        //            } else {
+        //                updatedRow[col.data] = row[col.data] ? parseFloat(row[col.data]) : 0; // Convert numbers & default to 0
+        //            }
+        //        });
+        //        return updatedRow;
+        //    });
+
+        //    // Calculate totals for each quarter
+        //    var totals = {
+        //        "Quarterly 1": 0,
+        //        "Quarterly 2": 0,
+        //        "Quarterly 3": 0,
+        //        "Quarterly 4": 0
+        //    };
+        //    console.log(totals);
+        //    // Generate table structure dynamically
+        //    var tableHTML = '<thead><tr>';
+        //    columnDataTsk.forEach(function (col) {
+        //        tableHTML += '<th>' + col.title + '</th>';
+        //    });
+        //    tableHTML += '</tr></thead><tbody>';
+
+        //    // Populate table rows
+        //    data.forEach(function (row) {
+        //        tableHTML += '<tr>';
+        //        columnDataTsk.forEach(function (col) {
+        //            tableHTML += '<td>' + row[col.data] + '</td>';
+        //            if (col.title.startsWith("Quarterly")) {
+        //                totals[col.title] += row[col.data];
+        //            }
+        //        });
+        //        tableHTML += '</tr>';
+        //    });
+
+        //    tableHTML += '</tbody><tfoot><tr>';
+        //    columnDataTsk.forEach(function (col) {
+        //        if (col.title.startsWith("Quarterly")) {
+        //            tableHTML += '<td><strong>' + totals[col.title] + '</strong></td>';
+        //        } else {
+        //            tableHTML += '<td></td>';
+        //        }
+        //    });
+        //    tableHTML += '</tr></tfoot>';
+
+        //    // Render the final table
+        //    $('#datatable-tsk').html(tableHTML);
+
+            
+        //    //$('#datatable-tsk').DataTable({
+        //    //    "paging": false,
+        //    //    "ordering": true,
+        //    //    "searching": false,
+        //    //    "info": false
+        //    //});
+        //},
         error: function (xhr, textStatus, errorThrown) {
-            alert('request failed');
+            alert('Request failed');
         }
     });
 }
 
+
+
+//function BindGridTsk(Id) {
+//    $('#datatable-tsk').DataTable().destroy();
+//    var _data = JSON.stringify({
+//        global: {
+//            TransactionType: 'SelectTaskWiseBudgetForDashboard',
+//            param1: 'ProjectId',
+//            param1Value: parseInt(Id),
+//            //param2: 'ProjectId',
+//            //param2Value: parseInt(Id),
+//            StoreProcedure: 'BudgetAllocation_USP'
+//        }
+//    });
+
+//    $.ajax({
+//        type: "POST",
+//        url: URLList.GetList,
+//        contentType: "application/json; charset=utf-8",
+//        data: _data,
+//        dataType: "json",
+//        success: function (data, status) {
+//            data = JSON.parse(data);
+
+//            ////console.log('datatable-tsk data', data);
+
+        
+//        },
+//        error: function (xhr, textStatus, errorThrown) {
+//            alert('request failed');
+//        }
+//    });
+//}
+
+
+
 function BindGridSMME(Id) {
+     retriveBudgetHeader(Id);
+          
+           // clearInterval(myInterval);
+     var columnDataSMME = headerRow;
+    
+    $('#datatable-smme').empty();
 
     var _data = JSON.stringify({
         global: {
@@ -3052,52 +3206,189 @@ function BindGridSMME(Id) {
         contentType: "application/json; charset=utf-8",
         data: _data,
         dataType: "json",
-        success: function (data, status) {
-            data = JSON.parse(data);
+        success: function (response) {
+    var data = JSON.parse(response);
 
-            var oTable = $('#datatable-smme').DataTable({
-                data: data,
-                columns: columnDataSMME,
-                columnDefs: [
+    // Ensure all missing fields in data are filled properly
+    data = data.filter(function (row) {
+        // You can filter data here if needed
+        return true; // For example, returning all rows (no filtering applied)
+    }).map(function (row) {
+        var updatedRow = {};
+        columnDataSMME.forEach(function (col) {
+            if (col.data === "Date") {
+                updatedRow[col.data] = row[col.data] ? row[col.data] : "-"; // Fill missing dates
+            } else if (col.data === "Description") {
+                updatedRow[col.data] = row[col.data] ? row[col.data] : "No Description"; // Fill missing SMME names
+            } else {
+                updatedRow[col.data] = row[col.data] ? parseFloat(row[col.data]) : 0; // Convert numbers & default to 0
+            }
+        });
+        return updatedRow;
+    });
 
-                ],
+    var totals = {};
 
-                dom:
-                    '<"card-header d-flex flex-wrap pb-2"<f><"d-flex justify-content-center justify-content-md-end align-items-baseline"<"dt-action-buttons d-flex justify-content-center flex-md-row mb-3 mb-md-0 ps-1 ms-1 align-items-baseline"lB>>>t<"row mx-2"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>',
-                lengthMenu: [7, 10, 20, 50, 70, 100],
-                language: { sLengthMenu: "_MENU_", search: "", searchPlaceholder: search_smme },
-                buttons: [
+    columnDataSMME.forEach(function (col) {
+        if (/Quarterly|Monthly|Annually/i.test(col.title)) {
+            totals[col.title] = 0;  
+        }
+    });
 
-                ],
-                responsive: {
-                    details: {
-                        display: $.fn.dataTable.Responsive.display.modal({
-                            header: function (e) {
-                                return "Details of " + e.data().SectorName;
-                            },
-                        }),
-                        type: "column",
-                        renderer: function (e, t, a) {
-                            a = $.map(a, function (e, t) {
-                                return "" !== e.title ? '<tr data-dt-row="' + e.rowIndex + '" data-dt-column="' + e.columnIndex + '"><td> ' + e.title + ':</td> <td class="ps-0">' + e.data + "</td></tr>" : "";
-                            }).join("");
-                            return !!a && $('<table class="table"/><tbody />').append(a);
-                        },
-                    },
-                },
-            })
-            $(".dt-action-buttons").addClass("pt-0"),
-            $(".dataTables_filter").addClass("me-3 ps-0"),
+    // Generate table structure dynamically
+    var tableHTML = '<thead><tr>';
+    columnDataSMME.forEach(function (col) {
+        tableHTML += '<th>' + col.title + '</th>';
+    });
+    tableHTML += '</tr></thead><tbody>';
 
-        setTimeout(() => {
-            $(".dataTables_filter .form-control").removeClass("form-control-sm"), $(".dataTables_length .form-select").removeClass("form-select-sm");
-        }, 300);
-        },
+    // Populate table rows dynamically
+    data.forEach(function (row) {
+        tableHTML += '<tr>';
+        columnDataSMME.forEach(function (col) {
+            tableHTML += '<td>' + row[col.data] + '</td>';
+           
+            if (/Quarterly|Monthly|Annually/i.test(col.title)) {
+                totals[col.title] += row[col.data] || 0;  
+            }
+        });
+        tableHTML += '</tr>';
+    });
+
+    tableHTML += '</tbody><tfoot><tr>';
+    columnDataSMME.forEach(function (col) {
+        if (/Quarterly|Monthly|Annually/i.test(col.title)) {
+            tableHTML += '<td><strong>' + totals[col.title] + '</strong></td>';
+        } else {
+            tableHTML += '<td></td>';  // Non-period columns will be left empty in the footer
+        }
+    });
+    tableHTML += '</tr></tfoot>';
+
+    // Render the final table
+    $('#datatable-smme').html(tableHTML);
+
+},
+
+
+
+        //success: function (response) {
+        //    var data = JSON.parse(response);
+        //    data = data.filter(function (row) {
+            
+        //    }).map(function (row) {
+        //        var updatedRow = {};
+        //        columnDataSMME.forEach(function (col) {
+        //            if (col.data === "Date") {
+        //                updatedRow[col.data] = row[col.data] ? row[col.data] : "-"; // Fill missing dates
+        //            } else if (col.data === "Name") {
+        //                updatedRow[col.data] = row[col.data] ? row[col.data] : "No SMME Name"; // Fill missing SMME names
+        //            } else {
+        //                updatedRow[col.data] = row[col.data] ? parseFloat(row[col.data]) : 0; // Convert numbers & default to 0
+        //            }
+        //        });
+        //        return updatedRow;
+        //    });
+
+
+        //    // Ensure all missing fields in data are filled properly
+        //    //data = data.map(function (row) {
+        //    //    var updatedRow = {};
+        //    //    columnDataSMME.forEach(function (col) {
+        //    //        if (col.data === "Date") {
+        //    //            updatedRow[col.data] = row[col.data] ? row[col.data] : "-"; // Fill missing dates
+        //    //        } else if (col.data === "Name") {
+        //    //            updatedRow[col.data] = row[col.data] ? row[col.data] : "No SMME Name"; // Fill missing SMME names
+        //    //        } else {
+        //    //            updatedRow[col.data] = row[col.data] ? parseFloat(row[col.data]) : 0; // Convert numbers & default to 0
+        //    //        }
+        //    //    });
+        //    //    return updatedRow;
+        //    //});
+
+        //    // Calculate totals for each quarter
+        //    var totals = {
+        //        "Quarterly 1": 0,
+        //        "Quarterly 2": 0,
+        //        "Quarterly 3": 0,
+        //        "Quarterly 4": 0
+        //    };
+
+        //    // Generate table structure dynamically
+        //    var tableHTML = '<thead><tr>';
+        //    columnDataSMME.forEach(function (col) {
+        //        tableHTML += '<th>' + col.title + '</th>';
+        //    });
+        //    tableHTML += '</tr></thead><tbody>';
+
+        //    // Populate table rows
+        //    data.forEach(function (row) {
+        //        tableHTML += '<tr>';
+        //        columnDataSMME.forEach(function (col) {
+        //            tableHTML += '<td>' + row[col.data] + '</td>';
+        //            if (col.title.startsWith("Quarterly")) {
+        //                totals[col.title] += row[col.data];
+        //            }
+        //        });
+        //        tableHTML += '</tr>';
+        //    });
+
+        //    tableHTML += '</tbody><tfoot><tr>';
+        //    columnDataSMME.forEach(function (col) {
+        //        if (col.title.startsWith("Quarterly")) {
+        //            tableHTML += '<td><strong>' + totals[col.title] + '</strong></td>';
+        //        } else {
+        //            tableHTML += '<td></td>';
+        //        }
+        //    });
+        //    tableHTML += '</tr></tfoot>';
+
+        //    // Render the final table
+        //    $('#datatable-smme').html(tableHTML);
+
+        //    // Optional: Initialize DataTable
+        //    // $('#datatable-smme').DataTable({
+        //    //     "paging": false,
+        //    //     "ordering": true,
+        //    //     "searching": false,
+        //    //     "info": false
+        //    // });
+        //},
         error: function (xhr, textStatus, errorThrown) {
-            alert('request failed');
+            alert('Request failed');
         }
     });
 }
+
+
+
+//function BindGridSMME(Id) {
+
+//    var _data = JSON.stringify({
+//        global: {
+//            TransactionType: 'SelectSMMEWiseBudgetForDashboard',
+//            param1: 'ProjectId',
+//            param1Value: parseInt(Id),
+//            StoreProcedure: 'BudgetAllocation_USP'
+//        }
+//    });
+
+//    $.ajax({
+//        type: "POST",
+//        url: URLList.GetList,
+//        contentType: "application/json; charset=utf-8",
+//        data: _data,
+//        dataType: "json",
+//        success: function (data, status) {
+//            data = JSON.parse(data);
+
+           
+//        },
+//        error: function (xhr, textStatus, errorThrown) {
+//            alert('request failed');
+//        }
+//    });
+//}
 
 function SidePopUpForShowFund() {
     $('#viewFundPopUp').addClass('show');
@@ -3353,7 +3644,7 @@ function retriveFundDetails(id) {
         dataType: "json",
         success: function (data) {
             data = JSON.parse(data);
-            console.log('Top 4 Fund-',data);
+            ////console.log('Top 4 Fund-',data);
             var div = '';
             var tblFund = '';
             var totalfund = 0;
@@ -3411,7 +3702,7 @@ function fundWiseBudgetDistributionDetailsActivity(fundtype) {
         async: false,
         success: function (data) {
             data = JSON.parse(data);
-           // console.log('jgfjddvf', data);
+           // ////console.log('jgfjddvf', data);
             // $('#txtPeriod').text(data[0].PBD_FundName);
             $('#hdnddlBudgetDistActivity').val(fundtype)
 
@@ -3757,7 +4048,7 @@ function fundWiseBudgetTaskDetails(Id, ActId, taskId) {
             try {
                 data = JSON.parse(data);
 
-                console.log('SMME Taka ',data);
+                ////console.log('SMME Taka ',data);
 
                 if (Array.isArray(data) && data.length > 0) {
                     $('.txtTaskLabelSMME').text(data[0].TaskNameSMME);
@@ -3780,6 +4071,39 @@ function fundWiseBudgetTaskDetails(Id, ActId, taskId) {
         error: function (data) {
             Swal.fire({
                 title: 'Process Not Success',
+                icon: "error",
+                customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
+                buttonsStyling: !1
+            });
+        }
+    });
+    return false;
+}
+function retriveBudgetHeader(id) {
+    headerRow = [];
+    var _data = JSON.stringify({
+        global: {
+            TransactionType: 'SelectTableHeader',
+            param1: 'ProjectId',
+            param1Value: parseInt(id),
+            StoreProcedure: 'BudgetAllocation_USP'
+        }
+    });
+
+    $.ajax({
+        type: "POST",
+        url: URLList.GetList,
+        contentType: "application/json; charset=utf-8",
+        data: _data,
+        dataType: "json",
+        async:false,
+        success: function (data) {
+            
+            headerRow = JSON.parse(data);
+        },
+        error: function (data) {
+            Swal.fire({
+                title: "Process Not Complete",
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1

@@ -195,7 +195,8 @@ function AssignProject(index, SmmeId, SMMEName, mail) {
             else {
 
                 Swal.fire({
-                    title: data.Message,
+                    title: "Oops...",
+                    text: data.Message,
                     icon: "error",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -204,7 +205,8 @@ function AssignProject(index, SmmeId, SMMEName, mail) {
         },
         error: function (data) {
             Swal.fire({
-                title: 'Process Not Complete',
+                title: "Oops...",
+                text: 'Process Not Complete',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -220,8 +222,6 @@ function retriveProject(id) {
             param1: 'PD_Id',
             param1Value: parseInt(id),
             StoreProcedure: 'ProjectDetails_USP'
-
-
         }
     });
 
@@ -234,7 +234,6 @@ function retriveProject(id) {
         success: function (data) {
             //data = JSON.parse(data);
 
-
             $('#PDId').val(data["PD_Id"]);
             $('#PDName').val(data["PD_ProjectName"]);
             $('#PDStartDte').val(data["PD_DurationFromDate"]);
@@ -244,7 +243,8 @@ function retriveProject(id) {
         },
         error: function (data) {
             Swal.fire({
-                title: "Process Not Complete",
+                title: "Oops...",
+                text: "Process Not Complete",
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -285,7 +285,8 @@ function SendMail(SMMEName, Email) {
             if (data != null && data.IsSuccess === true) {
 
                  Swal.fire({
-                    title: "Your changes were saved successfully",
+                     title: "Good job!",
+                     text: "Your changes were saved successfully!",
                     icon: "success",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -297,7 +298,8 @@ function SendMail(SMMEName, Email) {
                 //$('#btnSave').removeAttr('disabled');
             } else {
                 Swal.fire({
-                    title: "Email does not exist, try another email..!",
+                    title: "Oops...",
+                    text: "Email does not exist, try another email..!",
                     icon: "warning",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: false
@@ -309,7 +311,8 @@ function SendMail(SMMEName, Email) {
         },
         error: function () {
             Swal.fire({
-                title: "Process not complete",
+                title: "Oops...",
+                text: "Process not complete",
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: false

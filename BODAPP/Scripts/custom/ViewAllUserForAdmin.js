@@ -2,7 +2,11 @@
 
 $(document).ready(function () {
     $('#prfpicIMG').attr('src', '/Content/assets/img/avatars/userpic.png');
-
+    var path = window.location.pathname;
+    path = path.replace(/\/$/, "");
+    path = decodeURIComponent(path);
+    console.log(path);
+    localStorage.setItem('href', path);
     InitUI();
 
     DropdownBinder.DDLData = {
@@ -127,7 +131,7 @@ function BindGrid() {
             n.length &&
                 (e = n.DataTable({
                     data: data,
-                    columns: [{ data: "" }, { data: "UM_Name" }, { data: "UM_ContactNo" }, { data: "UM_SubRole" }, { data: "CompanyName" }, { data: "CompanyEmail" }, { data: "action" }],
+                    columns: [{ data: "" }, { data: "UM_Name" }, { data: "UM_ContactNo" }, { data: "UM_SubRole" }, { data: "action" }],
                     columnDefs: [
                 {
                     className: "control",
@@ -423,7 +427,8 @@ function SaveRecords() {
                 var retId = $('#Id').val();
                 if (retId > 0) {
                     Swal.fire({
-                        title: "Your changes were saved successfully!",
+                        title: "Good job!",
+                        text: "Your changes were saved successfully!",
                         icon: "success",
                         customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                         buttonsStyling: !1
@@ -437,32 +442,6 @@ function SaveRecords() {
                 } else {
                     SendMail();
                 }
-
-                
-
-                //Swal.fire({
-                //    title: "Your changes were saved successfully!",
-                //    icon: "success",
-                //    customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
-                //    buttonsStyling: !1
-                //});
-
-                //var oTable = $('#datatable-example').DataTable();
-                //oTable.destroy();
-                //BindGrid();
-
-                //$('#setUPFormAdminUserManageModal').modal('hide');
-                //$('#setUPFormAdminUserManageModal').find('input, select').val('');
-
-                //if ($('#Id').val() == '') {
-                //    $("#setUPFormAdminUserManageModal .close").click();
-                //} else {
-                //    $('#setUPFormAdminUserManageModal').removeClass('show');
-                //}
-                //$('.form-control').val('');
-
-                //window.location = '/Home/ViewAllEnterpriseUserForAdmin';
-
             }
             else {
                 var Email = $('#txtUserEmail').val();
@@ -478,7 +457,8 @@ function SaveRecords() {
                 }
 
                 Swal.fire({
-                    title: titleText,
+                    title: "Oops...",
+                    text: data.Message,
                     icon: "error",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -489,7 +469,8 @@ function SaveRecords() {
 
 
             Swal.fire({
-                title: "Process Not Complete",
+                title: "Oops...",
+                text: "Process Not Complete",
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1

@@ -186,7 +186,7 @@ function SaveRecords(Type) {
     var _data = JSON.stringify({
         entity: {
             ENR_Id: id,
-            Mode: $('#hdnMode').val(),
+            Mode: $('#hdnModeForm').val(),
             ENR_PrimaryContactFirstName: $.trim($('#txtContactFirstName').val()),
             ENR_PrimaryContactLastName: $.trim($('#txtContactLastName').val()),
 
@@ -866,6 +866,13 @@ $("#ddlBookingCountry").change(function () {
 
 $(document).ready(function () {
 
+    var path = window.location.pathname;
+    path = path.replace(/\/$/, "");
+    path = decodeURIComponent(path);
+    // console.log(path);
+    localStorage.setItem('href', path);
+
+
     $('.alphabets').on('input', function () {
        
         let inputValue = $(this).val();
@@ -907,7 +914,7 @@ $(document).ready(function () {
     DropdownBinder.DDLElem = $("#ddlLegalEntity");
     DropdownBinder.Execute();
 
-    var mode = $('#hdnMode').val();
+    var mode = $('#hdnModeForm').val();
  
     Id = getParameterByName('Id');
 
@@ -1250,7 +1257,7 @@ function fnNextRedirect() {
         //confirmButtonText:"Next",
         buttonsStyling: !1
     }).then(function () {
-                    var mode = $('#hdnMode').val();
+                    var mode = $('#hdnModeForm').val();
                     if (Id > 0 && M == "A") {
                         if (mode == 'contact') {
                             SendMail(Id)

@@ -13,7 +13,7 @@ function retriveMenuForChild() {
     console.log(localStorage.getItem("href"));
     var _data = JSON.stringify({
         global: {
-            TransactionType: 'SelectParentIdForChild',
+            TransactionType: 'SelectParentIdForChildForEnt',
             param1: 'MenuURL',
             paramString: currentFileName, // Using the corrected function
             param2: 'RootMenu',

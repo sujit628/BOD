@@ -369,6 +369,13 @@ $("#ddlBookingCountry").change(function () {
 });
 
 $(document).ready(function () {
+
+    var path = window.location.pathname;
+    path = path.replace(/\/$/, "");
+    path = decodeURIComponent(path);
+    // console.log(path);
+    localStorage.setItem('href', path);
+
     $('.alphabets').on('input', function () {
 
         let inputValue = $(this).val();
@@ -427,7 +434,7 @@ $(document).ready(function () {
 
 
 
-    var mode = $('#hdnMode').val();
+    var mode = $('#hdnModeForm').val();
 
     Id = getParameterByName('Id');
 
@@ -648,7 +655,7 @@ function SaveRecords(Type) {
     var _data = JSON.stringify({
         entity: {
             SMME_Id: id,
-            Mode: $('#hdnMode').val(),
+            Mode: $('#hdnModeForm').val(),
             //SMME_PrimaryContactName: $.trim($('#txtContactName').val()),
             SMME_PrimaryContactFirstName: $.trim($('#txtContactFirstName').val()),
             SMME_PrimaryContactLastName: $.trim($('#txtContactLastName').val()),
@@ -955,7 +962,7 @@ function fnNextRedirect() {
 
         buttonsStyling: !1
     }).then(function () {
-        var mode = $('#hdnMode').val();
+        var mode = $('#hdnModeForm').val();
         if (Id > 0 && M == "A") {
             if (mode == 'contact') {
                 // SendMail(Id,"window.location = '/Account/SMMESettings_legalentity?Id=" + Id + '&M=A')

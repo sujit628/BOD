@@ -2,7 +2,11 @@
 $(document).ready(function () {
 
     BindGrid();
-   
+    var path = window.location.pathname;
+    path = path.replace(/\/$/, "");
+    path = decodeURIComponent(path);
+    // console.log(path);
+    localStorage.setItem('href', path);
 
 });
 function BindGrid() {

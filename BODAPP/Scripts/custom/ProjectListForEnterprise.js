@@ -4,6 +4,11 @@ $(document).ready(function () {
 
     fnProjectForEnterprise();
 
+    var path = window.location.pathname;
+    path = path.replace(/\/$/, "");
+    path = decodeURIComponent(path);
+    // console.log(path);
+    localStorage.setItem('href', path);
 });
 
 function showDocument() {

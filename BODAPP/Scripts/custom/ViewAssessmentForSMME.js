@@ -39,7 +39,7 @@
                     active = 'active';
                     area = 'aria-expanded="true"';
                     show = 'show';
-                    var ul = '<div class="table-responsive text-nowrap"><table class="table" id="tbl_' + v.BAD_SegSlNo + '"><thead><tr><th>Sl No.</th><th>Question</th><th>Option Type</th><th>Answer</th></tr></thead><tbody class="table-border-bottom-0"></tbody></table></div>';
+                    var ul = '<div class="table-responsive text-nowrap"><table class="table" id="tbl_' + v.BAD_SegSlNo + '"><thead><tr><th>Sl No.</th><th>Question</th><th>Answer</th></tr></thead><tbody class="table-border-bottom-0"></tbody></table></div>';
 
                     $("#accordionExample").append('<div class="card accordionItemcls_' + v.BAD_SegmentId + ' accordion-item ' + active + '" id="accordionItem_' + v.BAD_SegSlNo + '"><h2 class="accordion-header" id="headingOne_' + v.BAD_SegSlNo + '"><input type="hidden" id="hdnSeg_' + v.BAD_SegSlNo + '" value="' + v.BAD_SegmentId + '"/><button type="button" class="accordion-button" data-bs-toggle="collapse" data-bs-target="#accordion_' + v.BAD_SegSlNo + '" ' + area + ' aria-controls="accordion_' + v.BAD_SegSlNo + '">' + v.SegmentName + '</button></h2><div id="accordion_' + v.BAD_SegSlNo + '" class="accordion-collapse collapse ' + show + '" data-bs-parent="#accordionExample"><div class="accordion-body"> ' + ul + '</div></div></div>');
                     retriveQuestion('#tbl_' + v.BAD_SegSlNo + '  tbody', v.BAD_SegmentId, id);
@@ -102,7 +102,7 @@ function retriveQuestion(accdrinid, SegentId, BA_Id) {
            
             $.each(data, function (index, elem) {
                 index = index + 1;
-                QsList = QsList + ' <tr><td >' + elem.BAD_Slno + '</td><td>' + elem.QN_Question + '</td><td>' + elem.BAD_QuestionOptionType + '' + elem.BAD_QuestionOption + '</td><td>' + elem.ASA_Answer.split(',').slice(1) + '</td></tr>';
+                QsList = QsList + ' <tr><td >' + elem.BAD_Slno + '</td><td>' + elem.QN_Question + '</td><td>' + elem.ASA_Answer.split(',').slice(1) + '</td></tr>';
             });
 
             $(accdrinid).append(QsList);

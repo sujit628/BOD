@@ -123,8 +123,18 @@ namespace BODAPP.Controllers
             //if (User.UserID != null && User.UM_Status<=0)
             if (User.UserID != null)
             {
-                Session["SMMEUserDataModel"] = User;
-                return RedirectToAction("SMMEDashboard", "SMME");
+                if (User.UM_EmailVery == "Y")
+                {
+                    Session["SMMEUserDataModel"] = User;
+                    return RedirectToAction("SMMEDashboard", "SMME");
+                }
+                else
+                {
+                    ViewBag.Message = "Your email is not verified. Please verify your email to login.";
+                    return View();
+                }
+
+
             }
             //else if (User.UM_Status >= 1)
             //{
@@ -133,7 +143,7 @@ namespace BODAPP.Controllers
             //}
             else
             {
-                ViewBag.Messege = "Your account is not active, Please contact your admin.";
+                ViewBag.Message = "Your account is not active, Please contact your admin.";
                 return View();
             }
         }
@@ -202,14 +212,21 @@ namespace BODAPP.Controllers
                     Session["LoginPageName"] = PageName;
                     return RedirectToAction("EnterpriseProfileComplete", "Enterprise", new { Id = User.UM_MainID });
                 }
-                Session["EnterpriseUserDataModel"] = User;
-                Session["LoginPageName"] = PageName;
-                return RedirectToAction("EnterpriseDashboard", "Enterprise");
+                if (User.UM_EmailVery == null || User.UM_EmailVery.Trim() != "Y")
+                {
+                    ViewBag.Message = "Your email is not verified. Please verify your email to login.";
+                    return View();
+                }
+
+                    Session["EnterpriseUserDataModel"] = User;
+                    Session["LoginPageName"] = PageName;
+                    return RedirectToAction("EnterpriseDashboard", "Enterprise");
+               
             }
            
             else
             {
-                ViewBag.Messege = "Login Not Sucessfull";
+                ViewBag.Message = "Login Not Sucessfull";
                 ViewBag.Message = "The Username or Password you entered is Not Correct";
                 return View();
             }
@@ -258,14 +275,22 @@ namespace BODAPP.Controllers
                     Session["LoginPageName"] = PageName;
                     return RedirectToAction("EnterpriseProfileComplete", "Enterprise");
                 }
-                Session["EnterpriseEMPUserDataModel"] = User;
-                Session["LoginPageName"] = PageName;
-                return RedirectToAction("EnterpriseDashboard", "Enterprise");
+                if (User.UM_EmailVery == "Y")
+                {
+                    Session["EnterpriseEMPUserDataModel"] = User;
+                    Session["LoginPageName"] = PageName;
+                    return RedirectToAction("EnterpriseDashboard", "Enterprise");
+                }
+                else
+                {
+                    ViewBag.Message = "Your email is not verified. Please verify your email to login.";
+                    return View();
+                }
             }
 
             else
             {
-                ViewBag.Messege = "Login Not Sucessfull";
+                ViewBag.Message = "Login Not Sucessfull";
                 ViewBag.Message = "The Username or Password you entered is Not Correct";
                 return View();
             }
@@ -308,15 +333,22 @@ namespace BODAPP.Controllers
             UserWiseTheme usertheme = dl.GetUserWiseTheme(User.UserID);
             if (User.UserID != null)
             {
-
-                Session["AdminUserDataModel"] = User;
-                Session["LoginPageName"] = PageName;
-                return RedirectToAction("AdminDashboard", "Home");
+                if (User.UM_EmailVery == "Y")
+                {
+                    Session["AdminUserDataModel"] = User;
+                    Session["LoginPageName"] = PageName;
+                    return RedirectToAction("AdminDashboard", "Home");
+                }
+                else
+                {
+                    ViewBag.Message = "Your email is not verified. Please verify your email to login.";
+                    return View();
+                }
             }
 
             else
             {
-                ViewBag.Messege = "Login Not Sucessfull";
+                ViewBag.Message = "Login Not Sucessfull";
                 ViewBag.Message = "The Username or Password you entered is Not Correct";
                 return View();
             }

@@ -2,6 +2,12 @@
 var FromDate = '';
 
 $(document).ready(function () {
+    var path = window.location.pathname;
+    path = path.replace(/\/$/, "");
+    path = decodeURIComponent(path);
+    console.log(path);
+    localStorage.setItem('href', path);
+
     let today = new Date();
     let dd = today.getDate();
     let mm = today.getMonth() + 1;
@@ -213,7 +219,7 @@ function SMMEList() {
         dataType: "json",
         success: function (data, status) {
             var tableBody = '';
-            var v = "/Account/SMMESettings_company?M=E&Id=";
+            var v = "/SMME/SMMEProfile??Id=";
             var items = data.SMMEList || []; 
 
             // console.log('SMME data:', items);

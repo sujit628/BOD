@@ -4,6 +4,12 @@ var SMMLogoList = '';
 $(document).ready(function () {
 
     InitUI();
+
+    var path = window.location.pathname;
+    path = path.replace(/\/$/, "");
+    path = decodeURIComponent(path);
+    // console.log(path);
+    localStorage.setItem('href', path);
    
   
 });

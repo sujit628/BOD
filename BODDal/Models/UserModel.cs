@@ -45,6 +45,7 @@ namespace BODDal.Models
         public string UM_Role { get; set; }
         public string UM_SubRole { get; set; }
         public int? UM_SubRoleId { get; set; }
+        public string UM_EmailVery { get; set; }
         public string UM_CmnyPrefix { get; set; }
         public string UM_CmnyPrefixForStakeholder { get; set; }
         public string UM_CompanyPicForStakeholder { get; set; }

@@ -24,7 +24,8 @@ function SaveRecordForCreateAct() {
         success: function (data) {
             if (data != null && data != undefined && data.IsSuccess == true) {
                 Swal.fire({
-                    title: "Activity saved successfully!",
+                    title: "Good job!",
+                    text: "Your changes were saved successfully!",
                     icon: "success",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -41,7 +42,8 @@ function SaveRecordForCreateAct() {
             }
             else {
                 Swal.fire({
-                    title: data.Message,
+                    title: "Oops...",
+                    text: data.Message,
                     icon: "error",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -53,7 +55,8 @@ function SaveRecordForCreateAct() {
 
 
             Swal.fire({
-                title: "Process Not Complete",
+                title: "Oops...",
+                text: "Process Not Complete",
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -100,7 +103,8 @@ function fnSmmeForEnterprise(ProjectId) {
         },
         error: function (data) {
             Swal.fire({
-                title: 'Process Not Success',
+                title: "Oops...",
+                text: 'Process Not Success',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -155,7 +159,8 @@ function fnProjectForAdmin(Id,M) {
         },
         error: function (data) {
             Swal.fire({
-                title: 'Process Not Success',
+                title: "Oops...",
+                text: 'Process Not Success',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -264,7 +269,8 @@ function retrive(id) {
         },
         error: function (data) {
             Swal.fire({
-                title: "Process Not Complete",
+                title: "Oops...",
+                text: 'Process Not Success',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -382,7 +388,8 @@ function ActivityCompleted() {
                     success: function (data) {
                         if (data.IsSuccess) {
                             Swal.fire({
-                                title: 'Activity unmarked successfully.',
+                                title: "Good job!",
+                                text: 'Activity unmarked successfully.',
                                 icon: 'success',
                                 confirmButtonText: 'Ok'
                             }).then(() => {
@@ -390,7 +397,8 @@ function ActivityCompleted() {
                             });
                         } else {
                             Swal.fire({
-                                title: 'Error: ' + (data.Message || "Unexpected error occurred."),
+                                title: "Oops...",
+                                text: 'Error: ' + (data.Message || "Unexpected error occurred."),
                                 icon: 'error',
                                 confirmButtonText: 'Ok'
                             });
@@ -398,7 +406,8 @@ function ActivityCompleted() {
                     },
                     error: function () {
                         Swal.fire({
-                            title: "Process failed",
+                            title: "Oops...",
+                            text: "Process failed",
                             icon: 'error',
                             confirmButtonText: 'Ok'
                         });
@@ -429,7 +438,8 @@ function ActivityCompleted() {
             success: function (data) {
                 if (data.IsSuccess) {
                     Swal.fire({
-                        title: 'Activity marked as completed successfully.',
+                        title: "Good job!",
+                        text: 'Activity marked as completed successfully.',
                         icon: 'success',
                         confirmButtonText: 'Ok'
                     }).then(() => {
@@ -437,7 +447,8 @@ function ActivityCompleted() {
                     });
                 } else {
                     Swal.fire({
-                        title: 'Error: ' + (data.Message || "Unexpected error occurred."),
+                        title: "Oops...",
+                        text: 'Error: ' + (data.Message || "Unexpected error occurred."),
                         icon: 'error',
                         confirmButtonText: 'Ok'
                     });
@@ -445,7 +456,8 @@ function ActivityCompleted() {
             },
             error: function () {
                 Swal.fire({
-                    title: "Process failed",
+                    title: "Oops...",
+                    text: "Process failed",
                     icon: 'error',
                     confirmButtonText: 'Ok'
                 });

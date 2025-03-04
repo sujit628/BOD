@@ -1,25 +1,10 @@
 ﻿
-$(document).ready(function () {
-    $('.toggle-password').on('click', function () {
-        const input = $(this).siblings('input');
-        const type = input.attr('type') === 'password' ? 'text' : 'password';
-        input.attr('type', type);
-    });
-});
-
-$('#btnSubmit').on('click', function () {
-    SaveRecords();
-})
 
 function SaveRecords() {
-    //var _data = formElem.serialize();
     var _data = JSON.stringify({
         User: {
-           // UM_Id: $('#Id').val(),
-            UM_CurrentPassword: $.trim($('#txtcurrentPassword').val()),
-            UM_NewPassword: $.trim($('#txtnewPassword').val()),
-            UM_ConfirmPassword: $.trim($('#txtconfirmPassword').val()),
-           
+           UM_CurrentPassword: $.trim($('#currentPassword').val()),
+           UM_NewPassword: $.trim($('#newPassword').val()),
         }
     });
     $.ajax({
@@ -31,21 +16,52 @@ function SaveRecords() {
         success: function (data) {
             if (data != null && data != undefined && data.IsSuccess == true) {
                // SendMail()
+                if (data.Id > 0)
+                {
+                    Swal.fire({
+                        title: data.Message,
+                        icon: "success",
+                        customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
+                        buttonsStyling: !1
+                    }).then((result) => {
 
-                Swal.fire({
-                    title: "Your changes were saved successfully!",
-                    icon: "success",
-                    customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
-                    buttonsStyling: !1
-                });
+                        if (result.isConfirmed) {
 
-                //var oTable = $('#datatable-example').DataTable();
-                //oTable.destroy();
-                //BindGrid();
-                //$('#setUPFormUserModal').modal('hide');
-                //$('#setUPFormUserModal').find('input, select').val('');
+                            if (data.Id == 1) {
+                                window.location = '/Account/EnterpriseLogin';
+                            } else if (data.Id == 2) {
+                                window.location = '/Account/SMMELogin';
+                            } else if (data.Id == 3) {
+                                window.location = '/Account/EnterpriseUserLogin';
+                            } else if (data.Id == 4) {
+                                window.location = '/Account/AdminUserLogin';
+                            }
+                                //else if (data.Id == 5) {
+                                //    window.location = '/Account/SMMEUserLogin';
+                                //}
+                            else {
+                                window.location = '/Account/AdminLogin';
+                            }
 
-                window.location.reload();
+                          ///  window.location.href = "/Account/AdminUserLogin";
+
+
+                        }
+
+
+                    });
+                }
+                else
+                {
+                    Swal.fire({
+                        title: data.Message,
+                        icon: "error",
+                        customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
+                        buttonsStyling: !1
+                    });
+
+                }
+             
             } else {
                 //var Email = $('#txtUserEmail').val();
                 //var Phone = $('#txtContact').val();
@@ -59,7 +75,7 @@ function SaveRecords() {
                 //    titleText = data.Message;
                 //}
                 Swal.fire({
-                    title: titleText,
+                    title: data.Message,
                     icon: "error",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -77,75 +93,4 @@ function SaveRecords() {
         }
     });
 }
-
-
-document.addEventListener('DOMContentLoaded', function () {
-    const passwordField = document.getElementById('txtnewPassword');
-    const confirmPasswordField = document.getElementById('txtconfirmPassword');
-    const passwordMessageField = document.getElementById('pass-msg');
-    const confirmPasswordMessageField = document.getElementById('confirmpass-msg');
-    const submitButton = document.getElementById('btnSubmit');
-
-    // Function to validate password requirements
-    function validatePassword() {
-        const password = passwordField.value;
-
-        // Check for password requirements and show the first unmet one
-        if (password.length < 8) {
-            passwordField.style.borderColor = 'red';
-            passwordMessageField.textContent = 'Password must be more than 8 characters';
-            passwordMessageField.style.color = '#ff4c51';
-        } else if (!/[a-z]/.test(password)) {
-            passwordField.style.borderColor = 'red';
-            passwordMessageField.textContent = 'Password must contain at least one lowercase letter';
-            passwordMessageField.style.color = '#ff4c51';
-        } else if (!/[0-9\s\W]/.test(password)) {
-            passwordField.style.borderColor = 'red';
-            passwordMessageField.textContent = 'Password must contain at least one number, symbol, or whitespace';
-            passwordMessageField.style.color = '#ff4c51';
-        } else {
-            passwordField.style.borderColor = 'green';
-            passwordMessageField.textContent = '';
-        }
-
-        checkPasswordMatch(); // Check password match whenever password changes
-    }
-
-    // Function to validate confirm password and check match
-    function validateConfirmPassword() {
-        const confirmPassword = confirmPasswordField.value;
-
-        if (confirmPassword.length < 8) {
-            confirmPasswordField.style.borderColor = 'red';
-            confirmPasswordMessageField.textContent = 'Confirm password must be more than 8 characters';
-            confirmPasswordMessageField.style.color = '#ff4c51';
-        } else {
-            confirmPasswordField.style.borderColor = 'green';
-            confirmPasswordMessageField.textContent = '';
-        }
-
-        checkPasswordMatch(); // Check password match whenever confirm password changes
-    }
-
-    // Function to check if passwords match and enable submit button
-    function checkPasswordMatch() {
-        const password = passwordField.value;
-        const confirmPassword = confirmPasswordField.value;
-
-        if (confirmPassword === password && password.length >= 8 && confirmPassword.length >= 8) {
-            confirmPasswordMessageField.textContent = 'Passwords match';
-            confirmPasswordMessageField.style.color = 'green';
-            submitButton.disabled = false; // Enable the submit button
-        } else {
-            confirmPasswordMessageField.textContent = 'Confirm password does not match';
-            confirmPasswordMessageField.style.color = 'red';
-            submitButton.disabled = true; // Disable the submit button
-        }
-    }
-
-    // Event listeners for input fields
-    passwordField.addEventListener('input', validatePassword);
-    confirmPasswordField.addEventListener('input', validateConfirmPassword);
-});
-
 
