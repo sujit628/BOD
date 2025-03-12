@@ -48,7 +48,8 @@ function SaveRecord() {
                 //location.reload();
                 if (data.Id == -1) {
                     Swal.fire({
-                        title: data.Message,
+                        title: "Good job!",
+                        text: data.Message,
                         icon: "error",
                         customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                         buttonsStyling: !1
@@ -65,7 +66,8 @@ function SaveRecord() {
         }
     else {
                     Swal.fire({
-                        title: data.Message,
+                        title: "Oops...",
+                        text: data.Message,
                         icon: "success",
                         customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                         buttonsStyling: !1
@@ -101,7 +103,8 @@ function SaveRecord() {
 error: function (data) {
           
     Swal.fire({
-        title: data.Message,
+        title: "Oops...",
+        text: data.Message,
         icon: "error",
         customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
         buttonsStyling: !1

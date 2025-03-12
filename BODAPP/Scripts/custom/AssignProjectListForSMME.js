@@ -3,6 +3,12 @@ $(document).ready(function () {
 
     fnProjectForSMME();
 
+    var path = window.location.pathname;
+    path = path.replace(/\/$/, "");
+    path = decodeURIComponent(path);
+    // console.log(path);
+    localStorage.setItem('href', path);
+
 });
 function fnProjectForSMME() {
 
@@ -45,7 +51,8 @@ function fnProjectForSMME() {
         },
         error: function (data) {
             Swal.fire({
-                title: 'Process Not Success',
+                title: "Oops...",
+                text: 'Process Not Success',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -56,8 +63,6 @@ function fnProjectForSMME() {
 
 }
 function fnProjectForAdminDetails(TypeId, SegmentId, active) {
-
-
     var _data = JSON.stringify({
         global: {
             TransactionType: 'SelectSegmentWiseAssessment',
@@ -84,7 +89,8 @@ function fnProjectForAdminDetails(TypeId, SegmentId, active) {
         },
         error: function (data) {
             Swal.fire({
-                title: 'Process Not Success',
+                title: "Oops...",
+                text: 'Process Not Success',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -137,7 +143,8 @@ function ShowAllUser(id) {
         },
         error: function (data) {
             Swal.fire({
-                title: 'Process Not Complete',
+                title: "Oops...",
+                text: 'Process Not Complete',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -188,7 +195,8 @@ function ShowAllTeam(id) {
         },
         error: function (data) {
             Swal.fire({
-                title: 'Process Not Complete',
+                title: "Oops...",
+                text: 'Process Not Complete',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -267,6 +275,7 @@ function AssignProject(index, UmId, TeamId) {
             else {
 
                 Swal.fire({
+
                     title: data.Message,
                     icon: "error",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },

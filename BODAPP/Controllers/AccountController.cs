@@ -143,7 +143,8 @@ namespace BODAPP.Controllers
             //}
             else
             {
-                ViewBag.Message = "Your account is not active, Please contact your admin.";
+               // ViewBag.Message = "Your account is not active, Please contact your admin.";
+                ViewBag.Message = "Username or Password is incorrect, please enter correct username and password";
                 return View();
             }
         }
@@ -166,12 +167,29 @@ namespace BODAPP.Controllers
             UserWiseTheme usertheme = dl.GetUserWiseTheme(User.UserID);
             if (User.UserID != null)
             {
-                Session["UserDataModel"] = User;
-                return RedirectToAction("AdminDashboard", "Home");
+                if (User.UM_Active == 0)
+                {
+                    ViewBag.Message = "User Not Active";
+                    return View();
+                }
+                else if (User.UM_EmailVery == "N")
+                {
+
+                    ViewBag.Message = "Email Not Verified";
+                    return View();
+                }
+
+                else
+                {
+                    Session["UserDataModel"] = User;
+                    return RedirectToAction("AdminDashboard", "Home");
+
+                }
+               
             }
             else
             {
-                ViewBag.Message = "The Username or Password you entered is Not Correct";
+                ViewBag.Message = "Username or Password is incorrect, please enter correct username and password";
                 return View();
             }
         }
@@ -227,7 +245,7 @@ namespace BODAPP.Controllers
             else
             {
                 ViewBag.Message = "Login Not Sucessfull";
-                ViewBag.Message = "The Username or Password you entered is Not Correct";
+                ViewBag.Message = "Username or Password is incorrect, please enter correct username and password";
                 return View();
             }
         }
@@ -291,7 +309,7 @@ namespace BODAPP.Controllers
             else
             {
                 ViewBag.Message = "Login Not Sucessfull";
-                ViewBag.Message = "The Username or Password you entered is Not Correct";
+                ViewBag.Message = "Username or Password is incorrect, please enter correct username and password";
                 return View();
             }
         }
@@ -348,8 +366,8 @@ namespace BODAPP.Controllers
 
             else
             {
-                ViewBag.Message = "Login Not Sucessfull";
-                ViewBag.Message = "The Username or Password you entered is Not Correct";
+                ViewBag.Message = "Login not sucessfull";
+                ViewBag.Message = "Username or Password is incorrect, please enter correct username and password";
                 return View();
             }
         }

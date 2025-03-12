@@ -458,7 +458,8 @@ function SaveRecords() {
                 var retId = $('#Id').val();
                 if (retId > 0) {
                     Swal.fire({
-                        title: "Your changes were saved successfully!",
+                        title: "Good job!",
+                        text: "Your changes were saved successfully!",
                         icon: "success",
                         customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                         buttonsStyling: !1
@@ -476,18 +477,6 @@ function SaveRecords() {
                 } else {
                     SendMail();
                 }
-                //Swal.fire({
-                //    title: "Your changes were saved successfully!",
-                //    icon: "success",
-                //    customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
-                //    buttonsStyling: !1
-                //});
-                //var oTable = $('#datatable-example').DataTable();
-                //oTable.destroy();
-                //BindGrid();
-                //$('#setUPFormUserModal').modal('hide');
-                //$('#setUPFormUserModal').find('input, select').val('');
-
                 $('#prfpicIMG').attr('src', '/Content/assets/img/avatars/userpic.png');
 
                 //window.location = '/Home/ViewAllEnterpriseUserForAdmin';
@@ -504,7 +493,8 @@ function SaveRecords() {
                     titleText = data.Message;
                 }
                 Swal.fire({
-                    title: titleText,
+                    title: "Oops...",
+                    text: titleText,
                     icon: "error",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -513,7 +503,8 @@ function SaveRecords() {
         },
         error: function (data) {
             Swal.fire({
-                title: "Process Not Complete",
+                title: "Oops...",
+                text: "Process Not Complete",
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -642,7 +633,8 @@ function UpdatePhoto() {
         success: function (data) {
             if (data != null && data != undefined && data.IsSuccess == true) {
                 Swal.fire({
-                    title: data.Message,
+                    title: "Good job!",
+                    text: data.Message,
                     icon: "success",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -651,7 +643,8 @@ function UpdatePhoto() {
         },
         error: function (data) {
             Swal.fire({
-                title: 'Process Not Complete',
+                title: "Oops...",
+                text: 'Process Not Complete',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -680,7 +673,6 @@ function fnCancelRedirect() {
             //$('#formAccountSettings').trigger("reset");
             window.location.href = "/Enterprise/ViewAllUser";
         });
-
     });
 }
 function ShowPreview(input) {
@@ -798,15 +790,9 @@ function SendMail() {
         dataType: "json",
         success: function (data) {
             if (data != null && data.IsSuccess === true) {
-                //Swal.fire({
-                //    title: data.Message,
-                //    icon: "success",
-                //    customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
-                //    buttonsStyling: !1
-                //});
-
                 Swal.fire({
-                    title: "Your changes were saved successfully!",
+                    title: "Good job!",
+                    text: "Your changes were saved successfully!",
                     icon: "success",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -816,52 +802,29 @@ function SendMail() {
                 BindGrid();
                 $('#setUPFormUserModal').modal('hide');
                 $('#setUPFormUserModal').find('input, select').val('');
+                $('#ddlRole').find('input, select').val('');
+                $('#ddlGender').find('input, select').val('');
                 $('#prfpicIMG').attr('src', '/Content/assets/img/avatars/userpic.png');
 
-                //Swal.fire({
-                //    title: "Project created successfully..!",
-                //    icon: "success",
-                //    customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
-                //    buttonsStyling: !1
-                //}).then((result) => {
-
-                //    if (result.isConfirmed) {
-
-                //        if ($('#EntrId').val() > 0) {
-                //            window.location.href = "/Project/ProjectListForEnterprise";
-                //        }
-                //        else {
-                //            window.location.href = "/Project/ProjectListForAdmin";
-                //        }
-
-                //    }
-
-
-                //});
-                //$(document).ajaxStop(function () {
-                //    $("#section-block").block({ message: '<div class="spinner-border text-primary" role="status"></div>', timeout: 0.5e3, css: { backgroundColor: "transparent", border: "0" }, overlayCSS: { backgroundColor: "#fff", opacity: .8 } })
-                //});
                 $("#btnUpdateNext").html('Save');
                 $('#btnUpdateNext').removeAttr('disabled');
 
-
             } else {
                 Swal.fire({
-                    title: "Invalid email, try another email..!",
+                    title: "Oops...",
+                    text: "Invalid email, try another email..!",
                     icon: "warning",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: false
                 });
                 $("#btnUpdateNext").html('Save');
                 $('#btnUpdateNext').removeAttr('disabled');
-                //setTimeout(function () {
-                //    window.location.reload();  
-                //}, 2000);
             }
         },
         error: function () {
             Swal.fire({
-                title: "Process not complete",
+                title: "Oops...",
+                text: "Process not complete",
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: false

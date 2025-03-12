@@ -3662,6 +3662,44 @@ namespace BODAPP.Controllers
         }
 
         [HttpPost]
+        public JsonResult InsertUpdateBudgetAllocationForSMMEExpenditure(BudgetAllocation entity)
+        {
+
+
+            StatusResponse Status = new StatusResponse();
+            try
+            {
+
+                long id = dl.InsertUpdateBudgetAllocationForSMMEExpenditure(entity);
+                if (id > 0)
+                {
+                    Status.ExMessage = "";
+                    Status.IsSuccess = true;
+                    Status.Message = "Your changes were saved successfully";
+                }
+                else
+                {
+                    Status.ExMessage = "";
+                    Status.IsSuccess = true;
+                    Status.Message = "Record not saved successfully...";
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Status.Id = -1;
+                Status.IsSuccess = false;
+                Status.ExMessage = ex.Message;
+                Status.Message = "Process fails..";
+            }
+            finally
+            {
+                GC.Collect();
+            }
+            return Json(Status, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
         public JsonResult InsertUpdateProjectWiseDocument(ProjectWiseDocument entity)
         {
 
@@ -5482,6 +5520,14 @@ namespace BODAPP.Controllers
                         UserModel.CoreLink = User.CoreLink;
                         UserModel.ThemeColor = User.ThemeColor;
                         UserModel.CustomCSSLink = User.CustomCSSLink;
+                    }
+                    else if (AdminUserModel != null)
+                    {
+                        AdminUserModel.ThemeStyle = User.ThemeStyle;
+                        AdminUserModel.TheamLink = User.TheamLink;
+                        AdminUserModel.ThemeColor = User.ThemeColor;
+                        AdminUserModel.CoreLink = User.CoreLink;
+                        AdminUserModel.CustomCSSLink = User.CustomCSSLink;
                     }
                     else if (EnterpriseEMPUserDataModel != null)
                     {

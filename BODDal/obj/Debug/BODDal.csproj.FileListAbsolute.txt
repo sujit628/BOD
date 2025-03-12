@@ -328,3 +328,9 @@ J:\gitCloneBOD\BODDal\bin\Debug\Owin.dll
 J:\gitCloneBOD\BODDal\obj\Debug\BODDal.csprojResolveAssemblyReference.cache
 J:\gitCloneBOD\BODDal\obj\Debug\BODDal.dll
 J:\gitCloneBOD\BODDal\obj\Debug\BODDal.pdb
+F:\Dreamix\Project_2025\BOD_GitManage\BOD\BODDal\bin\Debug\BODDal.dll
+F:\Dreamix\Project_2025\BOD_GitManage\BOD\BODDal\bin\Debug\BODDal.pdb
+F:\Dreamix\Project_2025\BOD_GitManage\BOD\BODDal\bin\Debug\Owin.dll
+F:\Dreamix\Project_2025\BOD_GitManage\BOD\BODDal\obj\Debug\BODDal.csprojResolveAssemblyReference.cache
+F:\Dreamix\Project_2025\BOD_GitManage\BOD\BODDal\obj\Debug\BODDal.dll
+F:\Dreamix\Project_2025\BOD_GitManage\BOD\BODDal\obj\Debug\BODDal.pdb

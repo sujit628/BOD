@@ -58,6 +58,7 @@
     <Compile Include="Models\AdminReport.cs" />
     <Compile Include="Models\CountrySetUp.cs" />
     <Compile Include="Models\EmailDetails.cs" />
+    <Compile Include="Models\ExpenditureWiseBudget.cs" />
     <Compile Include="Models\ProjectBudgetFundDetails.cs" />
     <Compile Include="Models\SMMEDashBoard.cs" />
     <Compile Include="Models\EnrDashBoard.cs" />

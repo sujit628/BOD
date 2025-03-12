@@ -38,7 +38,7 @@
                     <span class="fas fa-file-invoice-dollar me-1"></span>Budget Allocate To Task
                 </button>
                 <button class="btn rounded-pill btn-outline-primary allcn" id="btnAsgnSMME">
-                    <span class="fas fa-user-plus me-1"></span>Budget Allocate To SMME
+                    <span class="fas fa-user-plus me-1"></span>Budget Allocate To MSME
                 </button>
             </div>
         </div>
@@ -197,7 +197,7 @@
         <div class="modal-dialog modal-xl" role="document" style=" width: 100%;min-width: 1200px;">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalBudgDistribution4">Budget Allocation For SMME</h5>
+                    <h5 class="modal-title" id="modalBudgDistribution4">Budget Allocation For MSME</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -250,7 +250,7 @@
 
                     <div class="row">
                         <div class="col-4 mb-4">
-                            <label for="ddlSMME" class="form-label">SMME<span class="text-danger">*</span></label>
+                            <label for="ddlSMME" class="form-label">MSME<span class="text-danger">*</span></label>
                             <select id="ddlSMME" name="ddlSMME" class="select2 form-select ddlSMME txSMME" data-allow-clear="true"></select>
                         </div>
                         <div class="col-3 mb-3">
@@ -271,7 +271,7 @@
                             <table id="tblSMME" class="table table-bordered tbl">
                                 <thead>
                                     <tr>
-                                        <th>SMME</th>
+                                        <th>MSME</th>
                                         <th>Amount</th>
                                         <th hidden>Period</th>
                                         <th hidden>Activity</th>
@@ -491,75 +491,6 @@
         </div>
     </div>
 
-
-
-    @*<div class="modal fade" id="modalBudgAcitivity" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-xl" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalBudgDistribution4">Budget Allocation</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <div class="row">
-                        <div class="col-3 mb-3">
-                            <label for="ddlFundType" class="form-label">Activity</label>
-                            <select id="ddlActivity" name="ddlActivity" class="select2 form-select ddlActivity" data-allow-clear="true"></select>
-                        </div>
-                        <div class="col-3 mb-3">
-                            <label for="ddlFundType" class="form-label">Fund Type</label>
-                            <select id="ddlFundTypeAct" name="ddlFundTypeAct" class="select2 form-select ddlFundTypeAct" data-allow-clear="true"></select>
-                        </div>
-
-                        <div class="col-2 mb-2">
-                            <label for="txtAmnt" class="form-label">Amount</label>
-                            <input type="text" class="form-control txtModal" id="txtAcitivityAmnt" placeholder="Enter Acitivity Amount " onkeyup="cellAmntForActivityBudget(this)" name="txtAcitivityAmnt" onkeydown="    return !((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105) && event.keyCode != 8 && event.keyCode != 46);" />
-                        </div>
-                        <div class="col-2 mb-3">
-                            <label for="txtTotalAmnt" class="form-label">AvailableFund</label>
-                            <input type="text" class="form-control txtModal" id="txtAvailableFund" placeholder=" " name="txtAvailableFund" disabled />
-                            <input type="hidden" class="form-control txtModal" id="hdnAvailableFund" name="hdnAvailableFund"  />
-                        </div>
-                        <div class="col-2 mb-2">
-                            <div style="height:20px"></div>
-                            <button type="button" class="btn btn-icon rounded-pill btn-success  waves-effect" onclick="AddActivityBudget();">
-                                <i class="tf-icons ti ti-plus"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="row">
-
-                        <div class="col-sm-12">
-                            <table id="tblActivity" class="table table-bordered tbl">
-                                <thead>
-                                    <tr>
-                                        <th style="width:30%;">Acitivity</th>
-                                        <th style="width:30%;">Fund Type</th>
-                                        <th>Amount</th>
-                                        <th>AvailableFund</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody></tbody>
-
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" onclick="SaveBudgetDetailsForActivity()">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>*@
-
-
-
-
-
     <div class="row">
         <!-- View sales -->
         <div class="col-xl-4 mb-4 col-md-6">
@@ -646,12 +577,7 @@
             </div>
         </div>
 
-
-
-
-
         <div class="col-xl-12">
-
             <div class="nav-align-top nav-tabs-shadow mb-4">
                 <ul class="nav nav-tabs nav-fill" role="tablist">
                     <li class="nav-item">
@@ -669,7 +595,7 @@
                         <table class="datatables-products table" id="datatable-smme">
                             @*<thead class="border-top">
                                 <tr>
-                                    <th class="text-nowrap">SMME</th>
+                                    <th class="text-nowrap">MSME</th>
                                     <th class="text-nowrap">Period</th>
                                     <th class="text-nowrap">Budgeted Amount</th>
                                     @*<th class="text-nowrap">AvailbleBudget</th>
@@ -709,18 +635,6 @@
             </div>
         </div>
 
-        @*<div class="offcanvas offcanvas-end" tabindex="-1" id="viewFundPopUp" aria-labelledby="offcanvassetUPLabel">
-            <!-- Offcanvas Header -->
-            <div class="offcanvas-header py-4">
-                <h5 id="setUPFormPopUpLabel" class="offcanvas-title">Add Sector</h5>
-                <button type="button" class="btn-close text-reset" data-bs-dismiss="viewFundPopUp" aria-label="Close"></button>
-            </div>
-            <!-- Offcanvas Body -->
-            <div class="offcanvas-body border-top">
-                
-            </div>
-        </div>*@
-
 
         <div class="offcanvas offcanvas-end" tabindex="-1" id="viewFundPopUp" aria-labelledby="offcanvasEndLabel">
             <div class="offcanvas-header">
@@ -730,18 +644,7 @@
 
 
             <div class="offcanvas-body">
-                @*<ul class="p-0 m-0">
-            <li class="mb-4 pb-1 d-flex justify-content-between align-items-center">
-                <div class="badge bg-label-success rounded p-2"><i class="ti ti-mail ti-sm"></i></div>
-                <div class="d-flex justify-content-between w-100 flex-wrap">
-                    <h6 class="mb-0 ms-3">Emails</h6>
-                    <div class="d-flex">
-                        <p class="mb-0 fw-medium">12,346</p>
-                        <p class="ms-3 text-success mb-0">0.3%</p>
-                    </div>
-                </div>
-            </li>
-            </ul>*@
+              
 
                 <div class="table-responsive">
                     <table class="table table-borderless border-top" id="tblFund">
@@ -752,22 +655,7 @@
                             </tr>
                         </thead>
                         <tbody></tbody>
-                        @*<tr>
-            <td>
-                <div class="d-flex align-items-center mt-lg-3">
-
-                    <div class="d-flex flex-column">
-                        <h6 class="mb-0">Fund</h6>
-                        <small class="text-truncate text-muted">Business Intelligence</small>
-                    </div>
-                </div>
-            </td>
-            <td class="text-end">
-                <div class="user-progress mt-lg-3">
-                    <p class="mb-0 fw-medium">33</p>
-                </div>
-            </td>
-            </tr>*@ 
+                        
                     </table>
                     </div>
 

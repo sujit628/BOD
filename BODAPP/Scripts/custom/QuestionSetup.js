@@ -85,7 +85,8 @@ function fnOptionListValid() {
     }
     if (($('#btnOptionlist').prop('disabled') === false) && ($('#QuestionList').val() == "")) {
         Swal.fire({
-            title: "Please enter atleast one Option",
+            title: "Oops...",
+            text: "Please enter atleast one Option",
             icon: "error",
             customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
             buttonsStyling: !1
@@ -94,7 +95,8 @@ function fnOptionListValid() {
     }
     if (($('#btnOptionlist').prop('disabled') === false) && (($('#ddlQuestionType').val() == "SingleSelect") || ($('#ddlQuestionType').val() == "MultiSelect")) && valNum < 2) {
         Swal.fire({
-            title: "Please enter atleast two Option for " + QuesOpt + "",
+            title: "Oops...",
+            text: "Please enter atleast two Option for " + QuesOpt + "",
             icon: "error",
             customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
             buttonsStyling: !1
@@ -132,7 +134,8 @@ function SaveRecord() {
             success: function (data) {
                 if (data != null && data != undefined && data.IsSuccess == true && data.Id > 0) {
                     Swal.fire({
-                        title: "Question Saved successfully!",
+                        title: "Good job!",
+                        text: "Question Saved successfully!",
                         icon: "success",
                         customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                         buttonsStyling: !1
@@ -145,7 +148,8 @@ function SaveRecord() {
                 }
                 else {
                     Swal.fire({
-                        title: data.Message,
+                        title: "Oops...",
+                        text: data.Message,
                         icon: "error",
                         customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                         buttonsStyling: !1
@@ -155,7 +159,8 @@ function SaveRecord() {
             error: function (data) {
 
                 Swal.fire({
-                    title: 'Process Not Complete',
+                    title: "Oops...",
+                    text: 'Process Not Complete',
                     icon: "error",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1

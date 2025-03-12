@@ -180,11 +180,7 @@ function retrivePermission( projectId) {
 
 $(document).ready(function () {
 
-    var path = window.location.pathname;
-    path = path.replace(/\/$/, "");
-    path = decodeURIComponent(path);
-    // console.log(path);
-    localStorage.setItem('href', path);
+   
 
     Id = getParameterByName('Id');
     var Type = getParameterByName('Type');
@@ -2621,6 +2617,10 @@ function retriveSMMEBudgetDetails(id) {
     return false;
 
 }
+
+
+
+
 
 
 

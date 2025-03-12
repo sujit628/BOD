@@ -866,11 +866,9 @@ $("#ddlBookingCountry").change(function () {
 
 $(document).ready(function () {
 
-    var path = window.location.pathname;
-    path = path.replace(/\/$/, "");
-    path = decodeURIComponent(path);
+   
     // console.log(path);
-    localStorage.setItem('href', path);
+   // localStorage.setItem('href', '/Account/EnterpriseSettings_company');
 
 
     $('.alphabets').on('input', function () {
@@ -1251,7 +1249,8 @@ function fnCancelRedirect() {
 
 function fnNextRedirect() {
     Swal.fire({
-        title: "Your changes were saved successfully!",
+        title: "Good job!",
+        text: "Your changes were saved successfully!",
         icon: "success",
         customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
         //confirmButtonText:"Next",
@@ -1436,7 +1435,8 @@ function SendMail(Id) {
                // GetUserLoginForInactiveWhitelisting(Id);
 
                 Swal.fire({
-                    title: "Your changes were saved successfully!",
+                    title: "Good job!",
+                    text: "Your changes were saved successfully!",
                     icon: "success",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -1444,28 +1444,8 @@ function SendMail(Id) {
 
                 if (Type == 'N') {
                         fnNextRedirect()
-                    }
+                }
 
-                //Swal.fire({
-                //    title: "Project created successfully..!",
-                //    icon: "success",
-                //    customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
-                //    buttonsStyling: !1
-                //}).then((result) => {
-
-                //    if (result.isConfirmed) {
-
-                //        if ($('#EntrId').val() > 0) {
-                //            window.location.href = "/Project/ProjectListForEnterprise";
-                //        }
-                //        else {
-                //            window.location.href = "/Project/ProjectListForAdmin";
-                //        }
-
-                //    }
-
-
-                //});
                 $(document).ajaxStop(function () {
                     $("#section-block").block({ message: '<div class="spinner-border text-primary" role="status"></div>', timeout: 0.5e3, css: { backgroundColor: "transparent", border: "0" }, overlayCSS: { backgroundColor: "#fff", opacity: .8 } })
 
@@ -1476,7 +1456,8 @@ function SendMail(Id) {
 
             } else {
                 Swal.fire({
-                    title: "Invalid email, try another email..!",
+                    title: "Oops...",
+                    text: "Invalid email, try another email..!",
                     icon: "warning",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: false
@@ -1490,7 +1471,8 @@ function SendMail(Id) {
         },
         error: function () {
             Swal.fire({
-                title: "Process not complete",
+                title: "Oops...",
+                text: "Process not complete",
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: false

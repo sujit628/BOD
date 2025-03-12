@@ -149,7 +149,8 @@ function ShowAllSMME(id, PdId) {
         },
         error: function (data) {
             Swal.fire({
-                title: 'Process Not Complete',
+                title: "Oops...",
+                text: 'Process Not Complete',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -191,7 +192,8 @@ function AssignProject(index,SmmeId,SMMEName,mail) {
                     SendMail(SMMEName, mail)
                 } else {
                     Swal.fire({
-                        title: "Your changes were saved successfully",
+                        title: "Good job!",
+                        text: "Your changes were saved successfully!",
                         icon: "success",
                         customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                         buttonsStyling: !1
@@ -202,7 +204,8 @@ function AssignProject(index,SmmeId,SMMEName,mail) {
             else {
 
                 Swal.fire({
-                    title: data.Message,
+                    title: "Oops...",
+                    text: data.Message,
                     icon: "error",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -211,7 +214,8 @@ function AssignProject(index,SmmeId,SMMEName,mail) {
         },
         error: function (data) {
             Swal.fire({
-                title: 'Process Not Complete',
+                title: "Oops...",
+                text: 'Process Not Complete',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -249,7 +253,8 @@ function retriveProject(id) {
         },
         error: function (data) {
             Swal.fire({
-                title: "Process Not Complete",
+                title: "Oops...",
+                text: "Process Not Complete",
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -301,7 +306,8 @@ function SendMail(SMMEName, Email) {
                 //$('#btnSave').removeAttr('disabled');
             } else {
                 Swal.fire({
-                    title: "Email does not exist, try another email..!",
+                    title: "Oops...",
+                    text: "Email does not exist, try another email..!",
                     icon: "warning",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: false
@@ -313,7 +319,8 @@ function SendMail(SMMEName, Email) {
         },
         error: function () {
             Swal.fire({
-                title: "Process not complete",
+                title: "Oops...",
+                text: "Process not complete",
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: false

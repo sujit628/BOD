@@ -10,10 +10,12 @@ function SetThemeColor(hex, rgb) {
 function SetThemeMode(mode) {
 
     let themeStyleLink = document.querySelector('#themeStyleLink');
-    if (mode == 'core') {
-        themeStyleLink = '/Content/assets/vendor/css/rtl/theme-default.css';
-    } else {
+    if (mode == 'core-dark') {
         themeStyleLink = '/Content/assets/vendor/css/rtl/theme-default-dark.css';
+    } else if (mode == 'core') {
+        themeStyleLink = '/Content/assets/vendor/css/rtl/theme-default.css';
+    } else  {
+        themeStyleLink = '/Content/assets/vendor/css/rtl/theme-default-semi-dark.css';
     }
     themeMode = mode;
     themeStyle = themeStyleLink;
@@ -32,8 +34,10 @@ let fnCustomThemeColorSwitcher = () => {
             if (typeof ($('#hdnTheamLink').val()) != "undefined") {
                 if ($('#hdnCoreLink').val() == '/Content/assets/vendor/css/rtl/core.css') {
                     themeMode = 'core';
-                } else {
+                } else if ($('#hdnCoreLink').val() == '/Content/assets/vendor/css/rtl/core-dark.css') {
                     themeMode = 'core-dark';
+                }else  {
+                    themeMode = 'core-semi-dark';
                 }
             }
             else {

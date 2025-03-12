@@ -38,7 +38,8 @@ function SaveRecords(EnterpriseId, cd_id, Transactiontype) {
                 //alert("Record saved successfully...");
                 //Id = data.Id;
                 Swal.fire({
-                    title: "Your changes were saved successfully!",
+                    title: "Good job!",
+                    text: "Your changes were saved successfully!",
                     icon: "success",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -47,7 +48,8 @@ function SaveRecords(EnterpriseId, cd_id, Transactiontype) {
             }
             else {
                 Swal.fire({
-                    title: data.Message,
+                    title: "Oops...",
+                    text: data.Message,
                     icon: "error",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -56,7 +58,8 @@ function SaveRecords(EnterpriseId, cd_id, Transactiontype) {
         },
         error: function (data) {
             Swal.fire({
-                title: 'Process Not Complete',
+                title: "Oops...",
+                text: 'Process Not Complete',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1

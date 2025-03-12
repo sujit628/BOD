@@ -1,19 +1,25 @@
 ﻿var rgb = $('#hdnThemeColor').val();
 var hex = $('#hdncolorHex').val();
+var themeModeStyle = 'light-style'
 
 function changeTheme(element,mode,rgb,hex) {
     let themeStyleLink = document.querySelector('#themeStyleLink');
-    if (mode == 'core') {
-        themeStyleLink = '/Content/assets/vendor/css/rtl/theme-default.css';
-    } else {
+    if (mode == 'core-dark') {
         themeStyleLink = '/Content/assets/vendor/css/rtl/theme-default-dark.css';
+        themeModeStyle = 'dark-style';
+    } else if (mode == 'core') {
+        themeStyleLink = '/Content/assets/vendor/css/rtl/theme-default.css';
+        themeModeStyle = 'light-style';
+    } else  {
+        themeStyleLink = '/Content/assets/vendor/css/rtl/theme-default-semi-dark.css';
+        themeModeStyle = 'light-style';
     }
     themeMode = mode;
     themeStyle = themeStyleLink;
     
     var _data = JSON.stringify({
         User: {
-            ThemeStyle: 'light-style',
+            ThemeStyle: themeModeStyle,
             ThemeColor: rgb,
             CustomCSSLink: hex,
             TheamLink: themeStyle,
@@ -30,17 +36,21 @@ function changeTheme(element,mode,rgb,hex) {
         success: function (data) {
             if (data != null && data != undefined && data.IsSuccess == true) {
                 Swal.fire({
-                    title: "Theme Changes Successfully!",
+                    title: "Good job!",
+                    text: "Theme Changes Successfully!",
                     icon: "success",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.reload();
+                    }
                 });
-                window.location.reload();
-
             }
             else {
                 Swal.fire({
-                    title: data.Message,
+                    title: "Oops...",
+                    text: data.Message,
                     icon: "error",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -52,7 +62,8 @@ function changeTheme(element,mode,rgb,hex) {
 
 
             Swal.fire({
-                title: "Process Not Complete",
+                title: "Oops...",
+                text: "Process Not Complete",
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -142,10 +153,15 @@ function changeTheme(element,mode,rgb,hex) {
 
 
 function changeThemeStyle(hex, rgb, mode, themeStyle) {
+    if (mode == 'core-dark') {
+        var themeModeStyle = 'dark-style'
+    } else {
+        var themeModeStyle = 'light-style'
+    }
     var _data = JSON.stringify({
                 User: {
                     ThemeColor: rgb,
-                    ThemeStyle: 'light-style',
+                    ThemeStyle: themeModeStyle,
                     TheamLink: themeStyle,
                     CoreLink: "/Content/assets/vendor/css/rtl/" + mode + ".css",
                     CustomCSSLink: hex,
@@ -169,11 +185,12 @@ function changeThemeStyle(hex, rgb, mode, themeStyle) {
                         icon: "success",
                         customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                         buttonsStyling: !1
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.reload();
+                        }
                     });
-                    window.location.reload();
-                }
-                
-
+                } 
             }
             else {
                 Swal.fire({
@@ -183,15 +200,12 @@ function changeThemeStyle(hex, rgb, mode, themeStyle) {
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
                 });
-
             }
         },
         error: function (data) {
-
-
             Swal.fire({
-                text: "Process Not Complete",
                 title: 'OOPS!..',
+                text: "Process Not Complete",
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1

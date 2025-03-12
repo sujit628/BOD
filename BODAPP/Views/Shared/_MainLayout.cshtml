@@ -688,9 +688,15 @@
                                                 <span class="align-middle">Log Out</span>
                                             </a>
                                         }
+                                        else if (role == "A" && subrole != "SuperAdmin")
+                                        {
+                                            <a class="dropdown-item" href="/Account/AdminUserLogin">
+                                                <i class="ti ti-logout me-2 ti-sm"></i>
+                                                <span class="align-middle">Log Out</span>
+                                            </a>
+                                        }
                                         else
                                         {
-
                                             <a class="dropdown-item" href="/Account/AdminLogin">
                                                 <i class="ti ti-logout me-2 ti-sm"></i>
                                                 <span class="align-middle">Log Out</span>
@@ -1087,7 +1093,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item waves-effect theme-selector  theme-semi-dark" href="javascript:void(0);" data-theme="semi-dark" onclick="changeTheme(this,'semidark','@ThemeColor')">
+                                        <a class="dropdown-item waves-effect theme-selector  theme-semi-dark" href="javascript:void(0);" data-theme="semi-dark" onclick="changeTheme(this,'core-semi-dark','@ThemeColor','@CustomCSSLink')">
                                             <span class="align-middle"><i class="ti ti-device-desktop-analytics ti-md me-3"></i>Semi-Dark</span>
                                         </a>
                                     </li>
@@ -1239,9 +1245,15 @@
                                                 <span class="align-middle">Log Out</span>
                                             </a>
                                         }
+                                        else if (role == "A" && subrole != "SuperAdmin")
+                                        {
+                                            <a class="dropdown-item" href="/Account/AdminUserLogin">
+                                                <i class="ti ti-logout me-2 ti-sm"></i>
+                                                <span class="align-middle">Log Out</span>
+                                            </a>
+                                        }
                                         else
                                         {
-
                                             <a class="dropdown-item" href="/Account/AdminLogin">
                                                 <i class="ti ti-logout me-2 ti-sm"></i>
                                                 <span class="align-middle">Log Out</span>
@@ -1379,7 +1391,7 @@
                                                     <input name="colorRadioIcon" class="form-check-input d-none" type="radio" value="dark" data-theme-mode="dark" data-Mode="core-dark" id="themeModeDark">
                                                 </div>
                                                 <div class="form-check col-4 custom-option custom-option-icon-mode mb-0">
-                                                    <label class="form-check-label custom-option-content p-0" for="themeModeLight" onclick="changeTheme(this,'core','@ThemeColor','@CustomCSSLink')">
+                                                    <label class="form-check-label custom-option-content p-0" for="themeModeLight" onclick="changeTheme(this,'core-semi-dark','@ThemeColor','@CustomCSSLink')">
                                                         <span class="custom-option-body mb-0 scaleX-n1-rtl"><img src="~/Content/assets/img/customizer/semi-dark.svg" /></span>
                                                     </label>
                                                     <input name="colorRadioIcon" class="form-check-input d-none" type="radio" value="light" data-theme-mode="light" data-Mode="core" id="themeModeLight">
@@ -1392,6 +1404,8 @@
                             </div>
                         </div>
                     </div>
+
+
                     <!-- Footer -->
                     <footer class="content-footer footer bg-footer-theme">
                         <div class="container-fluid">

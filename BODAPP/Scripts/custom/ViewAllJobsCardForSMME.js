@@ -4,9 +4,13 @@ var liList = '';
 var List = '';
 $(document).ready(function () {
     $("#section-block").block({ message: '<div class="spinner-border text-primary" role="status"></div>', timeout: 5e3, css: { backgroundColor: "transparent", border: "0" }, overlayCSS: { backgroundColor: "#fff", opacity: .8 } })
-
     fnProjectForSMME();
 
+    var path = window.location.pathname;
+    path = path.replace(/\/$/, "");
+    path = decodeURIComponent(path);
+    // console.log(path);
+    localStorage.setItem('href', path);
 });
 function fnProjectForSMME() {
 

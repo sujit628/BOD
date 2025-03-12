@@ -28,7 +28,8 @@ function SaveRecords() {
         success: function (data) {
             if (data != null && data != undefined && data.IsSuccess == true) {
                 Swal.fire({
-                    title: "Cost saved successfully!",
+                    title: "Good job!",
+                    text: "Your changes were saved successfully!",
                     icon: "success",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -40,7 +41,8 @@ function SaveRecords() {
             }
             else {
                 Swal.fire({
-                    title: data.Message,
+                    title: "Oops...",
+                    text: data.Message,
                     icon: "error",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -49,10 +51,9 @@ function SaveRecords() {
             }
         },
         error: function (data) {
-          
-
             Swal.fire({
-                title:"Process Not Complete",
+                title: "Oops...",
+                text:"Process Not Complete",
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -99,7 +100,6 @@ $(document).ready(function () {
 $(function () {
 
     var f = $(".ddlType");
-
 
     f.length &&
        f.each(function () {
@@ -181,13 +181,12 @@ function retrive(id) {
             $('#txtCostName').val(data[0].CM_Name);
             $('#txtCost').val(data[0].CM_Charge);
             $('#ddlType').val(data[0].CM_Type).change();
-     
-           
-           
+    
         },
         error: function (data) {
             Swal.fire({
-                title: "Process Not Complete",
+                title: "Oops...",
+                text: "Process Not Complete",
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -221,37 +220,6 @@ function fnCancelRedirect() {
         
     });
 
-    //Swal.fire({
-    //    title: "Are you sure?",
-    //    text: "You won't be able to revert this!",
-    //    icon: "warning",
-    //    showCancelButton: !0,
-    //    confirmButtonText: "Yes, Cancel it!",
-    //    cancelButtonText: "Discard",
-    //    customClass: { confirmButton: "btn btn-primary me-3 waves-effect waves-light", cancelButton: "btn btn-label-secondary waves-effect waves-light" },
-
-    //    buttonsStyling: !1,
-    //}).then((result) => {
-    //    if (result.isConfirmed) {
-    //        Swal.fire({
-    //                    icon: "danger",
-    //                    title: "Cancel!",
-    //                    text: "Your data has been cleared.",
-    //                    customClass: { confirmButton: "btn btn-danger waves-effect waves-light" }
-    //                }).then(function() {
-    //                    window.location.href = "/Home/ViewAllEnterpriseUserForAdmin";
-    //                });
-    //    } else if (
-            
-    //      result.dismiss === Swal.DismissReason.cancel
-    //    ) {
-    //        swalWithBootstrapButtons.fire({
-    //            title: "Cancelled",
-    //            text: "Your imaginary file is safe :)",
-    //            icon: "error"
-    //        });
-    //    }
-    //});
 }
 
 $("#btnCancelRedirect").on("click", function () {

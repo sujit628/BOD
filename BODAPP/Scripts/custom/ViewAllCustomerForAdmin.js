@@ -509,7 +509,8 @@ function SaveRecords() {
         success: function (data) {
             if (data != null && data != undefined && data.IsSuccess == true) {
                 Swal.fire({
-                    title: "Customer saved successfully!",
+                    title: "Good job!",
+                    text: "Your changes were saved successfully!",
                     icon: "success",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -526,7 +527,8 @@ function SaveRecords() {
                 //window.location = '/Home/ViewAllEnterpriseUserForAdmin';
             } else {
                 Swal.fire({
-                    title: data.Message,
+                    title: "Oops...",
+                    text: data.Message,
                     icon: "error",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -535,7 +537,8 @@ function SaveRecords() {
         },
         error: function (data) {
             Swal.fire({
-                title: "Process Not Complete",
+                title: "Oops...",
+                text: "Process Not Complete",
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -632,7 +635,8 @@ function retrive(id) {
         },
         error: function (data) {
             Swal.fire({
-                title: "Process Not Complete",
+                title: "Oops...",
+                text: "Process Not Complete",
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -691,7 +695,8 @@ function UpdatePhoto() {
         success: function (data) {
             if (data != null && data != undefined && data.IsSuccess == true) {
                 Swal.fire({
-                    title: data.Message,
+                    title: "Good job!",
+                    text: data.Message,
                     icon: "success",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -702,7 +707,8 @@ function UpdatePhoto() {
         },
         error: function (data) {
             Swal.fire({
-                title: 'Process Not Complete',
+                title: "Oops...",
+                text: 'Process Not Complete',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -748,7 +754,8 @@ function ShowPreview(input) {
         if (fileSize > maxSize) {
 
             Swal.fire({
-                title: 'File size is more then ' + size + 'b',
+                title: "Oops...",
+                text: 'File size is more then ' + size + 'b',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1

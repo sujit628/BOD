@@ -25,16 +25,23 @@ function SaveRecordForProject() {
         success: function (data) {
             if (data != null && data != undefined && data.IsSuccess == true) {
                 Swal.fire({
-                    title: "Your Save Changes Successfully!",
+                    title: "Good job!",
+                    text: "Your changes were saved successfully!",
                     icon: "success",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = "/Job/ViewAllJobsForSMME";
+                    }
                 });
-                location.reload();
+               // window.location.href = "/Job/ViewAllJobsForSMME";
+               // location.reload();
             }
             else {
                 Swal.fire({
-                    title: data.Message,
+                    title: "Oops...",
+                    text: data.Message,
                     icon: "error",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -46,7 +53,8 @@ function SaveRecordForProject() {
           
 
             Swal.fire({
-                title:"Process Not Complete",
+                title: "Oops...",
+                text:"Process Not Complete",
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -92,7 +100,8 @@ function retrive(id) {
         },
         error: function (data) {
             Swal.fire({
-                title: "Process Not Complete",
+                title: "Oops...",
+                text: "Process Not Complete",
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1

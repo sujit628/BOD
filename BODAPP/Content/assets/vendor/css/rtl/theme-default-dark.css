@@ -1,6 +1,6 @@
 ﻿:root {
     --default-primary-rgb: 255,0,0;
-    --default-primary-hex:#ff0000;
+    --default-primary-hex:#7367f0;
     --body-bg-hex: #252729;
 }
 
@@ -16,6 +16,14 @@
     border-radius: .375rem;
     min-width: 46px;
     text-align: center;
+}
+.select2-results__option[role=option][aria-selected=true] {
+    background-color: var(--default-primary-hex)!important;
+    color: #fff;
+}
+.select2-container--default .select2-results__option--highlighted:not([aria-selected=true]) {
+    background-color: rgba(var(--default-primary-rgb),0.2)!important;
+    color: var(--default-primary-hex)!important;
 }
 #theme-setting-btn {
     position: absolute;
@@ -192,7 +200,7 @@ body {
 }
 
 .text-body[href]:hover {
-    color: #685dd8 !important;
+    color: rgba(var(--default-primary-rgb),0.5) !important;
 }
 
 .bg-primary {
@@ -471,16 +479,16 @@ button.list-group-item-primary {
 
     .btn-primary:hover {
         color: #fff !important;
-        background-color: #685dd8 !important;
-        border-color: #685dd8 !important;
+        background-color: rgba(var(--default-primary-rgb),0.5) !important;
+        border-color: rgba(var(--default-primary-rgb),0.5) !important;
     }
 
     .btn-check:focus + .btn-primary,
     .btn-primary:focus,
     .btn-primary.focus {
         color: #fff;
-        background-color: #685dd8;
-        border-color: #685dd8;
+        background-color: rgba(var(--default-primary-rgb),0.5);
+        border-color: rgba(var(--default-primary-rgb),0.5);
         box-shadow: none;
     }
 
@@ -491,8 +499,8 @@ button.list-group-item-primary {
     .btn-primary.show.dropdown-toggle,
     .show > .btn-primary.dropdown-toggle {
         color: #fff !important;
-        background-color: #685dd8 !important;
-        border-color: #685dd8 !important;
+        background-color: rgba(var(--default-primary-rgb),0.5) !important;
+        border-color: rgba(var(--default-primary-rgb),0.5) !important;
     }
 
     .btn-primary.disabled,
@@ -505,13 +513,13 @@ button.list-group-item-primary {
 
 .btn-group .btn-primary,
 .input-group .btn-primary {
-    border-right: var(--bs-border-width) solid #685dd8;
-    border-left: var(--bs-border-width) solid #685dd8;
+    border-right: var(--bs-border-width) solid rgba(var(--default-primary-rgb),0.5);
+    border-left: var(--bs-border-width) solid rgba(var(--default-primary-rgb),0.5);
 }
 
 .btn-group-vertical .btn-primary {
-    border-top-color: #685dd8;
-    border-bottom-color: #685dd8;
+    border-top-color: rgba(var(--default-primary-rgb),0.5);
+    border-bottom-color: rgba(var(--default-primary-rgb),0.5);
 }
 
 .btn-label-primary {
@@ -1468,16 +1476,16 @@ li.ui-timepicker-selected,
 
     .shepherd-element .shepherd-button:not(:disabled).btn-primary:hover {
         color: #fff !important;
-        background-color: #685dd8 !important;
-        border-color: #685dd8 !important;
+        background-color: rgba(var(--default-primary-rgb),0.5) !important;
+        border-color: rgba(var(--default-primary-rgb),0.5) !important;
     }
 
     .btn-check:focus + .shepherd-element .shepherd-button:not(:disabled).btn-primary,
     .shepherd-element .shepherd-button:not(:disabled).btn-primary:focus,
     .shepherd-element .shepherd-button:not(:disabled).btn-primary.focus {
         color: #fff;
-        background-color: #685dd8;
-        border-color: #685dd8;
+        background-color: rgba(var(--default-primary-rgb),0.5);
+        border-color: rgba(var(--default-primary-rgb),0.5);
         box-shadow: none;
     }
 
@@ -1488,8 +1496,8 @@ li.ui-timepicker-selected,
     .shepherd-element .shepherd-button:not(:disabled).btn-primary.show.dropdown-toggle,
     .show > .shepherd-element .shepherd-button:not(:disabled).btn-primary.dropdown-toggle {
         color: #fff !important;
-        background-color: #685dd8 !important;
-        border-color: #685dd8 !important;
+        background-color: rgba(var(--default-primary-rgb),0.5) !important;
+        border-color: rgba(var(--default-primary-rgb),0.5) !important;
     }
 
     .shepherd-element .shepherd-button:not(:disabled).btn-primary.disabled,
@@ -1502,13 +1510,13 @@ li.ui-timepicker-selected,
 
 .shepherd-element .btn-group .shepherd-button:not(:disabled).btn-primary,
 .shepherd-element .input-group .shepherd-button:not(:disabled).btn-primary {
-    border-right: var(--bs-border-width) solid #685dd8;
-    border-left: var(--bs-border-width) solid #685dd8;
+    border-right: var(--bs-border-width) solid rgba(var(--default-primary-rgb),0.5);
+    border-left: var(--bs-border-width) solid rgba(var(--default-primary-rgb),0.5);
 }
 
 .shepherd-element .btn-group-vertical .shepherd-button:not(:disabled).btn-primary {
-    border-top-color: #685dd8;
-    border-bottom-color: #685dd8;
+    border-top-color: rgba(var(--default-primary-rgb),0.5);
+    border-bottom-color: rgba(var(--default-primary-rgb),0.5);
 }
 
 .shepherd-element .shepherd-button:not(:disabled).btn-label-secondary {
@@ -2226,7 +2234,7 @@ ul{
     background: #2f3349;
     top: 0;
     padding: 0 24px;
-    /*transition: left .4s ease-in-out;*/
+    transition: left .4s ease-in-out;
 }
 .side-mini-panel .sidebarmenu .sidebar-nav {
     position: absolute;

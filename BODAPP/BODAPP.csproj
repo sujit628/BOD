@@ -1511,20 +1511,11 @@
     <Content Include="Content\assets\vendor\css\pages\ui-carousel.css" />
     <Content Include="Content\assets\vendor\css\pages\wizard-ex-checkout.css" />
     <Content Include="Content\assets\vendor\css\rtl\core-dark.css" />
+    <Content Include="Content\assets\vendor\css\rtl\core-semi-dark.css" />
     <Content Include="Content\assets\vendor\css\rtl\core.css" />
-    <Content Include="Content\assets\vendor\css\rtl\theme-bordered-dark.css" />
-    <Content Include="Content\assets\vendor\css\rtl\theme-dark-primary.css" />
-    <Content Include="Content\assets\vendor\css\rtl\theme-dark-redpink.css" />
     <Content Include="Content\assets\vendor\css\rtl\theme-default-dark.css" />
-    <Content Include="Content\assets\vendor\css\rtl\theme-default-deeppink.css" />
-    <Content Include="Content\assets\vendor\css\rtl\theme-default-primary.css" />
-    <Content Include="Content\assets\vendor\css\rtl\theme-default-redpink.css" />
-    <Content Include="Content\assets\vendor\css\rtl\theme-default-skyblue.css" />
+    <Content Include="Content\assets\vendor\css\rtl\theme-default-semi-dark.css" />
     <Content Include="Content\assets\vendor\css\rtl\theme-default.css" />
-    <Content Include="Content\assets\vendor\css\rtl\theme-semi-dark-dark.css" />
-    <Content Include="Content\assets\vendor\css\rtl\theme-semidark-dark.css" />
-    <Content Include="Content\assets\vendor\css\rtl\theme-semidark-primary.css" />
-    <Content Include="Content\assets\vendor\css\rtl\theme-semidark-redpink.css" />
     <Content Include="Content\assets\vendor\fonts\flag-icons.css" />
     <Content Include="Content\assets\vendor\fonts\flags\1x1\ac.svg" />
     <Content Include="Content\assets\vendor\fonts\flags\1x1\ad.svg" />
@@ -2988,9 +2979,13 @@
     <Content Include="Scripts\custom\JobInvoiceStakeholderList.js" />
     <Content Include="Scripts\custom\AssignedStakeholder.js" />
     <Content Include="Scripts\custom\MyStakeholder.js" />
+    <Content Include="Scripts\custom\ProjectFundExpenditure.js" />
+    <Content Include="Scripts\custom\ProjectBudgetDashboardForStakeholder.js" />
     <Content Include="Scripts\custom\ProjectDetailsForStakeholder.js" />
+    <Content Include="Scripts\custom\ProjectDetailsNewForStakeholder.js" />
     <Content Include="Scripts\custom\ProjectListForStakeholder.js" />
     <Content Include="Scripts\custom\ProjectListToAssignSMMEFromStakeholder.js" />
+    <Content Include="Scripts\custom\ProjectWiseDocForStakeholder.js" />
     <Content Include="Scripts\custom\ProjectWiseReport.js" />
     <Content Include="Scripts\custom\AssignProjectWiseStakeholderForEnterprise.js" />
     <Content Include="Scripts\custom\QuestionBuildingForStakeholder.js" />
@@ -3156,6 +3151,7 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\utility\ChildPageMenuForEnterprise.js" />
     <Content Include="Scripts\utility\ChildPageMenu.js" />
+    <Content Include="Scripts\utility\ChildPageMenuForSMME.js" />
     <Content Include="Scripts\utility\confirmBox.js" />
     <Content Include="Scripts\utility\DeleteRecord.js" />
     <Content Include="Scripts\utility\dropdownjoin.js" />
@@ -3370,6 +3366,7 @@
     <Content Include="Views\Enterprise\AssignedStakeholder.cshtml" />
     <Content Include="Views\Account\EmailVerified.cshtml" />
     <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Project\ProjectFundExpenditure.cshtml" />
     <None Include="Views\Shared\_MainLayoutST.cshtml" />
     <Content Include="Views\Stakeholder\ViewAllUser.cshtml" />
     <Content Include="Views\Stakeholder\UserPermissionList.cshtml" />
@@ -3413,6 +3410,9 @@
     <Content Include="Views\Stakeholder\SMMEProfile_Task.cshtml" />
     <Content Include="Views\Stakeholder\ViewAllBranch.cshtml" />
     <Content Include="Views\Stakeholder\AddBranch.cshtml" />
+    <Content Include="Views\Stakeholder\ProjectDetailsNew.cshtml" />
+    <Content Include="Views\Stakeholder\ProjectBudgetDashboard.cshtml" />
+    <Content Include="Views\Stakeholder\ProjectWiseDoc.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

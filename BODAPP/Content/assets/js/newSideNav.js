@@ -321,8 +321,8 @@ miniIconNav.forEach(function (item) {
         if ($(this).hasClass('parentnavmenu')) {
             document.body.setAttribute("data-sidebartype", "full");
             $('#headerCollapse').click(function () {
-                var dataTheme = document.body.getAttribute("data-sidebartype");
-                if (dataTheme === "full") {
+                var dataSidebarType = document.body.getAttribute("data-sidebartype");
+                if (dataSidebarType === "full") {
                     document.body.setAttribute("data-sidebartype", "mini-sidebar");
                 } else {
                     document.body.setAttribute("data-sidebartype", "full");
@@ -359,12 +359,17 @@ function getValue(id) {
 }
 
 $(document).ready(function () {
+    $('.sbmenu').click(function () {
+        document.getElementsByClassName('sbmenu').innHTML.reload;
+    })
     $('#headerCollapse').click(function () {
-        var dataTheme = document.body.getAttribute("data-sidebartype");
-        if (dataTheme === "full") {
-            document.body.setAttribute("data-sidebartype", "mini-sidebar");
+        var terget = document.querySelector('body');
+        var dataSidebarType = terget.getAttribute("data-sidebartype");
+        if (dataSidebarType === "full") {
+            terget.setAttribute("data-sidebartype", "mini-sidebar");
         } else {
-            document.body.setAttribute("data-sidebartype", "full");
+            terget.setAttribute("data-sidebartype", "full");
         }
     })
+
 })

@@ -41,7 +41,8 @@ function retriveCount() {
         },
         error: function (data) {
             Swal.fire({
-                title: 'Process Not Complete',
+                title: 'Oops...',
+                text: 'Process Not Complete',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -364,7 +365,8 @@ function BindGrid() {
         },
         error: function (xhr, textStatus, errorThrown) {
             Swal.fire({
-                title: 'Request failed',
+                title: 'Oops...',
+                text: 'Request failed',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
