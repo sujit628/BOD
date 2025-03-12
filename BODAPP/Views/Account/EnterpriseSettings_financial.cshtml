@@ -119,13 +119,12 @@
                     <form id="formAccountSettings" method="GET" onsubmit="return false">
                         <div class="row g-3">
                             <div class="mb-3 col-md-6">
-                                <input type="hidden" id="hdnMode" value="financial" />
+                                <input type="hidden" id="hdnModeForm" value="financial" />
                                 <label class="form-label" for="multiStepsUsername">First Name<span class="text-danger">*</span></label>
                                 <input type="text" name="txtBillingFirstName" id="txtBillingFirstName" class="form-control alphabets" placeholder="First Name" />
                                 <input type="hidden" id="hdnId" name="hdnId" />
                             </div>
                             <div class="mb-3 col-md-6">
-                                <input type="hidden" id="hdnMode" value="contact" />
                                 <label class="form-label" for="multiStepsUsername">Last Name<span class="text-danger">*</span></label>
                                 <input type="text" name="txtBillingLastName" id="txtBillingLastName" class="form-control alphabets" placeholder="Last Name" />
                             </div>
@@ -134,7 +133,6 @@
                                 <input type="email" name="txtBillingEmail" id="txtBillingEmail" class="form-control" placeholder="Email Address" aria-label="txtBillingEmail" />
                             </div>
                             <div class="mb-3 col-md-6">
-                                <input type="hidden" id="hdnMode" value="financial" />
                                 <label class="form-label" for="multiStepsFirstName">Billing Contact Number<span class="text-danger">*</span></label>
                                 <div class="input-group">
                                     <span class="input-group-text">(+27)</span>
@@ -190,4 +188,5 @@
 <script src="~/Content/assets/js/pages-account-settings-account.js"></script>
 <script src="~/Content/assets/vendor/libs/sweetalert2/sweetalert2.js"></script>
 <script src="~/Scripts/utility/dropdown.js"></script>
+<script src="~/Scripts/utility/ChildPageMenu.js"></script>
 <script src="~/Scripts/custom/EnterpriseSettings.js"></script>

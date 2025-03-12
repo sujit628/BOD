@@ -3,7 +3,11 @@ var formElem = document.getElementById('formEnterpriseUserForAdmin');
 
 
 $(document).ready(function () {
-
+    var path = window.location.pathname;
+    path = path.replace(/\/$/, "");
+    path = decodeURIComponent(path);
+    console.log(path);
+    localStorage.setItem('href', path);
     InitUI();
 
     DropdownBinder.DDLData = {
@@ -207,7 +211,8 @@ function SaveRecords() {
         success: function (data) {
             if (data != null && data != undefined && data.IsSuccess == true) {
                 Swal.fire({
-                    title: "Enterprise user saved successfully!",
+                    title: "Good job!",
+                    text: "Your changes were saved successfully!",
                     icon: "success",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -219,33 +224,28 @@ function SaveRecords() {
                 $('#setUPFormEnterpriseUserForAdminModal').modal('hide');
                 $('#setUPFormEnterpriseUserForAdminModal').find('.form-control').val('');
                 $('#setUPFormEnterpriseUserForAdminModal').find('.select2').val('').change();
-
                 $('#prfpicIMG').attr('src', '/Content/assets/img/avatars/userpic.png');
-
-               
                 //window.location = '/Home/ViewAllEnterpriseUserForAdmin';
 
             }
             else {
                 Swal.fire({
-                    title: data.Message,
+                    title: "Oops...",
+                    text: data.Message,
                     icon: "error",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
                 });
-
             }
         },
         error: function (data) {
-
-
             Swal.fire({
-                title: "Process Not Complete",
+                title: "Oops...",
+                text: "Process Not Complete",
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
             });
-
         }
     });
 
@@ -603,7 +603,8 @@ function UpdatePhoto() {
         success: function (data) {
             if (data != null && data != undefined && data.IsSuccess == true) {
                 Swal.fire({
-                    title: data.Message,
+                    title: "Good job!",
+                    text: data.Message,
                     icon: "success",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -614,7 +615,8 @@ function UpdatePhoto() {
         },
         error: function (data) {
             Swal.fire({
-                title: 'Process Not Complete',
+                title: "Oops...",
+                text: "Process Not Complete",
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -686,7 +688,8 @@ function ShowPreview(input) {
     } else {
 
         Swal.fire({
-            title: 'choose any one image, please',
+            title: "Oops...",
+            text: 'choose any one image, please',
             icon: "error",
             customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
             buttonsStyling: !1

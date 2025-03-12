@@ -369,6 +369,13 @@ $("#ddlBookingCountry").change(function () {
 });
 
 $(document).ready(function () {
+
+    var path = window.location.pathname;
+    path = path.replace(/\/$/, "");
+    path = decodeURIComponent(path);
+    // console.log(path);
+    localStorage.setItem('href', path);
+
     $('.alphabets').on('input', function () {
 
         let inputValue = $(this).val();
@@ -427,7 +434,7 @@ $(document).ready(function () {
 
 
 
-    var mode = $('#hdnMode').val();
+    var mode = $('#hdnModeForm').val();
 
     Id = getParameterByName('Id');
 
@@ -648,7 +655,7 @@ function SaveRecords(Type) {
     var _data = JSON.stringify({
         entity: {
             SMME_Id: id,
-            Mode: $('#hdnMode').val(),
+            Mode: $('#hdnModeForm').val(),
             //SMME_PrimaryContactName: $.trim($('#txtContactName').val()),
             SMME_PrimaryContactFirstName: $.trim($('#txtContactFirstName').val()),
             SMME_PrimaryContactLastName: $.trim($('#txtContactLastName').val()),
@@ -713,7 +720,8 @@ function SaveRecords(Type) {
                 Id = data.Id;
                 if (data.Id > 0) {
                     Swal.fire({
-                        title: data.Message,
+                        title: "Good job!",
+                        text: data.Message,
                         icon: "success",
                         customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                         buttonsStyling: !1
@@ -739,7 +747,8 @@ function SaveRecords(Type) {
                     titleText = data.Message;
                 }
                 Swal.fire({
-                    title: titleText,
+                    title: "Oops...",
+                    text: titleText,
                     icon: "error",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -748,7 +757,8 @@ function SaveRecords(Type) {
         },
         error: function (data) {
             Swal.fire({
-                title: 'Process Not Complete',
+                title: "Oops...",
+                text: 'Process Not Complete',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -808,7 +818,8 @@ function ShowPreview(input) {
     } else {
 
         Swal.fire({
-            title: 'choose any one image, please',
+            title: "Oops...",
+            text: 'choose any one image, please',
             icon: "error",
             customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
             buttonsStyling: !1
@@ -867,7 +878,8 @@ function UpdatePhoto() {
         success: function (data) {
             if (data != null && data != undefined && data.IsSuccess == true) {
                 Swal.fire({
-                    title: data.Message,
+                    title: "Good job!",
+                    text: data.Message,
                     icon: "success",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -878,7 +890,8 @@ function UpdatePhoto() {
         },
         error: function (data) {
             Swal.fire({
-                title: 'Process Not Complete',
+                title: "Oops...",
+                text: 'Process Not Complete',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -948,14 +961,15 @@ function fnCancelRedirect() {
 function fnNextRedirect() {
 
     Swal.fire({
-        title: "Your changes were saved successfully!",
+        title: "Good job!",
+        text: "Your changes were saved successfully!",
         icon: "success",
         customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
         //confirmButtonText: "Next",
 
         buttonsStyling: !1
     }).then(function () {
-        var mode = $('#hdnMode').val();
+        var mode = $('#hdnModeForm').val();
         if (Id > 0 && M == "A") {
             if (mode == 'contact') {
                 // SendMail(Id,"window.location = '/Account/SMMESettings_legalentity?Id=" + Id + '&M=A')
@@ -1238,7 +1252,8 @@ function ShowPreviewComLogo(input) {
         if ($.inArray(fileType, validImageTypes) < 0) {
             // invalid file type code goes here.
             Swal.fire({
-                title: ' invalid file type',
+                title: "Oops...",
+                text: ' invalid file type',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -1249,7 +1264,8 @@ function ShowPreviewComLogo(input) {
         if (fileSize > maxSize) {
 
             Swal.fire({
-                title: 'File size is more then ' + size + 'b',
+                title: "Oops...",
+                text: 'File size is more then ' + size + 'b',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -1277,7 +1293,8 @@ function ShowPreviewComLogo(input) {
     } else {
 
         Swal.fire({
-            title: 'choose any one image, please',
+            title: "Oops...",
+            text: 'choose any one image, please',
             icon: "error",
             customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
             buttonsStyling: !1
@@ -1303,7 +1320,8 @@ function ShowPreviewWorkSpaceComLogo(input) {
         if ($.inArray(fileType, validImageTypes) < 0) {
             // invalid file type code goes here.
             Swal.fire({
-                title: ' invalid file type',
+                title: "Oops...",
+                text: ' invalid file type',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -1314,7 +1332,8 @@ function ShowPreviewWorkSpaceComLogo(input) {
         if (fileSize > maxSize) {
 
             Swal.fire({
-                title: 'File size is more then ' + size + 'b',
+                title: "Oops...",
+                text: 'File size is more then ' + size + 'b',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -1402,7 +1421,8 @@ function UpdatePhotoComLogo() {
             $('#prfpicIMGWorkSpaceComLogo').attr('src', $('#hdnWorkSpceUploadComLogo').val());
             if (data != null && data != undefined && data.IsSuccess == true) {
                 Swal.fire({
-                    title: data.Message,
+                    title: "Good job!",
+                    text: data.Message,
                     icon: "success",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -1413,7 +1433,8 @@ function UpdatePhotoComLogo() {
         },
         error: function (data) {
             Swal.fire({
-                title: 'Process Not Complete',
+                title: "Oops...",
+                text: 'Process Not Complete',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -1451,7 +1472,8 @@ function SendMail(Link) {
         success: function (data) {
             if (data != null && data.IsSuccess === true) {
                 Swal.fire({
-                    title: data.Message,
+                    title: "Good job!",
+                    text: data.Message,
                     icon: "success",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -1463,27 +1485,6 @@ function SendMail(Link) {
                         fnNextRedirect()
                     }
                 
-               // window.location.href = Link;
-                //Swal.fire({
-                //    title: "Project created successfully..!",
-                //    icon: "success",
-                //    customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
-                //    buttonsStyling: !1
-                //}).then((result) => {
-
-                //    if (result.isConfirmed) {
-
-                //        if ($('#EntrId').val() > 0) {
-                //            window.location.href = "/Project/ProjectListForEnterprise";
-                //        }
-                //        else {
-                //            window.location.href = "/Project/ProjectListForAdmin";
-                //        }
-
-                //    }
-
-
-                //});
                 $(document).ajaxStop(function () {
                     $("#section-block").block({ message: '<div class="spinner-border text-primary" role="status"></div>', timeout: 0.5e3, css: { backgroundColor: "transparent", border: "0" }, overlayCSS: { backgroundColor: "#fff", opacity: .8 } })
 
@@ -1494,7 +1495,8 @@ function SendMail(Link) {
 
             } else {
                 Swal.fire({
-                    title: "Invalid email, try another email..!",
+                    title: "Oops...",
+                    text: "Invalid email, try another email..!",
                     icon: "warning",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: false
@@ -1508,7 +1510,8 @@ function SendMail(Link) {
         },
         error: function () {
             Swal.fire({
-                title: "Process not complete",
+                title: "Oops...",
+                text: "Process not complete",
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: false

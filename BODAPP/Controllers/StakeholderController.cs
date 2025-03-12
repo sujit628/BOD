@@ -930,5 +930,32 @@ namespace BODAPP.Controllers
             }
             return View();
         }
+
+        public ActionResult ProjectDetailsNew(int? Id)
+        {
+            ViewBag.Id = Id;
+            if (EnterpriseUserModel != null)
+            {
+                ViewBag.UserMainId = EnterpriseUserModel.UM_MainID;
+            }
+            if (EnterpriseEMPUserDataModel != null)
+            {
+                ViewBag.UserMainId = EnterpriseEMPUserDataModel.UM_MainID;
+            }
+
+            return View();
+        }
+
+        public ActionResult ProjectBudgetDashboard(int? Id)
+        {
+            ViewBag.Id = Id;
+            return View();
+        }
+        public ActionResult ProjectWiseDoc(int? Id)
+        {
+            ViewBag.Id = Id;
+            return View();
+        }
+
     }
 }

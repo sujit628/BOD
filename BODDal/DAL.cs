@@ -63,7 +63,7 @@ namespace BODDal
                     UserObj.TheamLink = Convert.ToString(rdr["UM_TheamLink"]);
                     UserObj.CoreLink = Convert.ToString(rdr["UM_CoreLink"]);
                     UserObj.CustomCSSLink = Convert.ToString(rdr["UM_CustomCSSLink"]);
-
+                    UserObj.UM_EmailVery = Convert.ToString(rdr["UM_EmailVery"]);
                     //  UserObj.US_Availability = Convert.ToString(rdr["US_Availability"]);
                     //UserObj.Assessment_Id = Convert.ToInt32(rdr["Assessment_Id"]);
                 }
@@ -110,7 +110,7 @@ namespace BODDal
                     UserObj.UM_CompanyPic = Convert.ToString(rdr["UM_CompanyPic"]);
                     UserObj.UM_CmnyPrefix = Convert.ToString(rdr["UM_CmnyPrefix"]);
                     //UserObj.Assessment_Id = Convert.ToInt32(rdr["Assessment_Id"]);
-
+                    UserObj.UM_EmailVery = Convert.ToString(rdr["UM_EmailVery"]);
                     UserObj.ThemeColor = Convert.ToString(rdr["UM_ThemeColor"]);
                     UserObj.ThemeStyle = Convert.ToString(rdr["UM_ThemeStyle"]);
                     UserObj.TheamLink = Convert.ToString(rdr["UM_TheamLink"]);
@@ -2245,6 +2245,51 @@ namespace BODDal
             return val;
         }
 
+        public long InsertUpdateBudgetAllocationForSMMEExpenditure(BudgetAllocation entity)
+        {
+            List<SqlParameter> arrParams = new List<SqlParameter>();
+
+            DataTable dtSMMEExpenditure = new DataTable();
+
+
+
+            dtSMMEExpenditure.Columns.Add("EWB_SMMEId", typeof(int));
+            dtSMMEExpenditure.Columns.Add("EWB_Budget", typeof(decimal));
+            dtSMMEExpenditure.Columns.Add("EWB_ExpenditureBudget", typeof(decimal));
+            dtSMMEExpenditure.Columns.Add("EWB_BudgetDistId", typeof(int));
+            dtSMMEExpenditure.Columns.Add("EWB_ActivityId", typeof(int));
+            dtSMMEExpenditure.Columns.Add("EWB_TaskId", typeof(int));
+
+
+
+            foreach (var MD in entity.ExpenditureWiseBudgetList)
+            {
+
+                DataRow dr = dtSMMEExpenditure.NewRow();
+                dr["EWB_SMMEId"] = MD.EWB_SMMEId;
+                dr["EWB_Budget"] = MD.EWB_Budget;
+                dr["EWB_ExpenditureBudget"] = MD.EWB_ExpenditureBudget;
+                dr["EWB_BudgetDistId"] = MD.EWB_BudgetDistId;
+                dr["EWB_ActivityId"] = MD.EWB_ActivityId;
+                dr["EWB_TaskId"] = MD.EWB_TaskId;
+                dtSMMEExpenditure.Rows.Add(dr);
+
+            }
+
+            arrParams.Add(new SqlParameter("@TransactionType", "InsertSMMEBudgetExpenditure"));
+
+            // arrParams.Add(new SqlParameter("@ActivityWiseBudget", dtActivity));
+            arrParams.Add(new SqlParameter("@ExpenditureWiseBudget", dtSMMEExpenditure));
+            arrParams.Add(new SqlParameter("@ProjectId", entity.ProjectId));
+
+
+            SqlParameter OutPutId = new SqlParameter("@OutPutId", SqlDbType.BigInt);
+            OutPutId.Direction = ParameterDirection.Output;
+            arrParams.Add(OutPutId);
+            SqlHelper.ExecuteNonQuery(GetConnectionString(), CommandType.StoredProcedure, "BudgetAllocation_USP", arrParams.ToArray());
+            long val = Convert.ToInt64(arrParams[arrParams.Count - 1].Value);
+            return val;
+        }
 
         public long InsertUpdateProjectWiseDocument(ProjectWiseDocument entity)
         {

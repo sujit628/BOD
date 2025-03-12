@@ -7,8 +7,6 @@ var CustId='';
 $(document).ready(function () {
     $("#section-block").block({ message: '<div class="spinner-border text-primary" role="status"></div>', timeout: 5e3, css: { backgroundColor: "transparent", border: "0" }, overlayCSS: { backgroundColor: "#fff", opacity: .8 } })
     InitUI();
-   
-
 });
 
 function InitUI() {
@@ -496,7 +494,8 @@ function showEnterpriseList(JobId) {
         },
         error: function (data) {
             Swal.fire({
-                title: 'Process Not Complete',
+                title: "Oops...",
+                text: 'Process Not Complete',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -544,7 +543,8 @@ function AssignStakeholder( index, JobId, ENR_Id,EnrCompany,EnrEmail) {
             if (data != null && data != undefined && data.IsSuccess == true) {
                 SendMail(EnrCompany, EnrEmail)
                 Swal.fire({
-                    title: "Your Changes Successfully done!",
+                    title: "Good job!",
+                    text: "Your changes were saved successfully!",
                     icon: "success",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -554,7 +554,8 @@ function AssignStakeholder( index, JobId, ENR_Id,EnrCompany,EnrEmail) {
             else {
 
                 Swal.fire({
-                    title: data.Message,
+                    title: "Oops...",
+                    text: data.Message,
                     icon: "error",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -563,7 +564,8 @@ function AssignStakeholder( index, JobId, ENR_Id,EnrCompany,EnrEmail) {
         },
         error: function (data) {
             Swal.fire({
-                title: 'Process Not Complete',
+                title: "Oops...",
+                text: 'Process Not Complete',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -620,7 +622,8 @@ function retriveMultiplejob(JobId,Type,Status) {
         },
         error: function (data) {
             Swal.fire({
-                title: "Process Not Complete",
+                title: "Oops...",
+                text: "Process Not Complete",
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -677,7 +680,8 @@ function retriveMaintenancejob(JobId,Type,Status) {
         },
         error: function (data) {
             Swal.fire({
-                title: "Process Not Complete",
+                title: "Oops...",
+                text: "Process Not Complete",
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -719,7 +723,8 @@ function SendMail(EnrCompany, EnrEmail) {
             if (data != null && data.IsSuccess === true) {
               
                 Swal.fire({
-                    title: data.Message,
+                    title: "Good job!",
+                    text: data.Message,
                     icon: "success",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: false
@@ -732,7 +737,8 @@ function SendMail(EnrCompany, EnrEmail) {
                 //$('#btnSave').removeAttr('disabled');
             } else {
                 Swal.fire({
-                    title: "Email does not exist, try another email..!",
+                    title: "Oops...",
+                    text: "Email does not exist, try another email..!",
                     icon: "warning",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: false
@@ -744,7 +750,8 @@ function SendMail(EnrCompany, EnrEmail) {
         },
         error: function () {
             Swal.fire({
-                title: "Process not complete",
+                title: "Oops...",
+                text: "Process not complete",
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: false
@@ -783,7 +790,8 @@ function retriveJob(id) {
         },
         error: function (data) {
             Swal.fire({
-                title: "Process Not Complete",
+                title: "Oops...",
+                text: "Process Not Complete",
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1

@@ -101,129 +101,7 @@ function BindGrid() {
                             '<"row me-2"<"col-md-2"<"me-3"l>><"col-md-10"<"dt-action-buttons text-xl-end text-lg-start text-md-end text-start d-flex align-items-center justify-content-end flex-md-row flex-column mb-3 mb-md-0"fB>>>t<"row mx-2"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>',
                         language: { sLengthMenu: "_MENU_", search: "", searchPlaceholder: "Search.." },
                         buttons: [
-                            //{
-                            //    extend: "collection",
-                            //    className: "btn btn-label-primary dropdown-toggle mx-3 waves-effect waves-light",
-                            //    text: '<i class="ti ti-screen-share me-1 ti-xs"></i>Export',
-                            //    buttons: [
-                            //        {
-                            //            extend: "print",
-                            //            text: '<i class="ti ti-printer me-2" ></i>Print',
-                            //            className: "dropdown-item",
-                            //            exportOptions: {
-                            //                columns: [1, 2, 3, 4, 5],
-                            //                format: {
-                            //                    body: function (e, t, a) {
-                            //                        var s;
-                            //                        return e.length <= 0
-                            //                            ? e
-                            //                            : ((e = $.parseHTML(e)),
-                            //                              (s = ""),
-                            //                              $.each(e, function (e, t) {
-                            //                                  void 0 !== t.classList && t.classList.contains("user-name") ? (s += t.lastChild.firstChild.textContent) : void 0 === t.innerText ? (s += t.textContent) : (s += t.innerText);
-                            //                              }),
-                            //                              s);
-                            //                    },
-                            //                },
-                            //            },
-                            //            customize: function (e) {
-                            //                $(e.document.body).css("color", s).css("border-color", t).css("background-color", a),
-                            //                    $(e.document.body).find("table").addClass("compact").css("color", "inherit").css("border-color", "inherit").css("background-color", "inherit");
-                            //            },
-                            //        },
-                            //        {
-                            //            extend: "csv",
-                            //            text: '<i class="ti ti-file-text me-2" ></i>Csv',
-                            //            className: "dropdown-item",
-                            //            exportOptions: {
-                            //                columns: [1, 2, 3, 4, 5],
-                            //                format: {
-                            //                    body: function (e, t, a) {
-                            //                        var s;
-                            //                        return e.length <= 0
-                            //                            ? e
-                            //                            : ((e = $.parseHTML(e)),
-                            //                              (s = ""),
-                            //                              $.each(e, function (e, t) {
-                            //                                  void 0 !== t.classList && t.classList.contains("user-name") ? (s += t.lastChild.firstChild.textContent) : void 0 === t.innerText ? (s += t.textContent) : (s += t.innerText);
-                            //                              }),
-                            //                              s);
-                            //                    },
-                            //                },
-                            //            },
-                            //        },
-                            //        {
-                            //            extend: "excel",
-                            //            text: '<i class="ti ti-file-spreadsheet me-2"></i>Excel',
-                            //            className: "dropdown-item",
-                            //            exportOptions: {
-                            //                columns: [1, 2, 3, 4, 5],
-                            //                format: {
-                            //                    body: function (e, t, a) {
-                            //                        var s;
-                            //                        return e.length <= 0
-                            //                            ? e
-                            //                            : ((e = $.parseHTML(e)),
-                            //                              (s = ""),
-                            //                              $.each(e, function (e, t) {
-                            //                                  void 0 !== t.classList && t.classList.contains("user-name") ? (s += t.lastChild.firstChild.textContent) : void 0 === t.innerText ? (s += t.textContent) : (s += t.innerText);
-                            //                              }),
-                            //                              s);
-                            //                    },
-                            //                },
-                            //            },
-                            //        },
-                            //        {
-                            //            extend: "pdf",
-                            //            text: '<i class="ti ti-file-code-2 me-2"></i>Pdf',
-                            //            className: "dropdown-item",
-                            //            exportOptions: {
-                            //                columns: [1, 2, 3, 4, 5],
-                            //                format: {
-                            //                    body: function (e, t, a) {
-                            //                        var s;
-                            //                        return e.length <= 0
-                            //                            ? e
-                            //                            : ((e = $.parseHTML(e)),
-                            //                              (s = ""),
-                            //                              $.each(e, function (e, t) {
-                            //                                  void 0 !== t.classList && t.classList.contains("user-name") ? (s += t.lastChild.firstChild.textContent) : void 0 === t.innerText ? (s += t.textContent) : (s += t.innerText);
-                            //                              }),
-                            //                              s);
-                            //                    },
-                            //                },
-                            //            },
-                            //        },
-                            //        {
-                            //            extend: "copy",
-                            //            text: '<i class="ti ti-copy me-2" ></i>Copy',
-                            //            className: "dropdown-item",
-                            //            exportOptions: {
-                            //                columns: [1, 2, 3, 4, 5],
-                            //                format: {
-                            //                    body: function (e, t, a) {
-                            //                        var s;
-                            //                        return e.length <= 0
-                            //                            ? e
-                            //                            : ((e = $.parseHTML(e)),
-                            //                              (s = ""),
-                            //                              $.each(e, function (e, t) {
-                            //                                  void 0 !== t.classList && t.classList.contains("user-name") ? (s += t.lastChild.firstChild.textContent) : void 0 === t.innerText ? (s += t.textContent) : (s += t.innerText);
-                            //                              }),
-                            //                              s);
-                            //                    },
-                            //                },
-                            //            },
-                            //        },
-                            //    ],
-                            //},
-                            //{
-                            //    text: '<i class="ti ti-upload ti-xs me-0 me-sm-2"></i><span class="d-none d-sm-inline-block">Upload </span>',
-                            //    className: "add-new btn btn-primary ms-2 waves-effect waves-light btn-shadow-primary",
-                            //    action: function () {
-                            //        window.location.href = "/Enterprise/AddBulkSMMEForEnterprise";
-                            //    },
-                            //},
+                            
                         ],
                         responsive: {
                             details: {
@@ -276,23 +154,7 @@ function BindGrid() {
                                                 a.append('<option value="' + e + '">' + e + "</option>");
                                             });
                                     });
-                            //this.api()
-                            //    .columns(5)
-                            //    .every(function () {
-                            //        var t = this,
-                            //            a = $('<select id="FilterTransaction" class="form-select text-capitalize"><option value=""> Select Status </option></select>')
-                            //                .appendTo(".user_status")
-                            //                .on("change", function () {
-                            //                    var e = $.fn.dataTable.util.escapeRegex($(this).val());
-                            //                    t.search(e ? "^" + e + "$" : "", !0, !1).draw();
-                            //                });
-                            //        t.data()
-                            //            .unique()
-                            //            .sort()
-                            //            .each(function (e, t) {
-                            //                a.append('<option value="' + o[e].title + '" class="text-capitalize">' + o[e].title + "</option>");
-                            //            });
-                            //    });
+                            
                         },
                     })),
                 $(".datatables-users tbody").on("click", ".delete-record", function () {
@@ -338,7 +200,8 @@ function AssignProject(index, SmmeId) {
         success: function (data) {
             if (data != null && data != undefined && data.IsSuccess == true) {
                 Swal.fire({
-                    title: "Your Changes Successfully done!",
+                    title: "Good job!",
+                    text: "Your changes were saved successfully!",
                     icon: "success",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -348,7 +211,8 @@ function AssignProject(index, SmmeId) {
             else {
 
                 Swal.fire({
-                    title: data.Message,
+                    title: "Oops...",
+                    text: data.Message,
                     icon: "error",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -357,7 +221,8 @@ function AssignProject(index, SmmeId) {
         },
         error: function (data) {
             Swal.fire({
-                title: 'Process Not Complete',
+                title: "Oops...",
+                text: 'Process Not Complete',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -432,7 +297,8 @@ function showEnterpriseList(SmmeId) {
         },
         error: function (data) {
             Swal.fire({
-                title: 'Process Not Complete',
+                title: "Oops...",
+                text: 'Process Not Complete',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -479,7 +345,8 @@ function AssignStakeholder( index, SmmeId, ENR_Id) {
         success: function (data) {
             if (data != null && data != undefined && data.IsSuccess == true) {
                 Swal.fire({
-                    title: "Your Changes Successfully done!",
+                    title: "Good job!",
+                    text: "Your changes were saved successfully!",
                     icon: "success",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -489,7 +356,8 @@ function AssignStakeholder( index, SmmeId, ENR_Id) {
             else {
 
                 Swal.fire({
-                    title: data.Message,
+                    title: "Oops...",
+                    text: data.Message,
                     icon: "error",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -498,7 +366,8 @@ function AssignStakeholder( index, SmmeId, ENR_Id) {
         },
         error: function (data) {
             Swal.fire({
-                title: 'Process Not Complete',
+                title: "Oops...",
+                text: 'Process Not Complete',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1

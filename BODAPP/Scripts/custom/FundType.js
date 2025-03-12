@@ -44,6 +44,13 @@ function SaveRecord() {
         async: false,
         success: function (data) {
             if (data != null && data != undefined && data.IsSuccess == true) {
+                Swal.fire({
+                    title: "Good job!",
+                    text: "Your changes were saved successfully!",
+                    icon: "success",
+                    customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
+                    buttonsStyling: !1
+                });
 
                 //location.reload();
                 var oTable = $('#datatable-example').DataTable();
@@ -59,11 +66,23 @@ function SaveRecord() {
 
             }
             else {
-
+                Swal.fire({
+                    title: "Oops...",
+                    text: data.Message,
+                    icon: "error",
+                    customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
+                    buttonsStyling: !1
+                });
             }
         },
         error: function (data) {
-
+            Swal.fire({
+                title: "Oops...",
+                text: "Process Not Sucess",
+                icon: "error",
+                customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
+                buttonsStyling: !1
+            });
 
         }
     });

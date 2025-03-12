@@ -179,6 +179,9 @@ function retrivePermission( projectId) {
 
 
 $(document).ready(function () {
+
+   
+
     Id = getParameterByName('Id');
     var Type = getParameterByName('Type');
     if(Type=="SMME")
@@ -2614,6 +2617,10 @@ function retriveSMMEBudgetDetails(id) {
     return false;
 
 }
+
+
+
+
 
 
 

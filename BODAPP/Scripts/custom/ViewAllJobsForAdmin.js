@@ -43,7 +43,8 @@ function retriveCount() {
         },
         error: function (data) {
             Swal.fire({
-                title: 'Process Not Complete',
+                title: "Oops...",
+                text: 'Process Not Complete',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -66,11 +67,9 @@ function BindGrid() {
     var _data = JSON.stringify({
         global: {
             TransactionType: 'SelectAllJobForAdmin',
-          
             param1: 'JD_CustomerId',
             param1Value: parseInt(CustId),
             StoreProcedure: 'JobDetails_USP',
-
         }
     });
     $.ajax({
@@ -367,7 +366,8 @@ function BindGrid() {
         },
         error: function (xhr, textStatus, errorThrown) {
             Swal.fire({
-                title: 'Request failed',
+                title: "Oops...",
+                text: 'Request failed',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -432,7 +432,8 @@ function ShowAllEnterprise(id) {
         },
         error: function (data) {
             Swal.fire({
-                title: 'Process Not Complete',
+                title: "Oops...",
+                text: 'Process Not Complete',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -474,7 +475,8 @@ function AssignJob(index, ENRId,JId) {
         success: function (data) {
             if (data != null && data != undefined && data.IsSuccess == true) {
                 Swal.fire({
-                    title: "Your Changes Successfully done!",
+                    title: "Good job!",
+                    text: "Your changes were saved successfully!",
                     icon: "success",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -484,7 +486,8 @@ function AssignJob(index, ENRId,JId) {
             else {
 
                 Swal.fire({
-                    title: data.Message,
+                    title: "Oops...",
+                    text: data.Message,
                     icon: "error",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -493,7 +496,8 @@ function AssignJob(index, ENRId,JId) {
         },
         error: function (data) {
             Swal.fire({
-                title: 'Process Not Complete',
+                title: "Oops...",
+                text: 'Process Not Complete',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -544,7 +548,8 @@ function retriveMultiplejob(JobId, Type) {
         },
         error: function (data) {
             Swal.fire({
-                title: "Process Not Complete",
+                title: "Oops...",
+                text: "Process Not Complete",
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -599,7 +604,8 @@ function retriveMaintenancejob(JobId, Type) {
         },
         error: function (data) {
             Swal.fire({
-                title: "Process Not Complete",
+                title: "Oops...",
+                text: "Process Not Complete",
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1

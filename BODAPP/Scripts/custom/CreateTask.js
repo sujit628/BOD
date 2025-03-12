@@ -24,7 +24,8 @@ function SaveRecordForCreateTask() {
         success: function (data) {
             if (data != null && data != undefined && data.IsSuccess == true) {
                 Swal.fire({
-                    title: "Your changes were saved successfully!",
+                    title: "Good job!",
+                    text: "Your changes were saved successfully!",
                     icon: "success",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -33,7 +34,8 @@ function SaveRecordForCreateTask() {
             }
             else {
                 Swal.fire({
-                    title: data.Message,
+                    title: "Oops...",
+                    text: data.Message,
                     icon: "error",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -42,10 +44,9 @@ function SaveRecordForCreateTask() {
             }
         },
         error: function (data) {
-
-
             Swal.fire({
-                title: "Process Not Complete",
+                title: "Oops...",
+                text: "Process Not Complete",
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -100,7 +101,8 @@ function fnProjectForAdmin(Id,M) {
         },
         error: function (data) {
             Swal.fire({
-                title: 'Process Not Success',
+                title: "Oops...",
+                text: 'Process Not Success',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -148,7 +150,8 @@ function fnSmmeForEnterprise(ProjectId) {
         },
         error: function (data) {
             Swal.fire({
-                title: 'Process Not Success',
+                title: "Oops...",
+                text: 'Process Not Success',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -280,7 +283,8 @@ function retrive(id) {
         },
         error: function (data) {
             Swal.fire({
-                title: "Process Not Complete",
+                title: "Oops...",
+                text: "Process Not Complete",
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1

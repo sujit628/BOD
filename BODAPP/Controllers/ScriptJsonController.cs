@@ -3662,6 +3662,44 @@ namespace BODAPP.Controllers
         }
 
         [HttpPost]
+        public JsonResult InsertUpdateBudgetAllocationForSMMEExpenditure(BudgetAllocation entity)
+        {
+
+
+            StatusResponse Status = new StatusResponse();
+            try
+            {
+
+                long id = dl.InsertUpdateBudgetAllocationForSMMEExpenditure(entity);
+                if (id > 0)
+                {
+                    Status.ExMessage = "";
+                    Status.IsSuccess = true;
+                    Status.Message = "Your changes were saved successfully";
+                }
+                else
+                {
+                    Status.ExMessage = "";
+                    Status.IsSuccess = true;
+                    Status.Message = "Record not saved successfully...";
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Status.Id = -1;
+                Status.IsSuccess = false;
+                Status.ExMessage = ex.Message;
+                Status.Message = "Process fails..";
+            }
+            finally
+            {
+                GC.Collect();
+            }
+            return Json(Status, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
         public JsonResult InsertUpdateProjectWiseDocument(ProjectWiseDocument entity)
         {
 
@@ -5480,18 +5518,29 @@ namespace BODAPP.Controllers
                         UserModel.ThemeStyle = User.ThemeStyle;
                         UserModel.TheamLink = User.TheamLink;
                         UserModel.CoreLink = User.CoreLink;
+                        UserModel.ThemeColor = User.ThemeColor;
                         UserModel.CustomCSSLink = User.CustomCSSLink;
+                    }
+                    else if (AdminUserModel != null)
+                    {
+                        AdminUserModel.ThemeStyle = User.ThemeStyle;
+                        AdminUserModel.TheamLink = User.TheamLink;
+                        AdminUserModel.ThemeColor = User.ThemeColor;
+                        AdminUserModel.CoreLink = User.CoreLink;
+                        AdminUserModel.CustomCSSLink = User.CustomCSSLink;
                     }
                     else if (EnterpriseEMPUserDataModel != null)
                     {
                         EnterpriseEMPUserDataModel.ThemeStyle = User.ThemeStyle;
                         EnterpriseEMPUserDataModel.TheamLink = User.TheamLink;
+                        EnterpriseEMPUserDataModel.ThemeColor = User.ThemeColor;
                         EnterpriseEMPUserDataModel.CoreLink = User.CoreLink;
                         EnterpriseEMPUserDataModel.CustomCSSLink = User.CustomCSSLink;
                     }
                     else if (EnterpriseUserModel != null)
                     {
                         EnterpriseUserModel.ThemeStyle = User.ThemeStyle;
+                        EnterpriseUserModel.ThemeColor = User.ThemeColor;
                         EnterpriseUserModel.TheamLink = User.TheamLink;
                         EnterpriseUserModel.CoreLink = User.CoreLink;
                         EnterpriseUserModel.CustomCSSLink = User.CustomCSSLink;
@@ -5500,6 +5549,7 @@ namespace BODAPP.Controllers
                     {
                         SMMEUserModel.ThemeStyle = User.ThemeStyle;
                         SMMEUserModel.TheamLink = User.TheamLink;
+                        SMMEUserModel.ThemeColor = User.ThemeColor;
                         SMMEUserModel.CoreLink = User.CoreLink;
                         SMMEUserModel.CustomCSSLink = User.CustomCSSLink;
                     }
@@ -5991,7 +6041,7 @@ namespace BODAPP.Controllers
                         //Link = "http://103.125.255.35:5058/Enterprise/EnterpriseProfileComplete?Id=" + emailcontent.ENR_Id,
                         Link = linkEmlVarufy,
                         UserName = $"{ emailcontent.UserName }",
-                        Subject = "Welcome to ESD Platform!",
+                        Subject = $"Welcome, { emailcontent.UserName }! Get Started with Your New Account",
                         Title = "",
                         MessageBody = $".",
                         UM_Login = $"{ emailcontent.UM_Login }",
@@ -6005,7 +6055,7 @@ namespace BODAPP.Controllers
                         //Link = "http://103.125.255.35:5058/Account/SMMELogin",
                         Link = linkEmlVarufy,
                         UserName = $"{ emailcontent.UserName }",
-                        Subject = "Welcome to ESD Platform!",
+                        Subject = $"Welcome, { emailcontent.UserName }! Get Started with Your New Account",
                         Title = "",
                         MessageBody = $".",
                         UM_Login = $"{ emailcontent.UM_Login }",
@@ -6018,7 +6068,7 @@ namespace BODAPP.Controllers
                     {
                         Link = linkEmlVarufy,       
                         UserName = $"{ emailcontent.UserName }",
-                        Subject = "Welcome to ESD Platform!",
+                        Subject = $"Welcome, { emailcontent.UserName }! Get Started with Your New Account",
                         Title = "",
                         MessageBody = $".",
                         SubRole = $"{ emailcontent.SubRole }",
@@ -6032,7 +6082,7 @@ namespace BODAPP.Controllers
                     {
                         Link = linkEmlVarufy,
                         UserName = $"{ emailcontent.UserName }",
-                        Subject = "Welcome to ESD Platform!",
+                        Subject = $"Welcome, { emailcontent.UserName }! Get Started with Your New Account",
                         Title = "",
                         MessageBody = $".",
                         SubRole = $"{ emailcontent.SubRole }",

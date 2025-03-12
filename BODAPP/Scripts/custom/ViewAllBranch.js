@@ -282,7 +282,8 @@ function BindGrid() {
 },
 error: function (xhr, textStatus, errorThrown) {
     Swal.fire({
-        title: 'request failed',
+        title: 'Oops...',
+        text: 'request failed',
         icon: "error",
         customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
         buttonsStyling: !1
@@ -331,7 +332,8 @@ function ShowAllProjects(BD_Id) {
         },
         error: function (data) {
             Swal.fire({
-                title: 'Process Not Complete',
+                title: 'Oops...',
+                text: 'Process Not Complete',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -381,7 +383,8 @@ function ShowAllUser(BD_Id) {
         },
         error: function (data) {
             Swal.fire({
-                title: 'Process Not Complete',
+                title: 'Oops...',
+                text: 'Process Not Complete',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -435,7 +438,8 @@ function ShowAllSMME(id) {
         },
         error: function (data) {
             Swal.fire({
-                title: 'Process Not Complete',
+                title: 'Oops...',
+                text: 'Process Not Complete',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -475,7 +479,8 @@ function AssignSMMEToBranch(index, smmeId,BD_Id) {
         success: function (data) {
             if (data != null && data != undefined && data.IsSuccess == true) {
                 Swal.fire({
-                    title: "Your Changes Successfully done!",
+                    title: "Good job!",
+                    text: "Your changes were saved successfully!",
                     icon: "success",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -485,7 +490,8 @@ function AssignSMMEToBranch(index, smmeId,BD_Id) {
             else {
 
                 Swal.fire({
-                    title: data.Message,
+                    title: 'Oops...',
+                    text: data.Message,
                     icon: "error",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -494,7 +500,8 @@ function AssignSMMEToBranch(index, smmeId,BD_Id) {
         },
         error: function (data) {
             Swal.fire({
-                title: 'Process Not Complete',
+                title: 'Oops...',
+                text: 'Process Not Complete',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -535,7 +542,8 @@ function AssignUsers(index, UserId,BD_Id) {
         success: function (data) {
             if (data != null && data != undefined && data.IsSuccess == true) {
                 Swal.fire({
-                    title: "Your Changes Successfully done!",
+                    title: "Good job!",
+                    text: "Your changes were saved successfully!",
                     icon: "success",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -545,7 +553,8 @@ function AssignUsers(index, UserId,BD_Id) {
             else {
 
                 Swal.fire({
-                    title: data.Message,
+                    title: 'Oops...',
+                    text: data.Message,
                     icon: "error",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -554,7 +563,8 @@ function AssignUsers(index, UserId,BD_Id) {
         },
         error: function (data) {
             Swal.fire({
-                title: 'Process Not Complete',
+                title: 'Oops...',
+                text: 'Process Not Complete',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -593,7 +603,8 @@ function AssignProjectToBranch(index, PDId ,BD_Id) {
         success: function (data) {
             if (data != null && data != undefined && data.IsSuccess == true) {
                 Swal.fire({
-                    title: "Your Changes Successfully done!",
+                    title: "Good job!",
+                    text: "Your changes were saved successfully!",
                     icon: "success",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -603,7 +614,8 @@ function AssignProjectToBranch(index, PDId ,BD_Id) {
             else {
 
                 Swal.fire({
-                    title: data.Message,
+                    title: 'Oops...',
+                    text: data.Message,
                     icon: "error",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -612,7 +624,8 @@ function AssignProjectToBranch(index, PDId ,BD_Id) {
         },
         error: function (data) {
             Swal.fire({
-                title: 'Process Not Complete',
+                title: 'Oops...',
+                text: 'Process Not Complete',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1

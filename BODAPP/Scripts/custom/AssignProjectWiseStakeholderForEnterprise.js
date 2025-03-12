@@ -188,7 +188,8 @@ function BindGrid() {
         },
         error: function (xhr, textStatus, errorThrown) {
             Swal.fire({
-                title: 'Request failed',
+                title: "Oops...",
+                text: 'Request failed',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -226,7 +227,8 @@ function AssignProject(index, SmmeId) {
         success: function (data) {
             if (data != null && data != undefined && data.IsSuccess == true) {
                 Swal.fire({
-                    title: "Your Changes Successfully done!",
+                    title: "Good job!",
+                    text: "Your changes were saved successfully!",
                     icon: "success",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -236,7 +238,8 @@ function AssignProject(index, SmmeId) {
             else {
 
                 Swal.fire({
-                    title: data.Message,
+                    title: "Oops...",
+                    text: data.Message,
                     icon: "error",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -245,7 +248,8 @@ function AssignProject(index, SmmeId) {
         },
         error: function (data) {
             Swal.fire({
-                title: 'Process Not Complete',
+                title: "Oops...",
+                text: 'Process Not Complete',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -326,7 +330,8 @@ function showEnterpriseList(PdId) {
         },
         error: function (data) {
             Swal.fire({
-                title: 'Process Not Complete',
+                title: "Oops...",
+                text: 'Process Not Complete',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -339,17 +344,6 @@ function showEnterpriseList(PdId) {
 
 
 function AssignStakeholder( index, PdId, ENR_Id,EnrCompany,EnrEmail) {
-    //var TransactionType = 'UpdateStakeholder';
-    //if($(chk).is(':checked'))
-    //{$('.enr').prop('disabled',true);
-    //    $(chk).prop('disabled',false);
-     
-    //}
-    //else
-    //{
-    //    $('.enr').prop('disabled',false);
-    //    ENR_Id=0;
-    //}
 
     var TransactionType = "";
     if ($('#chkId_' + index).is(':checked')) {
@@ -380,27 +374,18 @@ function AssignStakeholder( index, PdId, ENR_Id,EnrCompany,EnrEmail) {
                 //    SendMail(EnrCompany, EnrEmail)
                 //} else {
                 Swal.fire({
-                    title: "Your changes were saved successfully",
+                    title: "Good job!",
+                    text: "Your changes were saved successfully!",
                     icon: "success",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
-                });
-                //}
-                
-
-
-                //Swal.fire({
-                //    title: "Your Changes Successfully done!",
-                //    icon: "success",
-                //    customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
-                //    buttonsStyling: !1
-                //});
-
+                }); 
             }
             else {
 
                 Swal.fire({
-                    title: data.Message,
+                    title: "Oops...",
+                    text: data.Message,
                     icon: "error",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -409,7 +394,8 @@ function AssignStakeholder( index, PdId, ENR_Id,EnrCompany,EnrEmail) {
         },
         error: function (data) {
             Swal.fire({
-                title: 'Process Not Complete',
+                title: "Oops...",
+                text: 'Process Not Complete',
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -448,7 +434,8 @@ function retriveProject(id) {
         },
         error: function (data) {
             Swal.fire({
-                title: "Process Not Complete",
+                title: "Oops...",
+                text: "Process Not Complete",
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: !1
@@ -488,7 +475,8 @@ function SendMail(EnrCompany, EnrEmail) {
         success: function (data) {
             if (data != null && data.IsSuccess === true) {
                 Swal.fire({
-                    title: "Your changes were saved successfully",
+                    title: "Good job!",
+                    text: "Your changes were saved successfully!",
                     icon: "success",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: !1
@@ -500,7 +488,8 @@ function SendMail(EnrCompany, EnrEmail) {
                 //$('#btnSave').removeAttr('disabled');
             } else {
                 Swal.fire({
-                    title: "Email does not exist, try another email..!",
+                    title: "Oops...",
+                    text: "Email does not exist, try another email..!",
                     icon: "warning",
                     customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                     buttonsStyling: false
@@ -512,7 +501,8 @@ function SendMail(EnrCompany, EnrEmail) {
         },
         error: function () {
             Swal.fire({
-                title: "Process not complete",
+                title: "Oops...",
+                text: "Process not complete",
                 icon: "error",
                 customClass: { confirmButton: "btn btn-primary waves-effect waves-light" },
                 buttonsStyling: false

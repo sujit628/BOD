@@ -409,19 +409,24 @@ table{
 		          </tr><!-- end: tr -->
 		          <tr>
 		            <td class="bg_white email-section">
-	            	  <div class="heading-section" style="text-align: center; padding: 0 30px;">
-                          <h3 class="text-center">Your registration successfully submited</h3>
-		            	<p>
-                            Hi, {{UserName}},
-                        </p>	</br>
-                        <p>Congratulations on successfully creating your account! Here's how you can get started:</p>
-                        <h4>MSMEs: Showcase your business, apply for opportunities, and grow.</h4></br>
-                          
-                        
-                        </br>
-                          <p>Explore your dashboard today:</p>
-                          <a href="{{Link}}" class="btn btn-sm btn-info">Verify Your Account</a>
-		            	</div>
+                        <div class="heading-section" style="text-align: center; padding: 0 30px;">
+                            <p>
+                                Hi, {{UserName}},
+                            </p>	</br>
+                            <p>Congratulations on successfully creating your account! 🎉 Here’s how you can get started:</p>
+                            </br>
+                            <p>🔹 Access Your Dashboard – Log in and explore your dashboard today.</p>
+                            <!--<h4>Enterprises: Post projects, assign tasks, and drive ESD impact.</h4></br>-->
+                            </br>
+                            <p>Your login credentials:</p>
+                            <p>📧 User ID: {{UM_Login}}</p>
+                            <p>🔑 Password: {{Password}} (This is a temporary password, please update it soon.)</p>
+                            <p>⚠ Important: Never share your login credentials with anyone.</p>
+                            </br>
+                            <p>✅ Verify Your Account – Complete the verification process to secure your access.</p>
+                            <p>Welcome aboard!</p>
+                            <a href="{{Link}}" class="btn btn-sm btn-info">Verify Your Account</a>
+                        </div>
 		            	
                      
 		            	</table>

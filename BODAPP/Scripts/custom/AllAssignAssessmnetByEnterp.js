@@ -49,11 +49,16 @@ function fnSmmeForAssemnet(BA_id) {
 
 }
 $(document).ready(function () {
+    var path = window.location.pathname;
+    path = path.replace(/\/$/, "");
+    path = decodeURIComponent(path);
+    // console.log(path);
+    localStorage.setItem('href', path);
+
     $("#section-block").block({ message: '<div class="spinner-border text-primary" role="status"></div>', timeout: 4e3, css: { backgroundColor: "transparent", border: "0" }, overlayCSS: { backgroundColor: "#fff", opacity: .8 } })
 
     BindGrid();
-   
-
+ 
 });
 function BindGrid() {
     var _data = JSON.stringify({

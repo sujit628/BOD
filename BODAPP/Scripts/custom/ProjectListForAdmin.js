@@ -2,6 +2,11 @@
 $(document).ready(function () {
     //$("#section-block").block({ message: '<div class="spinner-border text-primary" role="status"></div>', timeout: 10e3, css: { backgroundColor: "transparent", border: "0" }, overlayCSS: { backgroundColor: "#fff", opacity: .8 } })
     fnProjectForAdmin();
+    var path = window.location.pathname;
+    path = path.replace(/\/$/, "");
+    path = decodeURIComponent(path);
+    console.log(path);
+    localStorage.setItem('href', path);
     //$("#Loading").ajaxStart(function () {
     //    $(this).show();
     //});

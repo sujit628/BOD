@@ -1,6 +1,6 @@
 ﻿
 $(document).ready(function () {
-
+    SetMenu();
     //var mode = $('#hdnMode').val();
     retriveEnterprise();
     //fnProjectForEnterprise();
